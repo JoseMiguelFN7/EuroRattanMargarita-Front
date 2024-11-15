@@ -25,6 +25,14 @@ module.exports = {
       black: colors.black,
       white: colors.white,
 
+      paleta:{
+        verdeOscuro: "#283618",
+        verdeOliva: "#606C38",
+        crema: "#FEFAE0",
+        marronClaro: "#DDA15E",
+        marronOscuro: "#BC6C25",
+      },
+
       slate: {
         DEFAULT: colors.slate,
         50: "#f8fafc",
