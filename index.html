@@ -36,30 +36,26 @@
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   </head>
 
-  <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500">
+  <body class="m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500 max-w-screen">
     <!-- sidenav  -->
     <!-- end sidenav -->
 
-    <main class="ease-soft-in-out relative h-full max-h-screen rounded-xl transition-all duration-200">
+    <main class="ease-soft-in-out relative h-full max-h-screen transition-all duration-200">
       <!-- Navbar -->
-      <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true" style="background-color: #DDA15E;">
+      <header class="relative flex flex-wrap items-center justify-between px-8 py-2 m-0 transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true"  >
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
           <nav>
             <!-- breadcrumb -->
-            <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <ol class="flex flex-wrap items-center pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
               <li class="text-sm leading-normal">
-                <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl" alt="">
+                <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
               </li>
-              <h4 class="mb-0 font-bold capitalize">Euro Rattan Margarita</h4>
+              <h4 class="mb-0 font-bold capitalize text-7xl">Euro Rattan Margarita</h4>
             </ol>
           </nav>
 
           
             <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-              <!-- online builder btn  -->
-              <!-- <li class="flex items-center">
-                <a class="inline-block px-8 py-2 mb-0 mr-4 text-xs font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro border-fuchsia-500 ease-soft-in hover:scale-102 active:shadow-soft-xs text-fuchsia-500 hover:border-fuchsia-500 active:bg-fuchsia-500 active:hover:text-fuchsia-500 hover:text-fuchsia-500 tracking-tight-soft hover:bg-transparent hover:opacity-75 hover:shadow-none active:text-white active:hover:bg-transparent" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
-              </li> -->
               <li class="flex items-center">
                 <a href="./pages/sign-in.html" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500">
                   <i class="fa fa-user sm:mr-1"></i>
@@ -159,7 +155,7 @@
             </ul>
           </div>
         </div>
-      </nav>
+      </header>
 
       <!-- end Navbar -->
 
@@ -167,173 +163,171 @@
         <img src="./assets/img/indeximg.png" class="md-max max-w-full" alt="">
       </section>
 
-
-      <section>
-        <div class="flex-none w-full max-w-full px-3 mt-6 mb-6 md:w-6/12 md:flex-none xl:mb-0 xl:w-3/12 ">
-            
-            <div class="relative">
-              <div x-data="{ isOpen: false }">
-                <button
-                  x-on:click="isOpen = !isOpen"
-                  type="button"
-                  class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
-                >
-                  <span class="text-sm font-medium"> Availability </span>
-          
-                  <span class="transition" :class="{ '-rotate-180': isOpen }">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="size-4"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </button>
-          
-                <div
-                  x-cloak
-                  x-transition
-                  x-show="isOpen"
-                  x-on:click.away="isOpen = false"
-                  x-on:keydown.escape.window="isOpen = false"
-                  class="absolute start-0 top-auto z-50 mt-2"
-                >
-                  <div class="w-96 rounded border border-gray-200 bg-white">
-                    <header class="flex items-center justify-between p-4">
-                      <span class="text-sm text-gray-700"> 0 Selected </span>
-          
-                      <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-                        Reset
-                      </button>
-                    </header>
-          
-                    <ul class="space-y-1 border-t border-gray-200 p-4">
-                      <li>
-                        <label for="FilterInStock" class="inline-flex items-center gap-2">
-                          <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
-          
-                          <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
-                        </label>
-                      </li>
-          
-                      <li>
-                        <label for="FilterPreOrder" class="inline-flex items-center gap-2">
-                          <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
-          
-                          <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
-                        </label>
-                      </li>
-          
-                      <li>
-                        <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            id="FilterOutOfStock"
-                            class="size-5 rounded border-gray-300"
-                          />
-          
-                          <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
-                        </label>
-                      </li>
-                    </ul>
-                  </div>
+      <section class="flex w-full gap-4 px-8 mt-6">
+        <div class="flex flex-none w-2/3 mt-0 flex-row flex-wrap px-3 md:flex-none xl:mb-0 xl:w-3/12 ">
+          <div class="relative w-1/2">
+            <div x-data="{ isOpen: false }">
+              <button
+                x-on:click="isOpen = !isOpen"
+                type="button"
+                class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+              >
+                <span class="text-sm font-medium"> Availability </span>
+        
+                <span class="transition" :class="{ '-rotate-180': isOpen }">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </span>
+              </button>
+        
+              <div
+                x-cloak
+                x-transition
+                x-show="isOpen"
+                x-on:click.away="isOpen = false"
+                x-on:keydown.escape.window="isOpen = false"
+                class="absolute start-0 top-auto z-50 mt-2"
+              >
+                <div class="w-96 rounded border border-gray-200 bg-white">
+                  <header class="flex items-center justify-between p-4">
+                    <span class="text-sm text-gray-700"> 0 Selected </span>
+        
+                    <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                      Reset
+                    </button>
+                  </header>
+        
+                  <ul class="space-y-1 border-t border-gray-200 p-4">
+                    <li>
+                      <label for="FilterInStock" class="inline-flex items-center gap-2">
+                        <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
+        
+                        <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
+                      </label>
+                    </li>
+        
+                    <li>
+                      <label for="FilterPreOrder" class="inline-flex items-center gap-2">
+                        <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
+        
+                        <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
+                      </label>
+                    </li>
+        
+                    <li>
+                      <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          id="FilterOutOfStock"
+                          class="size-5 rounded border-gray-300"
+                        />
+        
+                        <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
+                      </label>
+                    </li>
+                  </ul>
                 </div>
-                
               </div>
               
             </div>
-          
-            <div class="relative">
-              <div x-data="{ isOpen: false }">
-                <button
-                  x-on:click="isOpen = !isOpen"
-                  type="button"
-                  class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
-                >
-                  <span class="text-sm font-medium"> Price </span>
-          
-                  <span class="transition" :class="{ '-rotate-180': isOpen }">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="size-4"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </button>
-          
-                <div
-                  x-cloak
-                  x-transition
-                  x-show="isOpen"
-                  x-on:click.away="isOpen = false"
-                  x-on:keydown.escape.window="isOpen = false"
-                  class="absolute start-0 top-auto z-50 mt-2"
-                >
-                  <div class="w-96 rounded border border-gray-200 bg-white">
-                    <header class="flex items-center justify-between p-4">
-                      <span class="text-sm text-gray-700"> The highest price is $600 </span>
-          
-                      <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-                        Reset
-                      </button>
-                    </header>
-          
-                    <div class="border-t border-gray-200 p-4">
-                      <div class="flex justify-between gap-4">
-                        <label for="FilterPriceFrom" class="flex items-center gap-2">
-                          <span class="text-sm text-gray-600">$</span>
-          
-                          <input
-                            type="number"
-                            id="FilterPriceFrom"
-                            placeholder="From"
-                            class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                          />
-                        </label>
-          
-                        
-                        <label for="FilterPriceTo" class="flex items-center gap-2">
-                          <span class="text-sm text-gray-600">$</span>
-          
-                          <input
-                            type="number"
-                            id="FilterPriceTo"
-                            placeholder="To"
-                            class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
-                          />
-                        </label>
-                      </div>
+            
+          </div>
+        
+          <div class="relative w-1/2">
+            <div x-data="{ isOpen: false }">
+              <button
+                x-on:click="isOpen = !isOpen"
+                type="button"
+                class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
+              >
+                <span class="text-sm font-medium"> Price </span>
+        
+                <span class="transition" :class="{ '-rotate-180': isOpen }">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </span>
+              </button>
+        
+              <div
+                x-cloak
+                x-transition
+                x-show="isOpen"
+                x-on:click.away="isOpen = false"
+                x-on:keydown.escape.window="isOpen = false"
+                class="absolute start-0 top-auto z-50 mt-2"
+              >
+                <div class="w-96 rounded border border-gray-200 bg-white">
+                  <header class="flex items-center justify-between p-4">
+                    <span class="text-sm text-gray-700"> The highest price is $600 </span>
+        
+                    <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                      Reset
+                    </button>
+                  </header>
+        
+                  <div class="border-t border-gray-200 p-4">
+                    <div class="flex justify-between gap-4">
+                      <label for="FilterPriceFrom" class="flex items-center gap-2">
+                        <span class="text-sm text-gray-600">$</span>
+        
+                        <input
+                          type="number"
+                          id="FilterPriceFrom"
+                          placeholder="From"
+                          class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                        />
+                      </label>
+        
+                      
+                      <label for="FilterPriceTo" class="flex items-center gap-2">
+                        <span class="text-sm text-gray-600">$</span>
+        
+                        <input
+                          type="number"
+                          id="FilterPriceTo"
+                          placeholder="To"
+                          class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                        />
+                      </label>
                     </div>
                   </div>
                 </div>
-                <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
-                    <div class="flex items-center md:ml-auto md:pr-4">
-                      <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-                        <span class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                          <i class="fas fa-search"></i>
-                        </span>
-                        <input type="text" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
-                      </div>
-                    </div>
               </div>
             </div>
           </div>
-          
+        </div>
+        <div class="flex flex-end items-center w-1/3 mt-0 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
+          <div class="flex items-center md:ml-auto md:pr-4">
+            <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+              <span class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                <i class="fas fa-search"></i>
+              </span>
+              <input type="text" class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
+            </div>
+          </div>
+        </div>
       </section>
 
 
       <section>
         <div class="flex-none w-full max-w-full px-3 mt-6 ">
-          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border" style="background-color: #F5EFCB;">
+          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
            
             <div class="flex-auto p-4">
               <div class="flex flex-wrap mx-3">
@@ -504,8 +498,8 @@
 
       <section>
         <div class="flex-none w-full max-w-full px-3 mt-6 ">
-          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border" style="background-color: #F5EFCB;">
-            <div class="p-4 pb-0 mb-0 flex rounded-t-2xl" style="background-color: #F5EFCB;">
+          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+            <div class="p-4 pb-0 mb-0 flex rounded-t-2xl">
               <h4 class="mb-1 flex-grow">Materiales</h4>
               <button type="button" class="inline-block px-3 py-1 mb-0 font-bold text-center float-right uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs hover:scale-102 active:shadow-soft-xs tracking-tight-soft border-fuchsia-500 text-fuchsia-500 hover:border-fuchsia-500 hover:bg-transparent hover:text-fuchsia-500 hover:opacity-75 hover:shadow-none active:bg-fuchsia-500 active:text-white active:hover:bg-transparent active:hover:text-fuchsia-500">Ver Más...</button>
             </div>
@@ -598,8 +592,8 @@
 
       <section>
         <div class="flex-none w-full max-w-full px-3 mt-6 ">
-          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border" style="background-color: #FEFAE0;">
-            <div class="p-4 pb-0 mb-0 flex rounded-t-2xl" style="background-color: #FEFAE0;">
+          <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+            <div class="p-4 pb-0 mb-0 flex rounded-t-2xl">
               <h4 class="mb-1 flex-grow">Juegos de Muebles </h4>
               <button type="button" class="inline-block px-3 py-1 mb-0 font-bold text-center float-right uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs hover:scale-102 active:shadow-soft-xs tracking-tight-soft border-fuchsia-500 text-fuchsia-500 hover:border-fuchsia-500 hover:bg-transparent hover:text-fuchsia-500 hover:opacity-75 hover:shadow-none active:bg-fuchsia-500 active:text-white active:hover:bg-transparent active:hover:text-fuchsia-500">Ver Más...</button>
             </div>
