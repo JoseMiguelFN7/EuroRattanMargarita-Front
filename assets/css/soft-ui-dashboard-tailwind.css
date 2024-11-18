@@ -1912,6 +1912,10 @@ h6 {
   border-color: rgb(255 255 255 / 0.75);
 }
 
+.border-brown {
+  border-color: rgb(63 33 18);
+}
+
 .border-slate-200 {
   --tw-border-opacity: 1;
   border-color: rgb(203 211 218 / var(--tw-border-opacity));
@@ -1938,6 +1942,10 @@ h6 {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-brown {
+  background-color: rgb(63 33 18);
 }
 
 .bg-slate-500 {
@@ -2616,6 +2624,10 @@ h6 {
 .text-fuchsia-500 {
   --tw-text-opacity: 1;
   color: rgb(203 12 159 / var(--tw-text-opacity));
+}
+
+.text-brown {
+  color: rgb(63 33 18);
 }
 
 .text-white {
@@ -3484,6 +3496,10 @@ h6 {
 
 .hover\:border-white\/75:hover {
   border-color: rgb(255 255 255 / 0.75);
+}
+
+.hover\:bg-brown:hover {
+  background-color: rgb(63 33 18);
 }
 
 .hover\:bg-transparent:hover {
