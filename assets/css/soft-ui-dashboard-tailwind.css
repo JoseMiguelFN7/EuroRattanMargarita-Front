@@ -25,6 +25,23 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+@font-face {
+  font-family: 'Bamboo Gothic';
+  src: url('../fonts/BambooGothic-Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*estilo de titulo Euro Rattan*/
+.font-bamboo{
+  font-family: 'Bamboo Gothic';
+}
+
+.text-stroke-brown {
+  -webkit-text-stroke: 0.01px #bf8449; /* Contorno de 2px en negro */
+  color: black; /* Color de relleno del texto */
+}
+
 *,
 ::before,
 ::after {
@@ -3473,6 +3490,12 @@ h6 {
   z-index: 30;
 }
 
+.hover\:underline:hover{
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .hover\:scale-102:hover {
   --tw-scale-x: 1.02;
   --tw-scale-y: 1.02;
@@ -3500,6 +3523,10 @@ h6 {
 
 .hover\:bg-brown:hover {
   background-color: rgb(63 33 18);
+}
+
+.hover\:text-brown:hover {
+  color: rgb(63 33 18);
 }
 
 .hover\:bg-transparent:hover {
