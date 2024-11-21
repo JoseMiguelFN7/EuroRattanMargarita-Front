@@ -1195,6 +1195,31 @@
 
   <script>
     $(document).ready(function () {
+      let token = localStorage.getItem('authToken');
+
+      if(!token){
+        console.log('usuario no logeado');
+      } else{
+        $.ajax({
+          url: 'http://127.0.0.1:8000/api/user/auth',
+          type: 'GET',
+          dataType: 'json',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
+          success: function(response, status, xhr){
+            console.log(response);
+          },
+          error: function(xhr, status, error){
+            if(xhr.status == 401){
+              console.log('usuario no logeado');
+            } else{
+              console.log('Ocurrió un error inesperado');
+            }
+          }
+        });
+      }
+
       $('#loginBtn').on('click', function () {
         $('#loginModal').removeClass('hidden').fadeIn(); // Mostrar el modal
       });
@@ -1214,6 +1239,7 @@
         $.ajax({
           url: 'http://127.0.0.1:8000/api/user/login',
           type: 'POST',
+          dataType: 'json',
           contentType: false,
           processData: false,
           data: formData,
@@ -1228,6 +1254,8 @@
                 showConfirmButton: false,
                 allowEscapeKey: false
               }).finally(() => {
+                // Guardar el token en el localStorage
+                localStorage.setItem('authToken', response.token);
                 window.location.href = './';
               });
             }
