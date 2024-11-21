@@ -30,7 +30,7 @@
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
-    <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5" rel="stylesheet" />    
+    <link href="./assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5" rel="stylesheet" />
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
@@ -58,13 +58,13 @@
           
           <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
             <li class="flex items-center pl-2">
-              <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+              <a id="registerBtn" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Registrarse</span>
               </a>
             </li>
             <li class="flex items-center pl-4">
-              <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+              <a id="loginBtn" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
               </a>
@@ -650,7 +650,7 @@
                       </a>
                       <p class="mb-6 leading-normal text-sm">REF.</p>
                       <div class="flex items-center justify-between">
-                        <button type="button" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Más Información</button> 
+                        <button type="button" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Más Información</button>
                       </div>
                     </div>
                   </div>
@@ -1143,6 +1143,36 @@
           </div>
         </div>
       </section>
+      <!-- Modal -->
+      <div id="loginModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-50 shadow-xl">
+        <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/4">
+          <button id="closeModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          <div class="flex justify-center mb-4">
+            <img src="./assets/img/ERM logo.png" alt="Logo" class="w-18.5 h-auto object-cover rounded-full">
+          </div>
+          <h2 class="text-xl text-center font-semibold">Iniciar Sesión</h2>
+          <form id="loginForm" enctype="multipart/form-data">
+            <!-- Campos de formulario -->
+            <input id="emailLogin" type="email" name="email" placeholder="Email" class="p-2 border rounded w-full mb-4 focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
+            <div class="relative mb-4">
+              <input id="passwordLogin" type="password" name="password" placeholder="Contraseña" minlength="8" class="p-2 border rounded w-full focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
+              <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                <!-- Ojo tachado -->
+                <img id="eyeClosed" src="./assets/img/esconder.png" alt="ojo tachado" class="w-6 h-6">
+                <!-- ojo abierto -->
+                <img id="eyeOpen" src="./assets/img/ojo.png" alt="ojo abierto" class="w-6 h-6 hidden">
+              </button>
+            </div>
+            <button id="submitLogin" type="submit" class="w-full p-2 rounded font-bold text-center transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
+              Acceder
+            </button>
+          </form>
+        </div>
+      </div>
 
       <!-- cards -->
       
@@ -1157,4 +1187,95 @@
   <script src="./assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
 
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- CDN de JQuery -->
+  <script src="./assets/js/JQuery.js"></script>
+  
+  <!-- CDN SweetAlert -->
+  <script src="./assets/js/sweetAlert2.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#loginBtn').on('click', function () {
+        $('#loginModal').removeClass('hidden').fadeIn(); // Mostrar el modal
+      });
+
+      $('#closeModal').on('click', function () {
+        $('#loginModal').fadeOut(); // Ocultar el modal
+      });
+
+      //submit del login
+      $('#loginForm').on('submit', function (e) {
+        e.preventDefault();
+
+        $('#submitLogin').prop('disabled', true);
+
+        let formData = new FormData(this);
+        
+        $.ajax({
+          url: 'http://127.0.0.1:8000/api/user/login',
+          type: 'POST',
+          contentType: false,
+          processData: false,
+          data: formData,
+          success: function(response, status, xhr){
+            if(xhr.status == 200){
+              Swal.fire({
+                title: response.title,
+                icon: 'success',
+                timer: 3000,
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                allowEscapeKey: false
+              }).finally(() => {
+                window.location.href = './';
+              });
+            }
+          },
+          error: function(xhr, status, error){
+            console.log(error);
+            console.log(xhr);
+            console.log(xhr.status);
+            let titleSwal
+            if(xhr.status == 404){
+              titleSwal = xhr.responseJSON.title;
+            } else{
+              titleSwal = 'Ocurrió un error inesperado';
+            }
+
+            Swal.fire({
+              title: titleSwal,
+              icon: 'error',
+              timer: 3000,
+              timerProgressBar: true,
+              allowOutsideClick: false,
+              showConfirmButton: false,
+              allowEscapeKey: false
+            }).finally(() => {
+              $('#submitLogin').prop('disabled', false);
+            });
+          }
+        });
+      });
+
+      //Logica para visualizacion de password
+      let currentEye = "eyeClosed";
+      $("#eyeOpen, #eyeClosed").click(function () {
+        if (currentEye === "eyeClosed") {
+          $("#eyeClosed").addClass("hidden");
+          $("#eyeOpen").removeClass("hidden");
+          currentEye = "eyeOpen";
+
+          $("#passwordLogin").attr('type', 'text');
+        } else {
+          $("#eyeClosed").removeClass("hidden");
+          $("#eyeOpen").addClass("hidden");
+          currentEye = "eyeClosed";
+
+          $("#passwordLogin").attr('type', 'password');
+        }
+      });
+
+    });
+  </script>
 </html>

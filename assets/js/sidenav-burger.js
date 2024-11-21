@@ -1,6 +1,6 @@
 // sidenav transition-burger
 
-var sidenav = document.querySelector("aside");
+/*var sidenav = document.querySelector("aside");
 var sidenav_trigger = document.querySelector("[sidenav-trigger]");
 var sidenav_close_button = document.querySelector("[sidenav-close]");
 var burger = sidenav_trigger.firstElementChild;
@@ -33,3 +33,4 @@ window.addEventListener("click", function (e) {
     }
   }
 });
+*/
