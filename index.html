@@ -1145,7 +1145,7 @@
       </section>
 
       <!-- Modal Login-->
-      <div id="loginModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-50 shadow-xl">
+      <div id="loginModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-110 shadow-xl">
         <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/3">
           <button id="closeLoginModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
@@ -1176,7 +1176,7 @@
       </div>
 
       <!-- Modal Registro -->
-      <div id="registerModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-50 shadow-xl">
+      <div id="registerModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-110 shadow-xl">
         <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/3 max-h-10/12 overflow-y-auto">
           <button id="closeRegisterModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
@@ -1230,7 +1230,7 @@
             <!-- Imagen de perfil -->
             <div class="flex flex-col justify-center items-center mb-4">
               <img id="previewImage" for="fileInput" src="./assets/img/agregar.png" alt="Imagen de perfil" class="customFileButton w-16 h-auto object-cover rounded-full mb-2 cursor-pointer" />
-              <input type="file" id="fileInput" class="hidden" accept="image/*" />
+              <input type="file" id="fileInput" name="image" class="hidden" accept="image/*" />
               <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Seleccionar imagen</label>
             </div>
             <!-- Botón de Registro -->
@@ -1247,7 +1247,7 @@
   <!-- plugin for charts  -->
   <script src="./assets/js/plugins/chartjs.min.js" async></script>
   <!-- plugin for scrollbar  -->
-  <script src="./assets/js/plugins/perfect-scrollbar.min.js" async></script>
+  <!--<script src="./assets/js/plugins/perfect-scrollbar.min.js" async></script>-->
   <!-- github button -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- main script file  -->
@@ -1274,7 +1274,7 @@
 
     function openRegisterModal(){
       $('#registerModal').removeClass('hidden').fadeIn(); // Mostrar el modal
-      $('html, body').addClass('overflow-y-hidden');
+      $('body').addClass('overflow-y-hidden');
     }
 
     function closeRegisterModal(){
@@ -1288,6 +1288,7 @@
       $('#passwordRegisterConfirm').val('');
       $('#imageRegister').val('');
       $('#previewImage').attr('src', './assets/img/agregar.png');
+      $('body').removeClass('overflow-y-hidden');
     }
 
     $(document).ready(function () {
@@ -1390,7 +1391,7 @@
             console.log(error);
             console.log(xhr);
             console.log(xhr.status);
-            let titleSwal
+            let titleSwal;
             if(xhr.status == 404){
               titleSwal = xhr.responseJSON.title;
             } else{
@@ -1407,6 +1408,98 @@
               allowEscapeKey: false
             }).finally(() => {
               $('#submitLogin').prop('disabled', false);
+            });
+          }
+        });
+      });
+
+      $('#registerForm').on('submit', function(e){
+        e.preventDefault();
+
+        $('#submitRegister').prop('disabled', true);
+
+        let formData = new FormData(this);
+
+        // Obtener los valores de document_type y document_number
+        let documentType = $('#documentType').val();
+        let documentNumber = $('#documentNumber').val();
+
+        // Concatenar y agregar el campo 'document' a formData
+        let documentValue = documentType + documentNumber;
+        formData.append('document', documentValue);
+
+        $.ajax({
+          url: 'http://127.0.0.1:8000/api/user',
+          type: 'POST',
+          dataType: 'json',
+          contentType: false,
+          processData: false,
+          data: formData,
+          success: function(response, status, xhr){
+            if(xhr.status == 201){
+              Swal.fire({
+                title: 'Usuario creado exitósamente',
+                icon: 'success',
+                timer: 3000,
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                allowEscapeKey: false
+              }).finally(() => {
+                console.log(response);
+                console.log(xhr);
+                let data = {
+                  email: $('#emailRegister').val(),
+                  password: $('#passwordRegister').val()
+                };
+                $.ajax({
+                  url: 'http://127.0.0.1:8000/api/user/login',
+                  type: 'POST',
+                  dataType: 'json',
+                  contentType: 'application/json',
+                  processData: false,
+                  data: JSON.stringify(data),
+                  success: function(r, s, x){
+                    if(x.status == 200){
+                      localStorage.setItem('authToken', r.token);
+                      window.location.href = './';
+                    }
+                  },
+                  error: function(x, s, e){
+                    console.log(e);
+                    console.log(x.status);
+                    console.log(x);
+                    $('#submitRegister').prop('disabled', false);
+                    closeRegisterModal();
+                  }
+                });
+              });
+            }
+          },
+          error: function(xhr, status, error){
+            console.log(error);
+            console.log(xhr);
+            console.log(xhr.status);
+
+            let titleSwal;
+
+            if(xhr.status == 422){
+              titleSwal = 'Por favor verificar los datos ingresados'
+            } else{
+              titleSwal = 'Ocurrió un error inesperado';
+            }
+
+            //xhr.responseJSON.errors; //agregar verificacion de errores!
+            Swal.fire({
+              title: titleSwal,
+              icon: 'error',
+              timer: 3000,
+              timerProgressBar: true,
+              allowOutsideClick: false,
+              showConfirmButton: false,
+              allowEscapeKey: false
+            }).finally(() => {
+              $('#submitRegister').prop('disabled', false);
             });
           }
         });
