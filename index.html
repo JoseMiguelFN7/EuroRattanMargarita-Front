@@ -1204,7 +1204,19 @@
                 <option value="G">G</option>
                 <option value="P">P</option>
               </select>
-              <input id="documentNumber" type="number" name="document_number" placeholder="Número de Documento (Ej. 12345678)" maxlength="14" class="p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
+              <input id="documentNumber" type="number" inputmode="numeric" name="document_number" placeholder="Número de Documento (Ej. 12345678)" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
+            </div>
+            <!-- Documento -->
+            <label for="cellphoneCode" class="text-sm font-medium text-gray-700">Número de Celular</label>
+            <div class="flex items-center gap-2 mb-4">
+              <select id="cellphoneCode" name="cellphone_code" class="p-2 border rounded w-1/6" required>
+                <option value="0414">0414</option>
+                <option value="0424">0424</option>
+                <option value="0416">0416</option>
+                <option value="0426">0426</option>
+                <option value="0412">0412</option>
+              </select>
+              <input id="cellphoneNumber" type="tel" inputmode="numeric" name="cellphone_number" placeholder="Número de Celular (Ej. 1234567)" maxlength="7" minlength="7" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
             </div>
             <!-- Dirección -->
             <label for="addressRegister" class="text-sm font-medium text-gray-700">Dirección</label>
@@ -1322,6 +1334,12 @@
         e.preventDefault();
       });
 
+      // Filtrar la entrada solo a números
+      $('.numeric-only').on('input', function() {
+        // Eliminar caracteres no numéricos
+        this.value = this.value.replace(/[^0-9]/g, '');
+      });
+
       $('#loginBtn').on('click', function () {
         openLoginModal();
       });
@@ -1413,6 +1431,7 @@
         });
       });
 
+      //Submit del registro
       $('#registerForm').on('submit', function(e){
         e.preventDefault();
 
@@ -1427,6 +1446,14 @@
         // Concatenar y agregar el campo 'document' a formData
         let documentValue = documentType + documentNumber;
         formData.append('document', documentValue);
+
+        // Obtener los valores de cellphone_code y cellphone_number
+        let cellphoneCode = $('#cellphoneCode').val();
+        let cellphoneNumber = $('#cellphoneNumber').val();
+
+        // Concatenar y agregar el campo 'document' a formData
+        let cellphoneValue = cellphoneCode + '-' + cellphoneNumber;
+        formData.append('cellphone', cellphoneValue);
 
         $.ajax({
           url: 'http://127.0.0.1:8000/api/user',
@@ -1482,22 +1509,26 @@
             console.log(xhr.status);
 
             let titleSwal;
+            let textSwal = '';
 
             if(xhr.status == 422){
-              titleSwal = 'Por favor verificar los datos ingresados'
+              titleSwal = 'Por favor verificar los datos ingresados';
+              Object.values(xhr.responseJSON.errors).forEach(errorMessages => {
+                errorMessages.forEach(error => {
+                  textSwal += error + '<br>'; // Agrega cada error al texto
+                });
+              });
             } else{
               titleSwal = 'Ocurrió un error inesperado';
             }
 
-            //xhr.responseJSON.errors; //agregar verificacion de errores!
             Swal.fire({
               title: titleSwal,
+              html: textSwal,
               icon: 'error',
-              timer: 3000,
-              timerProgressBar: true,
-              allowOutsideClick: false,
-              showConfirmButton: false,
-              allowEscapeKey: false
+              customClass: {
+                confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+              }
             }).finally(() => {
               $('#submitRegister').prop('disabled', false);
             });
