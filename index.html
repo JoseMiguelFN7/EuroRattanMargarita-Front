@@ -46,7 +46,7 @@
         <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
           <nav class=" flex items-center">
             <!-- breadcrumb -->
-            <ol class="flex flex-wrap items-center pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <ol class="flex flex-wrap items-center pt-1 mr-12 bg-transparent rounded-lg sm:mr-16 cursor-pointer" onclick="window.location.href='./'">
               <li class="text-sm leading-normal">
                 <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
               </li>
@@ -55,18 +55,24 @@
             </ol>
           </nav>
 
-          
           <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-            <li class="flex items-center pl-2">
-              <a id="registerBtn" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+            <button onclick="logOut();">logout</button>
+            <li id="registerBtn" class="flex items-center pl-2">
+              <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Registrarse</span>
               </a>
             </li>
-            <li class="flex items-center pl-4">
-              <a id="loginBtn" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+            <li id="loginBtn" class="flex items-center pl-4">
+              <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
+              </a>
+            </li>
+            <li id="userBtn" class="flex items-center pl-4 hidden">
+              <a class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+                <img src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
+                <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
               </a>
             </li>
             <li class="flex items-center pl-4 hidden">
@@ -1276,12 +1282,14 @@
 
     function openLoginModal(){
       $('#loginModal').removeClass('hidden').fadeIn(); // Mostrar el modal
+      $('body').addClass('overflow-y-hidden');
     }
 
     function closeLoginModal(){
       $('#loginModal').fadeOut(); // Ocultar el modal
       $('#emailLogin').val('');
       $('#passwordLogin').val('');
+      $('body').removeClass('overflow-y-hidden');
     }
 
     function openRegisterModal(){
@@ -1303,7 +1311,31 @@
       $('body').removeClass('overflow-y-hidden');
     }
 
+    function logOut(){
+      let token = localStorage.getItem('authToken');
+      if(!token){
+        return;
+      } else{
+        $.ajax({
+          url: 'http://127.0.0.1:8000/api/user/logout',
+          type: 'POST',
+          dataType: 'json',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
+          success: function(response, status, xhr){
+            console.log(response);
+            window.location.href = './';
+          },
+          error: function(xhr, status, error){
+            console.log(xhr);
+          }
+        });
+      }
+    }
+
     $(document).ready(function () {
+      //detectar sesion iniciada
       let token = localStorage.getItem('authToken');
 
       if(!token){
@@ -1318,6 +1350,13 @@
           },
           success: function(response, status, xhr){
             console.log(response);
+
+            $('#loginBtn, #registerBtn').addClass('hidden');
+
+            $('#userBtn').removeClass('hidden');
+            $('#userBtn img').attr('src', response.image).addClass('rounded-full w-9 h-9').removeClass('w-4 h-4');
+            $('#userBtn span').text(response.name);
+
           },
           error: function(xhr, status, error){
             if(xhr.status == 401){
