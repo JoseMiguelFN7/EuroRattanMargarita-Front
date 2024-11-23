@@ -428,6 +428,48 @@ button:disabled:hover {
   border-color: #e5e7eb;  /* Mantén el borde igual que cuando está deshabilitado */
 }
 
+.button-success {
+  background-color: #48bb78 !important; /* Verde suave */
+  color: white !important;
+  font-weight: bold !important;
+  padding: 0.5rem 1rem !important; /* Espaciado vertical y horizontal */
+  border-radius: 0.375rem !important; /* Bordes redondeados */
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, transform 0.2s ease !important; /* Transiciones suaves */
+}
+
+.button-success:hover {
+  background-color: #38a169 !important; /* Verde más oscuro al pasar el ratón */
+  transform: scale(1.05) !important; /* Efecto de expansión al pasar el ratón */
+}
+
+.button-success:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(72, 187, 120, 0.5) !important; /* Sombra verde cuando está enfocado */
+}
+
+.button-danger {
+  background-color: #e53e3e !important; /* Rojo */
+  color: white !important;
+  font-weight: bold !important;
+  padding: 0.5rem 1rem !important; /* Espaciado vertical y horizontal */
+  border-radius: 0.375rem !important; /* Bordes redondeados */
+  border: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, transform 0.2s ease !important; /* Transiciones suaves */
+}
+
+.button-danger:hover {
+  background-color: #c53030 !important; /* Rojo más oscuro al pasar el ratón */
+  transform: scale(1.05) !important; /* Efecto de expansión al pasar el ratón */
+}
+
+.button-danger:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.5) !important; /* Sombra roja cuando está enfocado */
+}
+
 /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)

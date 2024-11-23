@@ -55,7 +55,6 @@
           </nav>
 
           <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-            <!--<button onclick="logOut();">logout</button>-->
             <li id="registerBtn" class="flex items-center pl-2 hidden">
               <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
@@ -68,42 +67,17 @@
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
               </a>
             </li>
-            <li id="userBtn" class="flex items-center pl-4 hidden">
-              <a class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
-                <img src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
-                <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
-              </a>
-            </li>
-            <li class="flex items-center pl-4 hidden">
-              <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
-                <div class="w-4.5 overflow-hidden">
-                  <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-                  <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-                  <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-                </div>
-              </a>
-            </li>
-            <li class="flex items-center px-4 hidden">
-              <a href="javascript:;" class="p-0 text-sm transition-all ease-nav-brand text-slate-500">
-                <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
-                <!-- fixed-plugin-button-nav  -->
-              </a>
-            </li>
-
-            <!-- notifications -->
-
-            <li class="relative flex items-center pr-2">
-              <p class="hidden transform-dropdown-show"></p>
-              <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" dropdown-trigger aria-expanded="false">
-                <i class="cursor-pointer fa fa-bell"></i>
+            <li id="userBtn" class="relative flex items-center pl-4 hidden">
+              <a href="javascript:;" class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer" dropdown-trigger aria-expanded="false">
+                <img id="userImg" src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
+                <span id="userName" class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
               </a>
 
-              <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
+              <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block">
                 <!-- add show class on dropdown open js -->
                 <li class="relative mb-2">
                   <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                     <div class="flex py-1">
-                     
                       <div class="flex flex-col justify-center">
                         <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Dashboard</span></h6>
                         <p class="mb-0 text-xs leading-tight text-slate-400">
@@ -140,9 +114,8 @@
                 </li>
 
                 <li class="relative mb-2">
-                  <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                  <a id="logOutBtn" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                     <div class="flex py-1">
-                      
                       <div class="flex flex-col justify-center">
                         <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Cerrar Sesion</span></h6>
                         <p class="mb-0 text-xs leading-tight text-slate-400">
@@ -153,6 +126,30 @@
                 </li>
               </ul>
             </li>
+            <li class="flex items-center pl-4 hidden">
+              <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
+                <div class="w-4.5 overflow-hidden">
+                  <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                  <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                  <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                </div>
+              </a>
+            </li>
+            <li class="flex items-center px-4 hidden">
+              <a href="javascript:;" class="p-0 text-sm transition-all ease-nav-brand text-slate-500">
+                <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
+                <!-- fixed-plugin-button-nav  -->
+              </a>
+            </li>
+
+            <!-- notifications -->
+
+            <!--<li class="relative flex items-center pr-2">
+              <p class="hidden transform-dropdown-show"></p>
+              <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" dropdown-trigger aria-expanded="false">
+                <i class="cursor-pointer fa fa-bell"></i>
+              </a>
+            </li>-->
           </ul>
         </div>
       </header>
@@ -1342,8 +1339,10 @@
             $('#loginBtn, #registerBtn').remove();
 
             $('#userBtn').removeClass('hidden');
-            $('#userBtn img').attr('src', response.image).addClass('rounded-full w-9 h-9').removeClass('w-4 h-4');
-            $('#userBtn span').text(response.name);
+            if(response.image){
+              $('#userImg').attr('src', response.image).addClass('rounded-full w-9 h-9').removeClass('w-4 h-4');
+            }
+            $('#userName').text(response.name);
 
           },
           error: function(xhr, status, error){
@@ -1400,6 +1399,25 @@
           };
           reader.readAsDataURL(file); // Convierte el archivo seleccionado en una URL
         }
+      });
+
+      $('#logOutBtn').on('click', function(){
+        Swal.fire({
+          icon: 'question',
+          title: '¿Desea cerrar su sesión?',
+          confirmButtonText: 'Confirmar',
+          showCancelButton: true,
+          cancelButtonText: 'Cancelar',
+          customClass: {
+            confirmButton: 'button-success',
+            cancelButton: 'button-danger'
+          },
+          reverseButtons: true
+        }).then((result) => {
+          if (result.isConfirmed) {
+            logOut();
+          }
+        });
       });
 
       //submit del login
