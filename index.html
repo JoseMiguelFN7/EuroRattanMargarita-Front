@@ -1319,6 +1319,17 @@
       }
     }
 
+    function errorMsg(){
+      Swal.fire({
+        icon: 'warning',
+        title: 'Ocurrió un error inesperado',
+        text: 'Por favor, recargue la página.',
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+      });
+    }
+
     $(document).ready(function () {
       //detectar sesion iniciada
       let token = localStorage.getItem('authToken');
@@ -1389,6 +1400,10 @@
             `;
             $('#products-container').append(productHTML);
           });
+        },
+        error: function(xhr, status, error){
+          console.log(xhr);
+          errorMsg();
         }
       });
 
@@ -1424,6 +1439,10 @@
             `;
             $('#materials-container').append(materialHTML);
           });
+        },
+        error: function(xhr, status, error){
+          errorMsg();
+          console.log(xhr);
         }
       });
 
