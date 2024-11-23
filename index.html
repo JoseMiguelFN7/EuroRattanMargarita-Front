@@ -51,19 +51,18 @@
                 <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
               </li>
               <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-7xl h-16">Euro Rattan Margarita</h1>
-              <!--<img src="./assets/img/ERM.png" alt="Euro Rattan Margarita, C.A." class="object-contain max-w-full max-h-16 w-auto">-->
             </ol>
           </nav>
 
           <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
             <!--<button onclick="logOut();">logout</button>-->
-            <li id="registerBtn" class="flex items-center pl-2">
+            <li id="registerBtn" class="flex items-center pl-2 hidden">
               <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Registrarse</span>
               </a>
             </li>
-            <li id="loginBtn" class="flex items-center pl-4">
+            <li id="loginBtn" class="flex items-center pl-4 hidden">
               <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                 <!--<i class="fa fa-user sm:mr-1"></i>-->
                 <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
@@ -1351,7 +1350,7 @@
           success: function(response, status, xhr){
             console.log(response);
 
-            $('#loginBtn, #registerBtn').addClass('hidden');
+            $('#loginBtn, #registerBtn').remove();
 
             $('#userBtn').removeClass('hidden');
             $('#userBtn img').attr('src', response.image).addClass('rounded-full w-9 h-9').removeClass('w-4 h-4');
@@ -1361,6 +1360,8 @@
           error: function(xhr, status, error){
             if(xhr.status == 401){
               console.log('usuario no logeado');
+              $('#loginBtn, #registerBtn').removeClass('hidden');
+              $('#userBtn').remove();
             } else{
               console.log('Ocurrió un error inesperado');
             }
