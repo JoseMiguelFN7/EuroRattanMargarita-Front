@@ -786,6 +786,10 @@ h6 {
   position: relative;
 }
 
+.object-contain {
+  object-fit: contain;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -947,6 +951,10 @@ h6 {
 
 .m-0 {
   margin: 0px;
+}
+
+.m-2 {
+  padding: 0.5rem;
 }
 
 .m-4 {
@@ -1368,6 +1376,14 @@ h6 {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-32 {
+  height: 8rem; /* 128px */
+}
+
+.h-64 {
+  height: 16rem; /* 256px */
 }
 
 .max-h-8 {
