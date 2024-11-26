@@ -2357,6 +2357,11 @@ input.appearance-none-number-input {
   padding-bottom: 1.5rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-2\.7 {
   padding-top: 0.675rem;
   padding-bottom: 0.675rem;

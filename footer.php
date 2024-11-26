@@ -1,5 +1,5 @@
-<footer class="bg-gray-800 text-white py-8"> 
-    <div class="w-full mx-auto px-6 py-4"> 
+<footer class="bg-gray-800 text-white"> 
+    <div class="w-full mx-auto px-6 py-8"> 
         <div class="flex flex-nowrap md:flex-wrap justify-between"> 
             <!-- Sección de Ubicación --> 
             <div class="w-full md:w-1/3 mb-6 md:mb-0"> 
