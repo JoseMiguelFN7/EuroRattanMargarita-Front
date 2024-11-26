@@ -2646,6 +2646,11 @@ input.appearance-none-number-input {
   line-height: 1rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 4.6875rem;
+}
+
 .text-7xl {
   font-size: 4.5rem;
 }
@@ -3964,13 +3969,18 @@ input.appearance-none-number-input {
 }
 
 @media (min-width: 768px) {
-  .md\:text-7xl {
-    font-size: 4.5rem;
-  }
-
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+  
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 4.6875rem;
+  }
+  
+  .md\:text-7xl {
+    font-size: 4.5rem;
   }
 
   .md\:mr-0 {

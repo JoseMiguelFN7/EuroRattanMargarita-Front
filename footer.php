@@ -38,7 +38,7 @@
                     </a>
                 </div>
                 <a class="text-gray-400 mt-4" href="tel:+58 414 7894819">+58 414 7894819</a>
-                <a class="text-gray-400" href="mailto:eurorattan62@gmail.com">eurorattan62@gmail.com</a>
+                <a class="text-gray-400" target="_blank" href="mailto:eurorattan62@gmail.com">eurorattan62@gmail.com</a>
             </div>
         </div>
         <p class="m-0 text-center text-gray-500">
