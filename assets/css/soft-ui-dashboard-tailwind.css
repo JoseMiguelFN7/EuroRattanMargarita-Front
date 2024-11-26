@@ -2641,6 +2641,10 @@ input.appearance-none-number-input {
   line-height: 1rem;
 }
 
+.text-7xl {
+  font-size: 4.5rem;
+}
+
 .text-banner-calculate {
   font-size: calc(1.625rem+4.5vw);
 }
@@ -3955,6 +3959,10 @@ input.appearance-none-number-input {
 }
 
 @media (min-width: 768px) {
+  .md\:text-7xl {
+    font-size: 4.5rem;
+  }
+
   .md\:mr-0 {
     margin-right: 0px;
   }
