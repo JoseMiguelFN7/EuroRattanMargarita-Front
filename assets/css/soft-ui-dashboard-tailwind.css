@@ -790,6 +790,18 @@ h6 {
   object-fit: contain;
 }
 
+.object-cover {
+  object-fit: cover;
+}
+
+.object-center{
+  object-position: center;
+}
+
+.object-top{
+  object-position: top;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -1383,7 +1395,15 @@ h6 {
 }
 
 .h-64 {
-  height: 16rem; /* 256px */
+  height: 16rem;
+}
+
+.h-72 {
+  height: 18rem;
+}
+
+.h-96 {
+  height: 24rem;
 }
 
 .max-h-8 {

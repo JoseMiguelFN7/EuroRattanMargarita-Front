@@ -44,8 +44,8 @@
 
     <!-- end Navbar -->
 
-    <section>
-      <img src="./assets/img/indeximg.png" class="md-max max-w-full" alt="">
+    <section class="w-full">
+      <img src="./assets/img/indeximg.jpg" class="md-max w-full max-w-full h-96 object-cover object-center" alt="banner">
     </section>
 
     <section class="flex w-full gap-4 px-8 mt-6">
