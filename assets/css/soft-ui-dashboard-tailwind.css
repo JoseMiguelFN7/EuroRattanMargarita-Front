@@ -2632,6 +2632,11 @@ input.appearance-none-number-input {
   line-height: 1.75rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
 .text-inherit {
   font-size: inherit;
 }
@@ -3963,6 +3968,11 @@ input.appearance-none-number-input {
     font-size: 4.5rem;
   }
 
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
   .md\:mr-0 {
     margin-right: 0px;
   }
@@ -4031,6 +4041,10 @@ input.appearance-none-number-input {
     flex: 0 0 auto;
   }
 
+  .md\:flex-grow {
+    flex-grow: 1;
+  }
+
   .md\:scale-70 {
     --tw-scale-x: .7;
     --tw-scale-y: .7;
@@ -4038,6 +4052,11 @@ input.appearance-none-number-input {
   }
 
   .md\:pr-4 {
+    padding-right: 1rem;
+  }
+
+  .md\:px-4 {
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 }
