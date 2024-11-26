@@ -2,11 +2,11 @@
     <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
     <nav class=" flex items-center">
         <!-- breadcrumb -->
-        <ol class="flex flex-wrap items-center pt-1 mr-12 bg-transparent rounded-lg sm:mr-16 cursor-pointer" onclick="window.location.href='./'">
+        <ol class="flex flex-wrap items-center pt-1 bg-transparent rounded-lg cursor-pointer" onclick="window.location.href='./'">
         <li class="text-sm leading-normal">
             <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
         </li>
-        <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-7xl h-16">Euro Rattan Margarita</h1>
+        <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-6xl md:text-lg ">Euro Rattan Margarita</h1>
         </ol>
     </nav>
 
