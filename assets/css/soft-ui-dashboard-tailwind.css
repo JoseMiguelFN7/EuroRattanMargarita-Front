@@ -1768,6 +1768,10 @@ input.appearance-none-number-input {
   align-items: stretch;
 }
 
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
