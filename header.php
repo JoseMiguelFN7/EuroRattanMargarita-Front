@@ -111,8 +111,8 @@
 <!-- CDN SweetAlert -->
 <script src="./assets/js/sweetAlert2.js"></script>
 
-<script>
-    function openLoginModal(){
+<!--  <script>
+   function openLoginModal(){
         $('#loginModal').removeClass('hidden').fadeIn(); // Mostrar el modal
         $('body').addClass('overflow-y-hidden');
     }

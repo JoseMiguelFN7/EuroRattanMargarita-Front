@@ -4076,6 +4076,10 @@ input.appearance-none-number-input {
     flex: none;
   }
 
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
   .md\:flex-0 {
     flex: 0 0 auto;
   }
