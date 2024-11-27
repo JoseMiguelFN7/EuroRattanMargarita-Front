@@ -11,9 +11,9 @@
                 <h1 class="text-3xl font-bamboo text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Euro Rattan Margarita</h1> 
             </div> 
             <!-- Sección de Redes Sociales --> 
-            <div class="w-full text-center md:text-right md:w-1/3 mb-6 md:mb-0 flex flex-col items-center pt-2"> 
+            <div class="w-full text-center md:text-right md:w-1/3 mb-6 md:mb-0 md:items-end flex flex-col  pt-2"> 
                 <h5 class=" font-semibold mb-4 text-white">Contáctanos</h5> 
-                <div class="flex space-x-4"> 
+                <div class="flex space-x-4 items-center"> 
                     <a href="https://www.instagram.com/eurorattanmargarita/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-200 mx-2"> 
                         <img src="./assets/img/icons8-instagram.svg" alt="Instagram Icon" width="24" height="24">
                     </a>

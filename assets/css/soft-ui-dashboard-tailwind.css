@@ -4102,7 +4102,25 @@ input.appearance-none-number-input {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  .md\:text-left {
+    text-align: left;
+  }
+  
+  .md\:text-right {
+    text-align: right;
+  }
+
+  .md\:text-center {
+    text-align: center;
+  }
+
+  .md\:.items-end {
+    align-items: flex-end;
+  }
 }
+
+
 
 @media (max-width: 768px) {
   .md-max\:w-full {
