@@ -44,8 +44,8 @@
 
     <!-- end Navbar -->
 
-    <section>
-      <img src="./assets/img/indeximg.png" class="md-max max-w-full" alt="">
+    <section class="w-full">
+      <img src="./assets/img/indeximg.jpg" class="md-max w-full max-w-full h-96 object-cover object-center" alt="banner">
     </section>
 
     <section class="flex w-full gap-4 px-8 mt-6">
@@ -137,7 +137,7 @@
     <section>
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-          <h2 class="text-center">Productos Destacados</h2>
+          <h2 class="text-center mb-2">Productos Destacados</h2>
           <div class="flex-auto p-4">
             <div id="products-container" class="flex flex-wrap mx-3">
               <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
@@ -304,8 +304,8 @@
     <section>
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col items-center min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-          <div class="w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
-            <h3 class="mb-1 flex-grow text-center absolute left-0 right-0 mx-auto">Materiales</h3>
+          <div class="mb-2 w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
+            <h3 class="flex-grow text-center absolute left-0 right-0 mx-auto">Materiales</h3>
             <div class="relative w-1/2 flex justify-end">
               <div x-data="{ isOpen: false }">
                 <button
@@ -544,8 +544,8 @@
     <section>
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col items-center min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-          <div class="w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
-            <h3 class="mb-1 flex-grow text-center absolute left-0 right-0 mx-auto">Muebles</h3>
+          <div class="mb-2 w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
+            <h3 class="flex-grow text-center absolute left-0 right-0 mx-auto">Muebles</h3>
             <div class="relative w-1/2 flex justify-end">
               <div x-data="{ isOpen: false }">
                 <button
@@ -785,8 +785,8 @@
     <section>
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col items-center min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
-          <div class="w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
-            <h3 class="mb-1 flex-grow text-center absolute left-0 right-0 mx-auto">Juegos de Muebles</h3>
+          <div class="mb-2 w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
+            <h3 class="flex-grow text-center absolute left-0 right-0 mx-auto">Juegos de Muebles</h3>
             <div class="relative w-1/2 flex justify-end">
               <div x-data="{ isOpen: false }">
                 <button
@@ -1151,7 +1151,6 @@
 
     $(document).ready(function () {
       //Insertar 8 productos aleatorios
-      /*
       $.ajax({
         url: 'http://127.0.0.1:8000/api/products/8',
         type: 'GET',
@@ -1164,7 +1163,7 @@
             const productHTML = `
               <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${product.code}';">
-                  <div class="relative w-full h-64">
+                  <div class="relative w-full h-48">
                     <a class="block shadow-xl rounded-2xl w-full h-full p-2">
                       <img src="${product.image}" alt="img-product" class="w-full h-full object-contain rounded-2xl" />
                     </a>
@@ -1203,7 +1202,7 @@
             const materialHTML = `
               <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${material.product.code}';">
-                  <div class="relative w-full h-64">
+                  <div class="relative w-full h-48">
                     <a class="block shadow-xl rounded-2xl w-full h-full p-2">
                       <img src="${material.product.image}" alt="img-material" class="w-full h-full object-contain rounded-2xl" />
                     </a>
@@ -1228,7 +1227,6 @@
           console.log(xhr);
         }
       });
-      */
     });
   </script>
 </html>

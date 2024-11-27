@@ -1,112 +1,107 @@
 <header class="relative flex flex-wrap items-center justify-between px-8 py-2 m-0 transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true"  >
-    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
-    <nav class=" flex items-center">
-        <!-- breadcrumb -->
-        <ol class="flex flex-wrap items-center pt-1 bg-transparent rounded-lg cursor-pointer" onclick="window.location.href='./'">
-        <li class="text-sm leading-normal">
-            <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
-        </li>
-        <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-6xl md:text-lg ">Euro Rattan Margarita</h1>
-        </ol>
-    </nav>
+    <div class="flex flex-row items-center justify-between w-full md:px-4 py-1 mx-auto">
+        <nav class="flex items-center">
+            <!-- breadcrumb -->
+            <ol class="flex items-center mr-6 md:mr-16 bg-transparent rounded-lg cursor-pointer" onclick="window.location.href='./'">
+                <li class="text-sm leading-normal">
+                    <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
+                </li>
+                <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-xl inline-block md:text-6xl">Euro Rattan Margarita</h1>
+            </ol>
+        </nav>
 
-    <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
-        <li id="registerBtn" class="flex items-center pl-2 hidden">
-        <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
-            <!--<i class="fa fa-user sm:mr-1"></i>-->
-            <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Registrarse</span>
-        </a>
-        </li>
-        <li id="loginBtn" class="flex items-center pl-4 hidden">
-        <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
-            <!--<i class="fa fa-user sm:mr-1"></i>-->
-            <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
-        </a>
-        </li>
-        <li id="userBtn" class="relative flex items-center pl-4 hidden">
-        <a href="javascript:;" class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer" dropdown-trigger aria-expanded="false">
-            <img id="userImg" src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
-            <span id="userName" class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
-        </a>
+        <ul class="flex flex-row justify-end pl-0 mb-0 list-none md:flex-grow">
+            <li id="registerBtn" class="flex items-center pl-2 hidden">
+                <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+                    <!--<i class="fa fa-user sm:mr-1"></i>-->
+                    <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Registrarse</span>
+                </a>
+            </li>
+            <li id="loginBtn" class="flex items-center pl-4 hidden">
+                <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+                    <!--<i class="fa fa-user sm:mr-1"></i>-->
+                    <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
+                </a>
+            </li>
+            <li id="userBtn" class="relative flex items-center pl-4 hidden">
+                <a href="javascript:;" class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer" dropdown-trigger aria-expanded="false">
+                    <img id="userImg" src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
+                    <span id="userName" class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
+                </a>
 
-        <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block">
-            <!-- add show class on dropdown open js -->
-            <li class="relative mb-2">
-            <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-                <div class="flex py-1">
-                <div class="flex flex-col justify-center">
-                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Dashboard</span></h6>
-                    <p class="mb-0 text-xs leading-tight text-slate-400">
-                    </p>
-                </div>
-                </div>
-            </a>
+                <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block">
+                    <!-- add show class on dropdown open js -->
+                    <li class="relative mb-2">
+                        <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                            <div class="flex py-1">
+                                <div class="flex flex-col justify-center">
+                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Dashboard</span></h6>
+                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="relative mb-2">
+                        <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                            <div class="flex py-1">
+                                <div class="flex flex-col justify-center">
+                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mi perfil</span></h6>
+                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="relative mb-2">
+                        <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                            <div class="flex py-1">
+                                <div class="flex flex-col justify-center">
+                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mis compras</span></h6>
+                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="relative mb-2">
+                        <a id="logOutBtn" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                            <div class="flex py-1">
+                                <div class="flex flex-col justify-center">
+                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Cerrar Sesion</span></h6>
+                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="flex items-center pl-4 hidden">
+                <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
+                    <div class="w-4.5 overflow-hidden">
+                        <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                        <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                        <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+                    </div>
+                </a>
             </li>
 
-            <li class="relative mb-2">
-            <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-                <div class="flex py-1">
-        
-                <div class="flex flex-col justify-center">
-                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mi perfil</span></h6>
-                    <p class="mb-0 text-xs leading-tight text-slate-400">
-                    </p>
-                </div>
-                </div>
-            </a>
+            <li class="flex items-center px-4 hidden">
+                <a href="javascript:;" class="p-0 text-sm transition-all ease-nav-brand text-slate-500">
+                    <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
+                    <!-- fixed-plugin-button-nav  -->
+                </a>
             </li>
 
-            <li class="relative mb-2">
-            <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-                <div class="flex py-1">
-        
-                <div class="flex flex-col justify-center">
-                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mis compras</span></h6>
-                    <p class="mb-0 text-xs leading-tight text-slate-400">
-                    </p>
-                </div>
-                </div>
-            </a>
-            </li>
+            <!-- notifications -->
 
-            <li class="relative mb-2">
-            <a id="logOutBtn" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-                <div class="flex py-1">
-                <div class="flex flex-col justify-center">
-                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Cerrar Sesion</span></h6>
-                    <p class="mb-0 text-xs leading-tight text-slate-400">
-                    </p>
-                </div>
-                </div>
-            </a>
-            </li>
+            <!--<li class="relative flex items-center pr-2">
+                <p class="hidden transform-dropdown-show"></p>
+                <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" dropdown-trigger aria-expanded="false">
+                    <i class="cursor-pointer fa fa-bell"></i>
+                </a>
+            </li>-->
         </ul>
-        </li>
-        <li class="flex items-center pl-4 hidden">
-        <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" sidenav-trigger>
-            <div class="w-4.5 overflow-hidden">
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            </div>
-        </a>
-        </li>
-        <li class="flex items-center px-4 hidden">
-        <a href="javascript:;" class="p-0 text-sm transition-all ease-nav-brand text-slate-500">
-            <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
-            <!-- fixed-plugin-button-nav  -->
-        </a>
-        </li>
-
-        <!-- notifications -->
-
-        <!--<li class="relative flex items-center pr-2">
-        <p class="hidden transform-dropdown-show"></p>
-        <a href="javascript:;" class="block p-0 text-sm transition-all ease-nav-brand text-slate-500" dropdown-trigger aria-expanded="false">
-            <i class="cursor-pointer fa fa-bell"></i>
-        </a>
-        </li>-->
-    </ul>
     </div>
 </header>
 
