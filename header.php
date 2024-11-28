@@ -35,8 +35,17 @@
                         <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                             <div class="flex py-1">
                                 <div class="flex flex-col justify-center">
-                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Dashboard</span></h6>
-                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                    <span class="mb-1 text-sm font-normal leading-normal font-semibold">Dashboard</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="relative mb-2">
+                        <a href="./dashboard/perfl.html" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                            <div class="flex py-1">
+                                <div class="flex flex-col justify-center">
+                                    <span class="mb-1 text-sm font-normal leading-normal font-semibold">Mi Perfil</span>
                                 </div>
                             </div>
                         </a>
@@ -46,19 +55,7 @@
                         <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                             <div class="flex py-1">
                                 <div class="flex flex-col justify-center">
-                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mi perfil</span></h6>
-                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="relative mb-2">
-                        <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-                            <div class="flex py-1">
-                                <div class="flex flex-col justify-center">
-                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Mis compras</span></h6>
-                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                    <span class="mb-1 text-sm font-normal leading-normal font-semibold">Mis Compras</span>
                                 </div>
                             </div>
                         </a>
@@ -68,8 +65,7 @@
                         <a id="logOutBtn" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                             <div class="flex py-1">
                                 <div class="flex flex-col justify-center">
-                                    <h6 class="mb-1 text-sm font-normal leading-normal"><span class="font-semibold">Cerrar Sesion</span></h6>
-                                    <p class="mb-0 text-xs leading-tight text-slate-400"></p>
+                                    <span class="mb-1 text-sm font-normal leading-normal font-semibold">Cerrar Sesión</span>
                                 </div>
                             </div>
                         </a>

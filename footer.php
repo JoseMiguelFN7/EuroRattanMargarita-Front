@@ -10,8 +10,8 @@
                 <a class="text-gray-400 text-justify md:text-justify break-words" href="https://www.google.com/maps/place/Euro+Rattan+Margarita+CA/@10.9745538,-63.8388239,17z/data=!3m1!4b1!4m6!3m5!1s0x8c318eec752588ef:0xb1a684bd94b79894!8m2!3d10.9745538!4d-63.8362436!16s%2Fg%2F11f4w2fw4h?hl=es&entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank">Avenida 4 de Mayo con Avenida Francisco Esteban Gómez Edif. Bolimar, PB, Local 1, Porlamar 6301, Nueva Esparta, Venezuela.</a> 
             </div>
             <!-- Sección Nombre de la Empresa --> 
-            <div class="w-full md:w-1/3 mb-6 md:mb-0 text-center pt-2"> 
-                <h1 class="text-3xl font-bamboo text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Euro Rattan Margarita</h1> 
+            <div class="w-full md:w-1/3 mb-6 md:mb-0 pt-2"> 
+                <h1 class="text-3xl font-bamboo text-center text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Euro Rattan Margarita</h1>
             </div>
             <!-- Sección de Redes Sociales --> 
             <div class="w-full text-center md:text-right md:w-1/3 mb-6 md:mb-0 flex flex-col"> 
