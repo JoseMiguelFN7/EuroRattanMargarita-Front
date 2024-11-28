@@ -107,110 +107,110 @@
 
 <!-- Modal Login-->
 <div id="loginModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-110 shadow-xl">
-    <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/3">
-    <button id="closeLoginModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-    <div class="flex justify-center mb-4">
-        <img src="./assets/img/ERM logo.png" alt="Logo" class="w-18.5 h-auto object-cover rounded-full">
-    </div>
-    <h2 class="text-xl text-center font-semibold">Iniciar Sesión</h2>
-    <form id="loginForm" enctype="multipart/form-data">
-        <!-- Campos de formulario -->
-        <input id="emailLogin" type="email" name="email" placeholder="Correo Electrónico" class="p-2 border rounded w-full mb-4 focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
-        <div class="relative mb-4">
-        <input id="passwordLogin" type="password" name="password" placeholder="Contraseña" minlength="8" class="password-input p-2 border rounded w-full focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
-        <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
-            <!-- Ojo tachado -->
-            <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
-            <!-- ojo abierto -->
-            <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg relative w-3/4 md:w-1/3">
+        <button id="closeLoginModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
+        <div class="flex justify-center mb-4">
+            <img src="./assets/img/ERM logo.png" alt="Logo" class="w-18.5 h-auto object-cover rounded-full">
         </div>
-        <button id="submitLogin" type="submit" class="w-full p-2 rounded font-bold text-center transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
-        Acceder
-        </button>
-    </form>
+        <h2 class="text-xl text-center font-semibold">Iniciar Sesión</h2>
+        <form id="loginForm" enctype="multipart/form-data">
+            <!-- Campos de formulario -->
+            <input id="emailLogin" type="email" name="email" placeholder="Correo Electrónico" class="p-2 border rounded w-full mb-4 focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
+            <div class="relative mb-4">
+                <input id="passwordLogin" type="password" name="password" placeholder="Contraseña" minlength="8" class="password-input p-2 border rounded w-full focus:shadow-soft-brown-outline ease-soft border border-solid border-gray-300 bg-white text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" required>
+                <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <!-- Ojo tachado -->
+                    <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
+                    <!-- ojo abierto -->
+                    <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+                </button>
+            </div>
+            <button id="submitLogin" type="submit" class="w-full p-2 rounded font-bold text-center transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
+                Acceder
+            </button>
+        </form>
     </div>
 </div>
 
 <!-- Modal Registro -->
 <div id="registerModal" class="hidden fixed inset-0 top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 backdrop-blur flex items-center justify-center z-110 shadow-xl">
-    <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/3 max-h-10/12 overflow-y-auto">
-    <button id="closeRegisterModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-    <div class="flex justify-center mb-4">
-        <img src="./assets/img/ERM logo.png" alt="Logo" class="w-18.5 h-auto object-cover rounded-full">
-    </div>
-    <h2 class="text-xl text-center font-semibold mb-4">Registro</h2>
-    <form id="registerForm" enctype="multipart/form-data">
-        <!-- Nombre -->
-        <label for="nameRegister" class="text-sm font-medium text-gray-700">Nombre</label>
-        <input id="nameRegister" type="text" name="name" placeholder="Nombre" class="letters-only p-2 border rounded w-full mb-4" maxlength="255" required>
-        <!-- Email -->
-        <label for="emailRegister" class="text-sm font-medium text-gray-700">Correo Electrónico</label>
-        <input id="emailRegister" type="email" name="email" placeholder="Correo Electrónico" class="p-2 border rounded w-full mb-4" maxlength="255" required>
-        <!-- Documento -->
-        <label for="documentType" class="text-sm font-medium text-gray-700">Documento</label>
-        <div class="flex items-center gap-2 mb-4">
-        <select id="documentType" name="document_type" class="p-2 border rounded w-1/6" required>
-            <option value="V">V</option>
-            <option value="E">E</option>
-            <option value="J">J</option>
-            <option value="G">G</option>
-            <option value="P">P</option>
-        </select>
-        <input id="documentNumber" type="number" inputmode="numeric" name="document_number" placeholder="Número de Documento (Ej. 12345678)" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
-        </div>
-        <!-- telefono -->
-        <label for="cellphoneCode" class="text-sm font-medium text-gray-700">Número de Celular</label>
-        <div class="flex items-center gap-2 mb-4">
-        <select id="cellphoneCode" name="cellphone_code" class="p-2 border rounded w-1/6" required>
-            <option value="0414">0414</option>
-            <option value="0424">0424</option>
-            <option value="0416">0416</option>
-            <option value="0426">0426</option>
-            <option value="0412">0412</option>
-        </select>
-        <input id="cellphoneNumber" type="tel" inputmode="numeric" name="cellphone_number" placeholder="Número de Celular (Ej. 1234567)" maxlength="7" minlength="7" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
-        </div>
-        <!-- Dirección -->
-        <label for="addressRegister" class="text-sm font-medium text-gray-700">Dirección</label>
-        <textarea id="addressRegister" name="address" placeholder="Dirección" class="p-2 border rounded w-full mb-4" maxlength="500" required></textarea>
-        <!-- Contraseña -->
-        <label for="passwordRegister" class="text-sm font-medium text-gray-700">Contraseña</label>
-        <div class="relative mb-4">
-        <input id="passwordRegister" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input p-2 border rounded w-full" required>
-        <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
-            <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
-            <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg relative w-3/4 md:w-1/3 max-h-10/12 overflow-y-auto">
+        <button id="closeRegisterModal" class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-900">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
         </button>
+        <div class="flex justify-center mb-4">
+            <img src="./assets/img/ERM logo.png" alt="Logo" class="w-18.5 h-auto object-cover rounded-full">
         </div>
-        <!-- Confirmación de Contraseña -->
-        <label for="passwordRegisterConfirm" class="text-sm font-medium text-gray-700">Confirmar Contraseña</label>
-        <div class="relative mb-4">
-        <input id="passwordRegisterConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input p-2 border rounded w-full" required>
-        <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
-            <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
-            <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
-        </button>
-        </div>
-        <!-- Imagen de perfil -->
-        <div class="flex flex-col justify-center items-center mb-4">
-        <img id="previewImage" for="fileInput" src="./assets/img/agregar.png" alt="Imagen de perfil" class="customFileButton w-16 h-16 object-cover rounded-full mb-2 cursor-pointer" />
-        <input type="file" id="fileInput" name="image" class="hidden" accept="image/*" />
-        <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Seleccionar imagen</label>
-        </div>
-        <!-- Botón de Registro -->
-        <button id="submitRegister" type="submit" class="w-full p-2 rounded font-bold text-center bg-brown text-white hover:bg-brown-dark">
-        Registrarse
-        </button>
-    </form>
+        <h2 class="text-xl text-center font-semibold mb-4">Registro</h2>
+        <form id="registerForm" enctype="multipart/form-data">
+            <!-- Nombre -->
+            <label for="nameRegister" class="text-sm font-medium text-gray-700">Nombre</label>
+            <input id="nameRegister" type="text" name="name" placeholder="Nombre" class="letters-only p-2 border rounded w-full mb-4" maxlength="255" required>
+            <!-- Email -->
+            <label for="emailRegister" class="text-sm font-medium text-gray-700">Correo Electrónico</label>
+            <input id="emailRegister" type="email" name="email" placeholder="Correo Electrónico" class="p-2 border rounded w-full mb-4" maxlength="255" required>
+            <!-- Documento -->
+            <label for="documentType" class="text-sm font-medium text-gray-700">Documento</label>
+            <div class="flex items-center gap-2 mb-4">
+                <select id="documentType" name="document_type" class="p-2 border rounded w-1/6" required>
+                    <option value="V">V</option>
+                    <option value="E">E</option>
+                    <option value="J">J</option>
+                    <option value="G">G</option>
+                    <option value="P">P</option>
+                </select>
+                <input id="documentNumber" type="number" inputmode="numeric" name="document_number" placeholder="Número de Documento (Ej. 12345678)" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
+            </div>
+            <!-- telefono -->
+            <label for="cellphoneCode" class="text-sm font-medium text-gray-700">Número de Celular</label>
+            <div class="flex items-center gap-2 mb-4">
+                <select id="cellphoneCode" name="cellphone_code" class="p-2 border rounded w-1/6" required>
+                    <option value="0414">0414</option>
+                    <option value="0424">0424</option>
+                    <option value="0416">0416</option>
+                    <option value="0426">0426</option>
+                    <option value="0412">0412</option>
+                </select>
+                <input id="cellphoneNumber" type="tel" inputmode="numeric" name="cellphone_number" placeholder="Número de Celular (Ej. 1234567)" maxlength="7" minlength="7" class="numeric-only p-2 border rounded w-5/6 appearance-none appearance-none-number-input flex-grow" required min="0" step="1">
+            </div>
+            <!-- Dirección -->
+            <label for="addressRegister" class="text-sm font-medium text-gray-700">Dirección</label>
+            <textarea id="addressRegister" name="address" placeholder="Dirección" class="p-2 border rounded w-full mb-4" maxlength="500" required></textarea>
+            <!-- Contraseña -->
+            <label for="passwordRegister" class="text-sm font-medium text-gray-700">Contraseña</label>
+            <div class="relative mb-4">
+                <input id="passwordRegister" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input p-2 border rounded w-full" required>
+                <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
+                    <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+                </button>
+            </div>
+            <!-- Confirmación de Contraseña -->
+            <label for="passwordRegisterConfirm" class="text-sm font-medium text-gray-700">Confirmar Contraseña</label>
+            <div class="relative mb-4">
+                <input id="passwordRegisterConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input p-2 border rounded w-full" required>
+                <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-4 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <img src="./assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
+                    <img src="./assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+                </button>
+            </div>
+            <!-- Imagen de perfil -->
+            <div class="flex flex-col justify-center items-center mb-4">
+                <img id="previewImage" for="fileInput" src="./assets/img/agregar.png" alt="Imagen de perfil" class="customFileButton w-16 h-16 object-cover rounded-full mb-2 cursor-pointer" />
+                <input type="file" id="fileInput" name="image" class="hidden" accept="image/*" />
+                <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Seleccionar imagen</label>
+            </div>
+            <!-- Botón de Registro -->
+            <button id="submitRegister" type="submit" class="w-full p-2 rounded font-bold text-center bg-brown text-white hover:bg-brown-dark">
+            Registrarse
+            </button>
+        </form>
     </div>
 </div>
 
@@ -220,8 +220,8 @@
 <!-- CDN SweetAlert -->
 <script src="./assets/js/sweetAlert2.js"></script>
 
-<!--  <script>
-   function openLoginModal(){
+<script>
+    function openLoginModal(){
         $('#loginModal').removeClass('hidden').fadeIn(); // Mostrar el modal
         $('body').addClass('overflow-y-hidden');
     }
