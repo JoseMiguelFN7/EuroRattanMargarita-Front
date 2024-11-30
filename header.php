@@ -42,7 +42,7 @@
                     </li>
 
                     <li class="relative mb-2">
-                        <a href="./dashboard/perfl.html" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                        <a href="./dashboard/perfil.php" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                             <div class="flex py-1">
                                 <div class="flex flex-col justify-center">
                                     <span class="mb-1 text-sm font-normal leading-normal font-semibold">Mi Perfil</span>
@@ -177,7 +177,7 @@
             </div>
             <!-- Dirección -->
             <label for="addressRegister" class="text-sm font-medium text-gray-700">Dirección</label>
-            <textarea id="addressRegister" name="address" placeholder="Dirección" class="p-2 border rounded w-full mb-4" maxlength="500" required></textarea>
+            <textarea id="addressRegister" name="address" placeholder="Dirección" class="p-2 border rounded w-full mb-4 resize-none" maxlength="500" required></textarea>
             <!-- Contraseña -->
             <label for="passwordRegister" class="text-sm font-medium text-gray-700">Contraseña</label>
             <div class="relative mb-4">
@@ -261,7 +261,7 @@
                 'Authorization': 'Bearer ' + token
             },
             success: function(response, status, xhr){
-                console.log(response);
+                localStorage.removeItem('authToken');
                 window.location.href = './';
             },
             error: function(xhr, status, error){
@@ -380,16 +380,16 @@
 
         $('#logOutBtn').on('click', function(){
             Swal.fire({
-            icon: 'question',
-            title: '¿Desea cerrar su sesión?',
-            confirmButtonText: 'Confirmar',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            customClass: {
-                confirmButton: 'button-success',
-                cancelButton: 'button-danger'
-            },
-            reverseButtons: true
+                icon: 'question',
+                title: '¿Desea cerrar su sesión?',
+                confirmButtonText: 'Confirmar',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                customClass: {
+                    confirmButton: 'button-success',
+                    cancelButton: 'button-danger'
+                },
+                reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
                     logOut();
@@ -539,7 +539,7 @@
                         titleSwal = 'Por favor verificar los datos ingresados';
                         Object.values(xhr.responseJSON.errors).forEach(errorMessages => {
                             errorMessages.forEach(error => {
-                            textSwal += error + '<br>'; // Agrega cada error al texto
+                                textSwal += error + '<br>'; // Agrega cada error al texto
                             });
                         });
                     } else{

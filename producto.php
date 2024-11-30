@@ -29,33 +29,36 @@
       <div class="w-1 justify-center flex p-2 pt-6">
         <div class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm lg:w-2/3 lg:flex-row">
           <!-- Imagen -->
-          <div class="relative lg:w-1/2 w-full text-gray-600">
-            <img src="./assets/img/home-decor-1.jpg" class="w-full h-auto" alt="Decor Image">
+          <div class="relative md:w-1/2 w-full text-gray-600">
+            <div class="w-full h-72 rounded-2xl flex justify-center items-center p-2">
+              <img id="prodImgMain" src="./assets/img/ERM logo.png" class="w-full h-full object-contain" alt="Decor Image">
+            </div>
             <!-- Botones debajo de la imagen -->
-            <div class="flex justify-evenly mt-4">
-              <button 
+            <div id="images-container" class="flex justify-evenly my-4">
+              
+              <!--<button
                 type="button" 
                 class="inline-block px-1 py-1 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
-                <img src="./assets/img/home-decor-1.jpg" alt="Icon 1" class="inline-block h-10 w-12">
+                <img src="./assets/img/home-decor-1.jpg" alt="Icon 1" class="inline-block h-10 w-12 rounded-sm">
               </button>
               <button 
                 type="button" 
                 class="inline-block px-1 py-1 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
-                <img src="./assets/img/home-decor-2.jpg" alt="Icon 2" class="inline-block h-10 w-12">
+                <img src="./assets/img/home-decor-2.jpg" alt="Icon 2" class="inline-block h-10 w-12 rounded-sm">
               </button>
               <button 
                 type="button" 
                 class="inline-block px-1 py-1 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
-                <img src="./assets/img/home-decor-3.jpg" alt="Icon 3" class="inline-block h-10 w-12">
-              </button>
+                <img src="./assets/img/home-decor-3.jpg" alt="Icon 3" class="inline-block h-10 w-12 rounded-sm">
+              </button>-->
             </div>
           </div>
 
           <!-- Contenido lateral -->
           <div class="w-full p-6 lg:w-1/2">
-            <h1 class="text-2xl font-semibold text-gray-700 text-lg">Nombre</h1>
-            <p class="text-xl text-gray-600 text-lg">Descripción</p>
-            <span class="text-gray-700 mt-3 font-semibold">REF. 125$</span>
+            <h1 id="nombreProd" class="text-2xl font-semibold text-gray-700 text-lg">Nombre</h1>
+            <p id="descProd" class="text-xl text-gray-600 text-lg">Descripción</p>
+            <span id="precioProd" class="text-gray-700 mt-3 font-semibold">REF. 000</span>
             <hr class="my-3">
             <!-- Cantidad -->
             <div class="mt-2">
@@ -64,14 +67,14 @@
                 <button class="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
-                <span class="text-gray-700 text-lg mx-2">20</span>
+                <span class="text-gray-700 text-lg mx-2">0</span>
                 <button class="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
               </div>
             </div>
             <!-- Colores -->
-            <div class="mt-3">
+            <div id="colors-container" class="mt-3">
               <label class="text-gray-700 text-sm" for="count">Color:</label>
               <div class="flex items-center mt-1 ">
                 <button class="h-5 w-5 rounded-full bg-blue-600 border-2 border-blue-200 mr-2 focus:outline-none "></button>
@@ -95,8 +98,8 @@
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col items-center min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
-            <h4 class="mb-1 flex-grow text-center absolute left-0 right-0 mx-auto">Recomendados</h4>
-            <div class="relative w-1/2 flex justify-end">
+            <h4 class="mb-1 flex-grow text-center mx-auto">Recomendados</h4>
+            <!--<div class="relative w-1/2 flex justify-end">
               <div x-data="{ isOpen: false }">
                 <button
                   x-on:click="isOpen = !isOpen"
@@ -168,11 +171,11 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
           <div class="flex-auto p-4">
-            <div id="materials-container" class="flex flex-wrap mx-3">
-              <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
+            <div id="recomendations-container" class="flex flex-wrap mx-3">
+              <!--<div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${material.product.code}';">
                   <div class="relative">
                     <a class="block shadow-xl rounded-2xl">
@@ -272,7 +275,6 @@
                   <div class="relative">
                     <a class="block shadow-xl rounded-2xl">
                         <img src="./assets/img/home-decor-2.jpg" alt="img-blur-shadow" class="max-w-full shadow-soft-2xl rounded-2xl" />
-
                     </a>
                   </div>
                   <div class="flex-auto px-1 pt-6">
@@ -323,7 +325,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
           <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>
@@ -350,4 +352,104 @@
 
   <!-- CDN SweetAlert -->
   <script src="./assets/js/sweetAlert2.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      const codProduct = new URLSearchParams(window.location.search).get('cod');
+      
+      if(codProduct){
+        $.ajax({
+          url: `http://127.0.0.1:8000/api/product/cod/${codProduct}`,
+          type: 'GET',
+          dataType: 'json',
+          success: function(response){
+            const price = response.material.price;
+            $('#prodImgMain').attr('src', response.images[0].url);
+            $('#nombreProd').text(response.name);
+            $('#descProd').text(response.description);
+            $('#precioProd').text(`REF. ${price}`);
+
+            if(response.colors.length === 0){
+              $('#colors-container').remove();
+            }
+
+            let imagesHTML = '';
+
+            response.images.forEach(image => {
+              imagesHTML += `
+                <button
+                type="button" 
+                class="img-preview inline-block h-12 w-12 px-1 py-1 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
+                  <img src="${image.url}" alt="Icon" class="inline-block h-full w-full rounded-sm object-contain">
+                </button>
+              `;
+            });
+
+            $('#images-container').html('').append(imagesHTML)
+
+            $('.img-preview').on('click', function(){
+              $('#prodImgMain').attr('src', $(this).find('img').attr('src'));
+            });
+
+            //rellenar recomendados
+            const fieldsToCheck = ['material', 'furniture', 'set'];
+            // Encuentra el primer campo relevante que no sea null
+            const productType = fieldsToCheck.find(field => response[field] !== null);
+            let urlAPI = '';
+            let types;
+            switch(productType){
+              case 'material':
+                urlAPI += 'http://127.0.0.1:8000/api/materialsByType/8';
+                types = {
+                  materialTypes: response[productType].material_types.map(type => type.name),
+                  code: codProduct
+                }
+                break;
+            }
+
+            $.ajax({
+              url: urlAPI,
+              type: 'GET',
+              dataType: 'json',
+              data: types,
+              success: function(r){
+                let recomendationHTML = '';
+                r.forEach(prod => {
+                  recomendationHTML += `
+                    <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
+                      <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${prod.product.code}';">
+                        <div class="relative w-full h-48">
+                          <a class="block shadow-xl rounded-2xl w-full h-full p-2">
+                            <img src="${prod.product.image}" alt="img-material" class="w-full h-full object-contain rounded-2xl"/>
+                          </a>
+                        </div>
+                        <div class="flex-auto px-1 pt-6">
+                          <a href="javascript:;">
+                            <h5 class="mt-1">${prod.product.name}</h5>
+                          </a>
+                          <p class="mb-6 leading-normal text-sm">REF. ${prod.price}</p>
+                          <div class="flex items-center justify-between">
+                            <button type="button" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Más Información</button> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                });
+                $('#recomendations-container').html('').append(recomendationHTML);
+              },
+              error: function(err){
+                console.log(err);
+              }
+            });
+          },
+          error: function(xhr){
+            console.log(xhr);
+          }
+        });
+      } else{
+        errorMsg();
+      }
+    });
+  </script>
 </html>
