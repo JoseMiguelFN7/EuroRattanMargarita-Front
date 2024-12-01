@@ -79,7 +79,7 @@
               x-show="isOpen"
               x-on:click.away="isOpen = false"
               x-on:keydown.escape.window="isOpen = false"
-              class="absolute start-0 top-auto z-50 mt-2"
+              class="absolute start-0 top-auto z-40 mt-2"
             >
               <div class="w-96 rounded border border-gray-200 bg-white">
                 <header class="flex items-center justify-between p-4">
@@ -335,19 +335,19 @@
                   x-show="isOpen"
                   x-on:click.away="isOpen = false"
                   x-on:keydown.escape.window="isOpen = false"
-                  class="absolute right-0 top-auto z-50 mt-2"
+                  class="absolute right-0 top-auto z-40 mt-2"
                 >
                   <div class="w-96 rounded border border-gray-200 bg-white">
-                    <header class="flex items-center justify-between p-4">
+                    <!--<header class="flex items-center justify-between p-4">
                       <span class="text-sm text-gray-700"> 0 Selected </span>
           
                       <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
                         Reset
                       </button>
-                    </header>
+                    </header>-->
           
-                    <ul class="space-y-1 border-t border-gray-200 p-4">
-                      <li>
+                    <ul id="materialTypeFilter" class="space-y-1 border-t border-gray-200 p-4 max-h-32 overflow-y-scroll">
+                      <!--<li>
                         <label for="FilterInStock" class="inline-flex items-center gap-2">
                           <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
           
@@ -356,24 +356,20 @@
                       </li>
           
                       <li>
-                        <label for="FilterPreOrder" class="inline-flex items-center gap-2">
+                        <a for="FilterPreOrder" class="inline-flex items-center gap-2">
                           <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
-          
+        
                           <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
-                        </label>
+                        </a>
                       </li>
           
                       <li>
                         <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
-                          <input
-                            type="checkbox"
-                            id="FilterOutOfStock"
-                            class="size-5 rounded border-gray-300"
-                          />
+                          <input type="checkbox" id="FilterOutOfStock" class="size-5 rounded border-gray-300"/>
           
                           <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
                         </label>
-                      </li>
+                      </li>-->
                     </ul>
                   </div>
                 </div>
@@ -575,7 +571,7 @@
                   x-show="isOpen"
                   x-on:click.away="isOpen = false"
                   x-on:keydown.escape.window="isOpen = false"
-                  class="absolute right-0 top-auto z-50 mt-2"
+                  class="absolute right-0 top-auto z-40 mt-2"
                 >
                   <div class="w-96 rounded border border-gray-200 bg-white">
                     <header class="flex items-center justify-between p-4">
@@ -816,7 +812,7 @@
                   x-show="isOpen"
                   x-on:click.away="isOpen = false"
                   x-on:keydown.escape.window="isOpen = false"
-                  class="absolute right-0 top-auto z-50 mt-2"
+                  class="absolute right-0 top-auto z-40 mt-2"
                 >
                   <div class="w-96 rounded border border-gray-200 bg-white">
                     <header class="flex items-center justify-between p-4">
@@ -1116,6 +1112,32 @@
         },
         error: function(xhr, status, error){
           errorMsg();
+          console.log(xhr);
+        }
+      });
+
+      //insertar filtro MT
+      $.ajax({
+        url: 'http://127.0.0.1:8000/api/materialTypes',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response){
+          console.log(response);
+
+          let mtHTML = '';
+          response.forEach(mt => {
+            mtHTML += `
+              <li>
+                <a href='#' class="inline-flex items-center gap-2">
+                  <span class="text-sm font-medium text-gray-700 hover:text-brown transition-all">${mt.name}</span>
+                </a>
+              </li>
+            `;
+          });
+
+          $('#materialTypeFilter').empty().append(mtHTML);
+        },
+        error: function(xhr){
           console.log(xhr);
         }
       });
