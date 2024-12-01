@@ -49,7 +49,7 @@
     </section>
 
     <section class="flex w-full gap-4 px-8 mt-6">
-      <div class="flex flex-none items-center w-1/3 mt-0 flex-row flex-wrap px-3 md:flex-none xl:mb-0 xl:w-3/12 ">
+      <!--<div class="flex flex-none items-center w-1/3 mt-0 flex-row flex-wrap px-3 md:flex-none xl:mb-0 xl:w-3/12 ">
         <div class="relative">
           <div x-data="{ isOpen: false }">
             <button
@@ -79,18 +79,10 @@
               x-show="isOpen"
               x-on:click.away="isOpen = false"
               x-on:keydown.escape.window="isOpen = false"
-              class="absolute start-0 top-auto z-40 mt-2"
+              class="absolute start-0 top-auto z-40 mt-2 w-48"
             >
-              <div class="w-96 rounded border border-gray-200 bg-white">
-                <header class="flex items-center justify-between p-4">
-                  <span class="text-sm text-gray-700"> The highest price is $600 </span>
-      
-                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
-                    Reset
-                  </button>
-                </header>
-      
-                <div class="border-t border-gray-200 p-4">
+              <div class="w-96 rounded border border-gray-200 bg-white p-4">
+                <div class="border-t border-gray-200">
                   <div class="flex justify-between gap-4">
                     <label for="FilterPriceFrom" class="flex items-center gap-2">
                       <span class="text-sm text-gray-600">$</span>
@@ -98,8 +90,9 @@
                       <input
                         type="number"
                         id="FilterPriceFrom"
-                        placeholder="From"
+                        placeholder="Desde"
                         class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                        min="0"
                       />
                     </label>
       
@@ -110,27 +103,27 @@
                       <input
                         type="number"
                         id="FilterPriceTo"
-                        placeholder="To"
+                        placeholder="Hasta"
                         class="w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+                        min="0"
                       />
                     </label>
                   </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                    Borrar
+                  </button>
+                  <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                    Buscar
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex flex-end items-center w-2/3 mt-0 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
-        <div class="flex items-center w-full md:pr-4">
-          <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-            <span class="text-sm ease-soft leading-5.6 absolute z-10 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-              <i class="fas fa-search"></i>
-            </span>
-            <input type="text" class="pl-8.75 text-sm focus:shadow-soft-brown-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" placeholder="Buscar..." />
-          </div>
-        </div>
-      </div>
+      </div>-->
+      <?php include './searchBar.php' ?>
     </section>
 
 
@@ -532,7 +525,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>
+          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href = './search.php?materials=true'">+ Ver Más...</button>
         </div>
       </div>
     </section>
@@ -773,7 +766,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>
+          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href = './search.php?furnitures=true'">+ Ver Más...</button>
         </div>
       </div>
     </section>
@@ -1014,7 +1007,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>
+          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href = './search.php?sets=true'">+ Ver Más...</button>
         </div>
       </div>
     </section>
@@ -1128,7 +1121,7 @@
           response.forEach(mt => {
             mtHTML += `
               <li>
-                <a href='#' class="inline-flex items-center gap-2">
+                <a href='./search.php?materialType=${mt.name}' class="inline-flex items-center gap-2">
                   <span class="text-sm font-medium text-gray-700 hover:text-brown transition-all">${mt.name}</span>
                 </a>
               </li>

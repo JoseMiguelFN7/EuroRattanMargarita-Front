@@ -1642,6 +1642,10 @@ h6 {
   min-width: 11rem;
 }
 
+.min-w-full {
+  min-width: 100%;
+}
+
 .max-w-62\.5 {
   max-width: 15.625rem;
 }
