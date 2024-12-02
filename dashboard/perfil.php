@@ -27,8 +27,8 @@
         <div class="h-19.5">
           <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden" sidenav-close></i>
           <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700" href="javascript:;" target="_blank">
-            <img src="../assets/img/ERM logo.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
-            <span class="mb-0 font-semibold text-stroke-brown capitalize text-6xl md:text-lg ">Joao Ferreira</span>
+            <img id="userImage" src="../assets/img/ERM logo.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8 object-cover rounded-full" alt="main_logo" />
+            <span id="username" class="mb-0 font-semibold text-stroke-brown capitalize text-6xl md:text-lg ">Joao Ferreira</span>
           </a>
         </div>
   
@@ -453,6 +453,7 @@
           success: function(response){
             console.log(response);
             $('#name').val(response.name);
+            $('#username').text(response.name);
             $('#email').val(response.email);
             $('#documentType').val(response.document[0]);
             $('#documentNumber').val(response.document.substr(1, response.document.length-1));
@@ -461,6 +462,7 @@
             $('#cellphoneNumber').val(cel[1]);
             $('#address').val(response.address);
             $('#previewImage').attr('src', response.image);
+            $('#userImage').attr('src', response.image);
             $('#updateBtn').prop('disabled', false);
           }
         });
