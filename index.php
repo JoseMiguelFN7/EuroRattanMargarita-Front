@@ -306,7 +306,7 @@
                   type="button"
                   class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
                 >
-                  <span class="text-sm font-medium"> Tipo de Material </span>
+                  <span class="text-xxs md:text-sm font-medium"> Tipo de Material </span>
           
                   <span class="transition" :class="{ '-rotate-180': isOpen }">
                     <svg
@@ -542,7 +542,7 @@
                   type="button"
                   class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
                 >
-                  <span class="text-sm font-medium"> Tipo de Mueble </span>
+                  <span class="text-xxs md:text-sm font-medium"> Tipo de Mueble </span>
           
                   <span class="transition" :class="{ '-rotate-180': isOpen }">
                     <svg
@@ -783,7 +783,7 @@
                   type="button"
                   class="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600"
                 >
-                  <span class="text-sm font-medium"> Tipo de Juego </span>
+                  <span class="text-xxs md:text-sm font-medium"> Tipo de Juego </span>
           
                   <span class="transition" :class="{ '-rotate-180': isOpen }">
                     <svg

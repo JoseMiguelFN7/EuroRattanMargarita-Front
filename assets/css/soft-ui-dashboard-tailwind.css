@@ -4066,6 +4066,11 @@ input.appearance-none-number-input {
 }
 
 @media (min-width: 768px) {
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+  
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;

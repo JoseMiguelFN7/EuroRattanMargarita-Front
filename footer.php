@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="flex md:flex-row flex-row-reverse items-center md:justify-end justify-center mt-4">
-                    <a class="text-gray-400" href="tel:+58 414 7894819">+58 414 7894819</a>
+                    <a class="text-gray-400" href="tel:+584147894819">+58 414 7894819</a>
                     <img src="./assets/img/icons8-teléfono-32.png" alt="cellphone Icon" width="24" height="24" class="mr-2 md:ml-2 md:mr-0">
                 </div>
                 <div class="flex md:flex-row flex-row-reverse items-center md:justify-end justify-center mt-4">
