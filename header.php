@@ -6,7 +6,7 @@
                 <li class="text-sm leading-normal">
                     <img src="./assets/img/ERM logo.png" class="inline-flex items-center justify-center mr-4 text-sm text-white h-16 w-16 max-w-none rounded-xl" alt="logo">
                 </li>
-                <h1 class="mb-0 font-bamboo text-stroke-brown capitalize text-xl inline-block md:text-6xl">Euro Rattan Margarita</h1>
+                <h1 class="mb-0 font-bamboo text-brown md:text-stroke-brown capitalize text-xl inline-block md:text-6xl">Euro Rattan Margarita</h1>
             </ol>
         </nav>
 

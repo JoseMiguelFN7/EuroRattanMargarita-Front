@@ -2873,6 +2873,10 @@ input.appearance-none-number-input {
   color: rgb(63 33 18);
 }
 
+.text-light-brown {
+  color: #bf8449;
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -4069,6 +4073,11 @@ input.appearance-none-number-input {
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.5rem;
+  }
+  
+  .md\:text-stroke-brown {
+    -webkit-text-stroke: 0.01px #bf8449; /* Contorno de 2px en negro */
+    color: black; /* Color de relleno del texto */
   }
   
   .md\:text-lg {
