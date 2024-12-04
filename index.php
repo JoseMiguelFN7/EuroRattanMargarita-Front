@@ -1041,12 +1041,16 @@
           $('#products-container').empty();
 
           response.forEach(product => {
+            let image = product.image;
+            if(!image){
+              image = './assets/img/no-image.png';
+            }
             const productHTML = `
               <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${product.code}';">
                   <div class="relative w-full h-48">
                     <a class="block shadow-xl rounded-2xl w-full h-full p-2">
-                      <img src="${product.image}" alt="img-product" class="w-full h-full object-contain rounded-2xl" />
+                      <img src="${image}" alt="img-product" class="w-full h-full object-contain rounded-2xl" />
                     </a>
                   </div>
                   <div class="flex-auto px-1 pt-6">
@@ -1080,12 +1084,16 @@
           $('#materials-container').empty();
 
           response.forEach(material => {
+            let image = material.product.image;
+            if(!image){
+              image = './assets/img/no-image.png';
+            }
             const materialHTML = `
               <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${material.product.code}';">
                   <div class="relative w-full h-48">
                     <a class="block shadow-xl rounded-2xl w-full h-full p-2">
-                      <img src="${material.product.image}" alt="img-material" class="w-full h-full object-contain rounded-2xl" />
+                      <img src="${image}" alt="img-material" class="w-full h-full object-contain rounded-2xl" />
                     </a>
                   </div>
                   <div class="flex-auto px-1 pt-6">

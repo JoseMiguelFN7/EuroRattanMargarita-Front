@@ -11,7 +11,7 @@
             </div>
             <!-- Sección Nombre de la Empresa --> 
             <div class="w-full md:w-1/3 mb-6 md:mb-0 pt-2"> 
-                <h1 class="text-3xl font-bamboo text-center text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Euro Rattan Margarita</h1>
+            <h1 class="text-3xl font-bamboo text-center text-light-brown md:text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Euro Rattan Margarita</h1>
             </div>
             <!-- Sección de Redes Sociales --> 
             <div class="w-full text-center md:text-right md:w-1/3 mb-6 md:mb-0 flex flex-col"> 

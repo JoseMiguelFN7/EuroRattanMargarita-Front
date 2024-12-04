@@ -328,7 +328,7 @@
               </div>-->
             </div>
           </div>
-          <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>
+          <!--<button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">+ Ver Más...</button>-->
         </div>
       </div>
     </section>
@@ -364,7 +364,9 @@
           dataType: 'json',
           success: function(response){
             const price = response.material.price;
-            $('#prodImgMain').attr('src', response.images[0].url);
+            if(response.images.length !== 0){
+              $('#prodImgMain').attr('src', response.images[0].url);
+            }
             $('#nombreProd').text(response.name);
             $('#descProd').text(response.description);
             $('#precioProd').text(`REF. ${price}`);
@@ -415,12 +417,16 @@
               success: function(r){
                 let recomendationHTML = '';
                 r.forEach(prod => {
+                  let image = prod.product.image;
+                  if(!image){
+                    image = './assets/img/no-image.png';
+                  }
                   recomendationHTML += `
                     <div class="w-full max-w-full px-3 mb-6 md:w-6/12 md:mb-3 md:flex-none xl:w-3/12">
                       <div class="relative flex flex-col min-w-0 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border cursor-pointer" onclick="window.location.href='./producto.php?cod=${prod.product.code}';">
                         <div class="relative w-full h-48">
                           <a class="block shadow-xl rounded-2xl w-full h-full p-2">
-                            <img src="${prod.product.image}" alt="img-material" class="w-full h-full object-contain rounded-2xl"/>
+                            <img src="${image}" alt="img-material" class="w-full h-full object-contain rounded-2xl"/>
                           </a>
                         </div>
                         <div class="flex-auto px-1 pt-6">
