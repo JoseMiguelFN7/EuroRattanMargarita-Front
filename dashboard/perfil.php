@@ -31,79 +31,121 @@
             <span id="username" class="mb-0 font-semibold text-stroke-brown capitalize text-6xl md:text-lg ">Joao Ferreira</span>
           </a>
         </div>
-  
+
         <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent" />
-  
         <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
-          <ul class="flex flex-col pl-0 mb-0">
-            <li class="mt-0.5 w-full">
-              <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors" href="../pages/dashboard.html">
-                <div class="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                  <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>shop</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                        <g transform="translate(1716.000000, 291.000000)">
-                          <g transform="translate(0.000000, 148.000000)"> 
-                            <path
-                              class="opacity-60"
-                              d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z"
-                            ></path>
-                            <path
-                              class=""
-                              d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z"
-                            ></path>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
+            <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+            <nav class="mt-10 mt-0.5 w-full">
+                <div x-data="{ open: false }">
+                    <button class="text-black">
+                        <span class="flex items-center text-xl py-3 px-0">
+                            <span class="mx-4 font-medium hover:text-white ">Dashboard</span>
+                        </span>
+                    </button>
                 </div>
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft ">Ver Usuarios</span>
-              </a>
-            </li>
+
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
+                        <span class="flex items-center">
+                            <span class="font-medium hover:text-white ">Usuario</span>
+                        </span>
+
+                        <span>
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="! open" d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"></path>
+                                <path x-show="open" d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <div x-show="open" class="bg-gray-100">
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Mi perfil</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Lista de usuarios</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Usuarios</a>
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
+                        <span class="flex items-center">
+                            
+
+                            <span class="font-medium hover:text-white">Materiales</span>
+                        </span>
+
+                        <span>
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="! open" d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"></path>
+                                <path x-show="open" d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <div x-show="open" class="bg-gray-100">
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">materiales</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">muebles</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">juegos</a>
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
+                        <span class="flex items-center">
+                            
+
+                            <span class="font-medium hover:text-white">Muebles</span>
+                        </span>
+
+                        <span>
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="! open" d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"></path>
+                                <path x-show="open" d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <div x-show="open" class="bg-gray-100">
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">materiales</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">muebles</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">juegos</a>
+                    </div>
+                </div>
+
+                <div x-data="{ open: false }">
+                    <button @click="open = !open" class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
+                        <span class="flex items-center">
+                            
+
+                            <span class="font-medium hover:text-white">Juegos</span>
+                        </span>
+
+                        <span>
+                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path x-show="! open" d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"></path>
+                                <path x-show="open" d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                    </button>
+
+                    <div x-show="open" class="bg-gray-100">
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">materiales</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">muebles</a>
+                        <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">juegos</a>
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="absolute bottom-0 my-8">
+                <a class="flex items-center py-2 px-8 text-black text-xl hover:text-gray-600" href="#">
+                    <span>Cerrar Sesion</span>
+                </a>
+            </div>
+          
+      
+    
   
-            <li class="mt-0.5 w-full">
-              <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/tables.html">
-                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                  <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>office</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                        <g transform="translate(1716.000000, 291.000000)">
-                          <g transform="translate(153.000000, 2.000000)">
-                            <path class="fill-slate-800 opacity-60" d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z"></path>
-                            <path class="fill-slate-800" d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z"></path>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </div>
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Crear Usuarios</span>
-              </a>
-            </li>
-  
-            <li class="mt-0.5 w-full">
-              <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/billing.html">
-                <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                  <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <title>credit-card</title>
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                        <g transform="translate(1716.000000, 291.000000)">
-                          <g transform="translate(453.000000, 454.000000)">
-                            <path class="fill-slate-800 opacity-60" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"></path>
-                            <path class="fill-slate-800" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
-                          </g>
-                        </g>
-                      </g>
-                    </g>
-                  </svg>
-                </div>
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Crear</span>
-              </a>
-            </li>
+            
   <!-- #region 
             <li class="mt-0.5 w-full hidden">
               <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="../pages/virtual-reality.html">
@@ -176,12 +218,9 @@
             </li>
   -->
 
-            <li class="mt-0.5 w-full">
-              <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors" href="">
-               
       <!--         
              <div class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-<!--
+
                   <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" >
                     <title>document</title>
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -195,22 +234,16 @@
                       </g>
                     </g>
                   </svg>
-                </div>--> 
-
-
-                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Cerrar Sesion</span>
-              </a>
-            </li>
-  
-          </ul>
-        </div>
+                </div>-->
+         
       </aside>
   
 
       <!-- end sidenav -->
-      <header class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200" >
-       <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
-        <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+
+      <main class="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+      <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="true">
+        <div class="flex items-center justify-start w-full px-4 py-1 mx-auto flex-wrap-inherit">
             <!-- breadcrumb -->
             <ol class="flex flex-wrap items-center pt-1 bg-transparent rounded-lg cursor-pointer" onclick="window.location.href='../'">
             <li class="text-sm leading-normal">
@@ -318,7 +351,7 @@
             </li>-->
         </ul>
         </div>
-    </header>
+   
 
 
     <section>
@@ -326,7 +359,7 @@
       <h2 class="p-4 flex relative justify-center text-gray-600 pt-6">
         Mi perfil
       </h2>
-      <div class="w-1 justify-center flex p-2 pt-4">
+      <div class="w-1 justify-left flex p-2 pt-4 md:justify-center">
 
         <form id="formUpdate" enctype="multipart/form-data" class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm lg:w-2/3 lg:flex-row ">
           <!-- Imagen -->
@@ -415,6 +448,23 @@
         </form>
       </div>
     </section>
+          <footer class="pt-4">
+                <div class="w-full px-6 mx-auto">
+                  <div class="justify-center items-center -mx-3 lg:justify-between">
+                    <div class="w-full max-w-full px-3 p-6 py-7 mt-0 mb-6 shrink-0 lg:mb-0 ">
+                      <div class="text-sm leading-normal text-center text-slate-500 lg:text-center ">
+                        <a href="" class="font-semibold text-slate-700" target="_blank"> &copy; 2024 Euro Rattan Margarita. Todos los derechos reservados.</a>      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </footer>
+        
+
+
+      </div>
+
+</main> 
 
 </body>
   <!-- plugin for charts  -->
@@ -432,6 +482,8 @@
 
   <!-- CDN SweetAlert -->
   <script src="../assets/js/sweetAlert2.js"></script>
+  
+  
 
   <script>
     $(document).ready(function(){

@@ -1852,6 +1852,10 @@ input.appearance-none-number-input {
   justify-content: center;
 }
 
+.justify-left {
+  justify-content: end;
+}
+
 .justify-between {
   justify-content: space-between;
 }
