@@ -127,7 +127,7 @@
 
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <script>
+<script>
     $(document).ready(function(){
       $('.customFileButton').on('click', function() {
         $('#fileInput').click(); // Simula un clic en el input de archivo
@@ -263,5 +263,5 @@
         eyeOpen.addClass("hidden");
       }
     });
-  </script>
+  </script> 
 </html>

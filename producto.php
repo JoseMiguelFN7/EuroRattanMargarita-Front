@@ -352,7 +352,7 @@
 
   <!-- CDN SweetAlert -->
   <script src="./assets/js/sweetAlert2.js"></script>
-
+<!--
   <script>
     $(document).ready(function(){
       const codProduct = new URLSearchParams(window.location.search).get('cod');
@@ -457,5 +457,5 @@
         errorMsg();
       }
     });
-  </script>
+  </script>-->
 </html>

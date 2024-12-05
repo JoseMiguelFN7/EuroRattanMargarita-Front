@@ -4627,4 +4627,10 @@ input.appearance-none-number-input {
   .xl-max\:opacity-65 {
     opacity: 0.65;
   }
+
+  .th-small {
+    width: 50px; /* O cualquier ancho deseado */
+    text-align: center;
+  }
+
 }
