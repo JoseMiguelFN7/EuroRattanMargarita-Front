@@ -4498,6 +4498,10 @@ input.appearance-none-number-input {
     margin-left: 1rem;
   }
 
+  .xl\:ml-sidebar {
+    margin-left: 15.625rem;
+  }
+
   .xl\:hidden {
     display: none;
   }
