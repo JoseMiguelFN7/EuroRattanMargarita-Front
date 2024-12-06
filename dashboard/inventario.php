@@ -43,46 +43,52 @@
           </div>
         </div>
 
-<div class="flex flex-wrap mx-3 p-4">
-  <div class="flex-none w-full max-w-full px-3">
-    <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-      <div class="flex-auto">
-        <!-- Define un alto máximo y overflow-y: auto -->
-        <div class="max-h-96 overflow-y-auto border border-gray-300 rounded-lg p-4">
-          <table class=" table-auto border-collapse overflow-y-scroll w-full ">
-            <thead class="bg-gray-100 sticky top-0 z-10 ">
-              <tr class="w-full">
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Cod.</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Nombre</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Precio</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">PrecioC</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Stock</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Ejemplo de filas -->
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <!-- Repite filas -->
-            </tbody>
-          </table>
+  <div class="flex flex-wrap mx-3 p-4">
+    <div class="flex-none w-full max-w-full px-3">
+      <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+        <div class="flex-auto">
+          <!-- Define un alto máximo y overflow-y: auto -->
+          <div class="max-h-96 overflow-y-auto border border-gray-300 rounded-lg p-4">
+            <table class=" table-auto border-collapse overflow-y-scroll w-full ">
+              <thead class="bg-gray-100 sticky top-0 z-10 border-collapse ">
+                <tr class="w-full border-b border-gray-300">
+                  <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b ">Cod.</th>
+                  <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b">Nombre</th>
+                  <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b">Precio</th>
+                  <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b">PrecioC</th>
+                  <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b">Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Ejemplo de filas -->
+                <tr class="w-full">
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                  <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </td>
+                </tr>
+                <tr class="bg-gray-50">
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">002</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto B</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$15.00</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$12.00</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">30</td>
+                  <td class="p-2 align-middle bg-transparent border-b whitespace-nowrap shadow-transparent border-gray-300">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </td>
+                </tr>
+                <!-- Repite filas -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
             
 
