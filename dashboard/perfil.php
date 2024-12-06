@@ -44,7 +44,28 @@
                 <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Cambiar Imagen</label>
               </div>
 
-              <center><button id="updateBtn" type="submit" class="w-1/2 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" disabled>Enviar</button></center>
+              <div class="flex flex-col justify-start w-full pl-12">
+                <!-- Contraseña -->
+                <label for="password" class="text-2xl font-semibold text-gray-700 text-lg justify-center items-center">Contraseña</label>
+                <div class="mb-8 flex relative mb-4 items-center">
+                  <input id="password" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
+                  <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
+                    <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+                  </button>
+                </div>
+                <!-- Confirmación de Contraseña -->
+                <label for="passwordConfirm" class="text-2xl font-semibold text-gray-700 text-lg">Confirmar Contraseña</label>
+                <div class="mb-8 flex relative mb-4 items-center">
+                  <input id="passwordConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
+                  <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
+                    <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
+                  </button>
+                </div>
+              </div>
+
+              <center><button id="updateBtn" type="submit" class="w-1/2 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" disabled>Actualizar Datos</button></center>
             </div>
 
             <!-- Contenido lateral -->
@@ -86,25 +107,6 @@
               <label for="address" class="text-2xl font-semibold text-gray-700 text-lg">Ubicación</label>
               <div class="mb-8 flex flex-col md:flex-row mb-4">
                 <textarea id="address" name="address" placeholder="Ingresa tu Ubicación" class="resize-none mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0"></textarea>
-              </div>
-
-              <!-- Contraseña -->
-              <label for="password" class="text-2xl font-semibold text-gray-700 text-lg">Cambiar Contraseña</label>
-              <div class="mb-8 flex relative mb-4">
-                <input id="password" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
-                <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
-                  <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
-                  <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
-                </button>
-              </div>
-              <!-- Confirmación de Contraseña -->
-              <label for="passwordConfirm" class="text-2xl font-semibold text-gray-700 text-lg">Confirmar Contraseña</label>
-              <div class="mb-8 flex relative mb-4">
-                <input id="passwordConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
-                <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
-                  <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
-                  <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
-                </button>
               </div>
               <!-- Más contenido -->
             </div>
@@ -195,7 +197,7 @@
           success: function(response){
             console.log(response);
             Swal.fire({
-              title: 'Usuario actualizado exitosamente',
+              title: 'Usuario actualizado exitósamente',
               icon: 'success',
               timer: 3000,
               timerProgressBar: true,

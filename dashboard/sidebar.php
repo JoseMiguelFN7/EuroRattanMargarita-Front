@@ -35,9 +35,9 @@
                 </button>
 
                 <div x-show="activeMenu === 'usuario'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Mi perfil</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./perfil.php">Mi perfil</a>
                     <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Lista de usuarios</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Usuario</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear_usuario.php">Crear Usuario</a>
                 </div>
             </div>
 
@@ -57,9 +57,8 @@
                 </button>
 
                 <div x-show="activeMenu === 'materiales'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">materiales</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">muebles</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">juegos</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear</a>
                 </div>
             </div>
 
@@ -211,7 +210,6 @@
 <script src="../assets/js/sweetAlert2.js"></script>
 
 <script>
-    
     const token = localStorage.getItem('authToken');
     if(!token){
         window.location.href = '../';
