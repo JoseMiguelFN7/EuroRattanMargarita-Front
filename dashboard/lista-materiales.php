@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Rattan Margarita</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/ERM logo.ico" />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
@@ -27,20 +28,15 @@
 
         <section class="">
           <div class="md:mb-0 pt-6"> 
-            <h1 class=" text-xxl font-medium text-center text-gray-600 md:text-stroke-brown cursor-pointer">Lista de Materiales</h1>
+            <h2 class=" text-xxl font-medium text-center text-gray-600 md:text-stroke-brown">Lista de Materiales</h2>
           </div>
         </section>
 
-        <div class="flex flex-end items-center p-6 py-1 mt-0 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
-          <div class="flex items-center w-full md:pr-4">
-              <form id="formBuscar" method="get" action="./search.php" class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-                  <span class="text-sm ease-soft leading-5.6 absolute z-10 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                      <i class="fas fa-search"></i>
-                  </span>
-                  <input type="text" name="search" class="mr-2 pl-8.75 text-sm focus:shadow-soft-brown-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" placeholder="Buscar..." required/>
-                  <button type="submit" class="px-8 py-2 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Buscar</button>
-              </form>
-          </div>
+        <div class="px-7 relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+          <span class="text-sm ease-soft leading-5.6 absolute z-10 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+            <i class="fas fa-search"></i>
+          </span>
+          <input id="searchInput" type="text" class="pl-8.75 text-sm focus:shadow-soft-brown-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" placeholder="Buscar..."/>
         </div>
 
 <div class="flex flex-wrap mx-3 p-4">
@@ -50,241 +46,214 @@
         <!-- Define un alto máximo y overflow-y: auto -->
         <div class="border border-gray-300 rounded-lg p-4">
           <table class="table-auto border-collapse w-full ">
-            <thead class="bg-gray-100">
-              <tr class="w-full">
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Cod.</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Nombre</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Precio</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">PrecioC</th>
-                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border border-gray-300">Stock</th>
+            <thead class="bg-gray-100 border-collapse">
+              <tr class="w-full border-b border-gray-300">
+              <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Imagen</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Cod.</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Nombre</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Precio</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Stock</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Descuento</th>
+                <th class="px-4 py-2 font-bold text-center text-sm text-gray-700 border-b border-gray-300">Acción</th>
               </tr>
             </thead>
-            <tbody class="overflow-y-auto h-64">
+            <tbody id="tableBody">
               <!-- Ejemplo de filas -->
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
               <!-- Repite filas -->
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
-              </tr>
-              <tr>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">50</td>
-              </tr>
-              <tr class="bg-gray-50">
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">002</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">Producto B</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$15.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">$12.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border border-gray-300">30</td>
+              <tr class="w-full odd:bg-white even:bg-gray-50">
+                <td class="px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                  <div class="flex">
+                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -310,4 +279,116 @@
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <script>
+      $(document).ready(function(){
+        // Evento de búsqueda
+        $('#searchInput').on('keyup', function() {
+          let value = $(this).val().toLowerCase();
+          $('tbody tr').filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+
+        $('body').on('click', '.product-img', function(){
+          Swal.fire({
+            imageUrl: $(this).find('img').attr('src'),
+            imageAlt: "product imgage",
+            padding: '2rem',
+            showConfirmButton: false
+          });
+        });
+
+        $('body').on('click', '.delete-material', function(){
+          Swal.fire({
+            icon: 'warning',
+            title: '¿Desea borrar este material?',
+            text: 'Esta acción no se puede revertir',
+            confirmButtonText: 'Eliminar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            customClass: {
+              confirmButton: 'button-danger',
+              cancelButton: 'button-success'
+            },
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const id = $(this).find('img').data('material-id');
+              $.ajax({
+                url: `http://127.0.0.1:8000/api/material/${id}`,
+                type: 'DELETE',
+                dataType: 'json',
+                success: function(result, status, xhr){
+                  if(status==200){
+                    Swal.fire({
+                      icon: 'success',
+                      title: result.message,
+                      timer: 3000,
+                      timerProgressBar: true,
+                    }).finally(() => {
+                      window.location.href = './lista-materiales.php';
+                    });
+                  } else{
+                    console.log(xhr);
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Ocurrió un error',
+                      text: xhr.responseJSON.title,
+                      timer: 3000,
+                      timerProgressBar: true,
+                    });
+                  }
+                },
+                error: function(xhr){
+                  console.log(xhr);
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Ocurrió un error',
+                    timer: 3000,
+                    timerProgressBar: true,
+                  });
+                }
+              });
+            }
+          });
+        });
+
+        $.ajax({
+          url: 'http://127.0.0.1:8000/api/materials',
+          type: 'GET',
+          dataType: 'json',
+          success: function(response){
+            console.log(response);
+            let matTableBodyHTML = '';
+
+            response.forEach(material => {
+              let image = material.product.image;
+              if(!image){
+                image = './assets/img/no-image.png';
+              }
+              matTableBodyHTML += `
+                <tr class="w-full odd:bg-white even:bg-gray-50">
+                  <td class="product-img px-4 py-2 border-b border-gray-300">
+                    <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                  </td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}</td>
+                  <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                    <div class="flex flex-wrap items-center justify-evenly">
+                      <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                      <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    </div>
+                  </td>
+                </tr>
+              `;
+            });
+
+            $('#tableBody').html('').append(matTableBodyHTML)
+          }
+        });
+      });
+    </script>
 </html>
