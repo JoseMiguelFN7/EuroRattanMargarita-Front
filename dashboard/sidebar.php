@@ -58,7 +58,7 @@
 
                 <div x-show="activeMenu === 'materiales'" class="bg-gray-100">
                     <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Material</a>
                 </div>
             </div>
 
@@ -78,9 +78,8 @@
                 </button>
 
                 <div x-show="activeMenu === 'muebles'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">materiales</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">muebles</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">juegos</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-muebles.php">Lista de Muebles</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Mueble</a>
                 </div>
             </div>
 

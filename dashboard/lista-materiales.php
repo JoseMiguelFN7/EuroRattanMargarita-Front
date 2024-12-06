@@ -32,12 +32,7 @@
           </div>
         </section>
 
-        <div class="px-7 relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-          <span class="text-sm ease-soft leading-5.6 absolute z-10 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-            <i class="fas fa-search"></i>
-          </span>
-          <input id="searchInput" type="text" class="pl-8.75 text-sm focus:shadow-soft-brown-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-brown focus:outline-none focus:transition-shadow" placeholder="Buscar..."/>
-        </div>
+        <?php include './searchBar.php' ?>
 
 <div class="flex flex-wrap mx-3 p-4">
   <div class="flex-none w-full max-w-full px-3">
@@ -53,6 +48,7 @@
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Nombre</th>
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Precio</th>
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Stock</th>
+                <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Colores</th>
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Descuento</th>
                 <th class="px-4 py-2 font-bold text-center text-sm text-gray-700 border-b border-gray-300">Acción</th>
               </tr>
@@ -61,197 +57,163 @@
               <!-- Ejemplo de filas -->
               <tr class="w-full odd:bg-white even:bg-gray-50">
                 <td class="product-img px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
                   </div>
                 </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <!-- Repite filas -->
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                  </div>
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                  </div>
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                  </div>
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                  </div>
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                  </div>
+                </td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
+                <td class="product-img px-4 py-2 border-b border-gray-300">
+                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$50.00</td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                  <div class="flex items-center justify-evenly">
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    <div class="h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
                   </div>
                 </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">0%</td>
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
-                  </div>
-                </td>
-              </tr>
-              <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="px-4 py-2 border-b border-gray-300">
-                  <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain" alt="img-producto">
-                </td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">001</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Producto A</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$10.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$8.00</td>
-                <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                  <div class="flex">
-                    <a href="javascript:;" class=""> <img class="w-5" src="../assets/img/boton-editar.png" alt=""> </a>
+                  <div class="flex flex-wrap items-center justify-evenly">
+                    <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
@@ -281,14 +243,6 @@
 
     <script>
       $(document).ready(function(){
-        // Evento de búsqueda
-        $('#searchInput').on('keyup', function() {
-          let value = $(this).val().toLowerCase();
-          $('tbody tr').filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-        });
-
         $('body').on('click', '.product-img', function(){
           Swal.fire({
             imageUrl: $(this).find('img').attr('src'),
@@ -366,6 +320,16 @@
               if(!image){
                 image = './assets/img/no-image.png';
               }
+
+              let colorsHTML = '';
+              if(material.product.colors.length === 0){
+                colorsHTML += 'N/A';
+              } else{
+                material.product.colors.forEach(color => {
+                  colorsHTML += `<div style='background-color: ${color.hex}' class='h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none'></div>`;
+                });
+              }
+
               matTableBodyHTML += `
                 <tr class="w-full odd:bg-white even:bg-gray-50">
                   <td class="product-img px-4 py-2 border-b border-gray-300">
@@ -375,7 +339,12 @@
                   <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
                   <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
                   <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                    <div class="flex items-center justify-evenly">
+                      ${colorsHTML}
+                    </div>
+                  </td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
                   <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                     <div class="flex flex-wrap items-center justify-evenly">
                       <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
