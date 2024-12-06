@@ -1032,7 +1032,6 @@
 
     $(document).ready(function () {
       //Insertar 8 productos aleatorios
-      /*
       $.ajax({
         url: 'http://127.0.0.1:8000/api/products/8',
         type: 'GET',
@@ -1143,7 +1142,6 @@
           console.log(xhr);
         }
       });
-      */
     });
   </script> 
 </html>
