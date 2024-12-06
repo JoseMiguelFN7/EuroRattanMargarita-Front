@@ -25,14 +25,13 @@
         <main class="ease-soft-in-out xl:ml-sidebar relative h-full max-h-screen rounded-xl transition-all duration-200">
             <?php include './header.php'; ?>
 
-            <div class="flex flex-wrap mx-3 p-4 pt-6">
-  <div class="flex-none w-full max-w-full px-3">
-    <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
-      <div class="p-6 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent ">
-        <h6 class="" >Authors table</h6>
-      </div>
+        <section class="">
+          <div class="md:mb-0 pt-6"> 
+            <h1 class=" text-xxl font-medium text-center text-gray-600 md:text-stroke-brown cursor-pointer" onclick="window.location.href='./'">Inventario</h1>
+          </div>
+        </section>
 
-        <div class="flex flex-end items-center w-1/3 mt-0 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
+        <div class="flex flex-end items-center p-6 py-1 mt-0 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto relative">
           <div class="flex items-center w-full md:pr-4">
               <form id="formBuscar" method="get" action="./search.php" class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
                   <span class="text-sm ease-soft leading-5.6 absolute z-10 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
@@ -43,9 +42,13 @@
               </form>
           </div>
         </div>
-      <div class="flex-auto px-0 pt-0 pb-2">
+
+<div class="flex flex-wrap mx-3 p-4">
+  <div class="flex-none w-full max-w-full px-3">
+    <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border">
+      <div class="flex-auto">
         <!-- Define un alto máximo y overflow-y: auto -->
-        <div class="max-h-96 overflow-y-auto border border-gray-300 rounded-lg">
+        <div class="max-h-96 overflow-y-auto border border-gray-300 rounded-lg p-4">
           <table class=" table-auto border-collapse overflow-y-scroll w-full ">
             <thead class="bg-gray-100 sticky top-0 z-10 ">
               <tr class="w-full">

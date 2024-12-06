@@ -211,13 +211,11 @@
 <script src="../assets/js/sweetAlert2.js"></script>
 
 <script>
-    /*
+    
     const token = localStorage.getItem('authToken');
     if(!token){
         window.location.href = '../';
     } else{
-
-        
         $.ajax({
             url:'http://127.0.0.1:8000/api/user/auth',
             type: 'GET',
@@ -230,8 +228,6 @@
                 $('#username').text(response.name);
                 $('#userImage').attr('src', response.image);
             }
-        });
-        
+        });      
     }
-        */
-</script>
+</script> 
