@@ -36,7 +36,7 @@
 
                 <div x-show="activeMenu === 'usuario'" class="bg-gray-100">
                     <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./perfil.php">Mi perfil</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Lista de usuarios</a>
+                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-usuarios.php">Lista de usuarios</a>
                     <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-usuario.php">Crear Usuario</a>
                 </div>
             </div>
