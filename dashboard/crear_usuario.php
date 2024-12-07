@@ -152,7 +152,7 @@
       });
       
       $.ajax({
-        url:'http://127.0.0.1:8000/api/roles',
+        url: `http://127.0.0.1:8000/api/roles`,
         type: 'GET',
         dataType: 'json',
         headers: {
@@ -194,7 +194,7 @@
         formData.append('cellphone', cellphoneValue);
 
         $.ajax({
-          url: 'http://127.0.0.1:8000/api/user',
+          url: `http://127.0.0.1:8000/api/user`,
           type: 'POST',
           dataType: 'json',
           contentType: false,

@@ -63,7 +63,7 @@
             <!-- Cantidad -->
             <div class="mt-2">
               <label class="text-gray-700 text-sm" for="count">Cantidad:</label>
-              <div class="flex items-center mt-1">
+              <div class="flex items-center">
                 <button class="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
@@ -75,11 +75,11 @@
             </div>
             <!-- Colores -->
             <div id="colors-container" class="mt-3">
-              <label class="text-gray-700 text-sm" for="count">Color:</label>
-              <div class="flex items-center mt-1 ">
-                <button class="h-5 w-5 rounded-full bg-blue-600 border-2 border-blue-200 mr-2 focus:outline-none "></button>
-                <button class="h-5 w-5 rounded-full bg-gray-600 mr-2 focus:outline-none "></button>
-                <button class="h-5 w-5 rounded-full bg-pink-600 mr-2 focus:outline-none "></button>
+              <label class="text-gray-700 text-sm">Color:</label>
+              <div id="available-colors" class="flex items-center mt-1">
+                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
               </div>
             </div>
             <!-- Botón de añadir -->
@@ -356,13 +356,28 @@
   <script>
     $(document).ready(function(){
       const codProduct = new URLSearchParams(window.location.search).get('cod');
-      
+
+      $('body').on('click', '.img-preview', function(){
+        $('#prodImgMain').attr('src', $(this).find('img').attr('src'));
+      });
+
+      $('body').on('click', '#available-colors button', function(){
+        $('#available-colors button').removeClass('border-4 border-2 border-gray-300 border-green');
+
+        // Agregar la clase border-4 al botón clicado
+        $(this).addClass('border-4 border-green');
+
+        // Agregar la clase border-2 a los botones hermanos
+        $(this).siblings().addClass('border-2 border-gray-300');
+      });
+
       if(codProduct){
         $.ajax({
           url: `http://127.0.0.1:8000/api/product/cod/${codProduct}`,
           type: 'GET',
           dataType: 'json',
           success: function(response){
+            console.log(response);
             const price = response.material.price;
             if(response.images.length !== 0){
               $('#prodImgMain').attr('src', response.images[0].url);
@@ -373,6 +388,13 @@
 
             if(response.colors.length === 0){
               $('#colors-container').remove();
+            } else{
+              let colorsHTML = '';
+              response.colors.forEach(color => {
+                colorsHTML += `<button style="background-color: ${color.hex}" class="h-5 w-5 rounded-full border-2 border-solid border-gray-300 mr-2"></button>`;
+              });
+
+              $('#available-colors').html('').append(colorsHTML);
             }
 
             let imagesHTML = '';
@@ -389,10 +411,6 @@
 
             $('#images-container').html('').append(imagesHTML)
 
-            $('.img-preview').on('click', function(){
-              $('#prodImgMain').attr('src', $(this).find('img').attr('src'));
-            });
-
             //rellenar recomendados
             const fieldsToCheck = ['material', 'furniture', 'set'];
             // Encuentra el primer campo relevante que no sea null
@@ -401,7 +419,7 @@
             let types;
             switch(productType){
               case 'material':
-                urlAPI += 'http://127.0.0.1:8000/api/materialsByType/8';
+                urlAPI += `http://127.0.0.1:8000/api/materialsByType/8`;
                 types = {
                   materialTypes: response[productType].material_types.map(type => type.name),
                   code: codProduct
