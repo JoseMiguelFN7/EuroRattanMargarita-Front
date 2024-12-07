@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Rattan Margarita</title>
-    <link rel="icon" type="image/x-icon" href="./assets/img/ERM logo.ico" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/ERM logo.ico" />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
