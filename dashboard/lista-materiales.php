@@ -246,7 +246,7 @@
         $('body').on('click', '.product-img', function(){
           Swal.fire({
             imageUrl: $(this).find('img').attr('src'),
-            imageAlt: "product imgage",
+            imageAlt: "product image",
             padding: '2rem',
             showConfirmButton: false
           });
@@ -272,8 +272,11 @@
                 url: `http://127.0.0.1:8000/api/material/${id}`,
                 type: 'DELETE',
                 dataType: 'json',
+                headers: {
+                  'Authorization': 'Bearer ' + token
+                },
                 success: function(result, status, xhr){
-                  if(status==200){
+                  if(xhr.status==200){
                     Swal.fire({
                       icon: 'success',
                       title: result.message,
@@ -318,7 +321,7 @@
             response.forEach(material => {
               let image = material.product.image;
               if(!image){
-                image = './assets/img/no-image.png';
+                image = '../assets/img/no-image.png';
               }
 
               let colorsHTML = '';

@@ -30,7 +30,7 @@
 
     <section>
       <div class="w-1 justify-left flex p-2 pt-4 md:justify-center">
-        <form id="formCreate" enctype="multipart/form-data" class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm lg:w-2/3">
+        <form id="formUpdate" enctype="multipart/form-data" class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm lg:w-2/3">
           <h2 class="block p-4 text-center text-gray-600 pt-6">
             Mi perfil
           </h2>
@@ -41,20 +41,14 @@
               <div class="flex flex-col justify-center items-center mb-4 pt-6">
                 <img id="previewImage" for="fileInput" src="../assets/img/agregar.png" alt="Imagen de perfil" class="customFileButton w-32 h-32 object-cover rounded-full mb-2 cursor-pointer" />
                 <input type="file" id="fileInput" name="image" class="hidden" accept="image/*" />
-                <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Seleccionar Imagen</label>
+                <label for="fileInput" class="p-2 bg-gray-500 text-gray-500 rounded hover:bg-gray-600 text-lg font-medium cursor-pointer">Cambiar Imagen</label>
               </div>
 
               <div class="flex flex-col justify-start w-full pl-12">
-                <!-- Selección de rol -->
-                <div class="flex flex-col justify-left mb-4">
-                  <label for="role" class="text-2xl font-semibold text-gray-700 text-lg">Rol</label>
-                  <select id="role" name="role_id" class="mt-2 px-4 py-4 h-full border rounded-lg" required>
-                  </select>
-                </div>
                 <!-- Contraseña -->
                 <label for="password" class="text-2xl font-semibold text-gray-700 text-lg justify-center items-center">Contraseña</label>
                 <div class="mb-8 flex relative mb-4 items-center">
-                  <input id="password" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                  <input id="password" type="password" name="password" placeholder="Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
                   <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
                     <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
                     <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
@@ -63,13 +57,15 @@
                 <!-- Confirmación de Contraseña -->
                 <label for="passwordConfirm" class="text-2xl font-semibold text-gray-700 text-lg">Confirmar Contraseña</label>
                 <div class="mb-8 flex relative mb-4 items-center">
-                  <input id="passwordConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                  <input id="passwordConfirm" type="password" name="password_confirmation" placeholder="Confirmar Contraseña" minlength="9" class="password-input mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg border border-zinc-200 bg-white/0 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
                   <button type="button" class="toggle-password absolute inset-y-0 right-0 mr-8 flex items-center text-gray-500 hover:text-gray-700 cursor-pointer">
                     <img src="../assets/img/esconder.png" alt="ojo tachado" class="eye-closed w-6 h-6">
                     <img src="../assets/img/ojo.png" alt="ojo abierto" class="eye-open w-6 h-6 hidden">
                   </button>
                 </div>
               </div>
+
+              <center><button id="updateBtn" type="submit" class="w-1/2 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" disabled>Actualizar Datos</button></center>
             </div>
 
             <!-- Contenido lateral -->
@@ -115,7 +111,7 @@
               <!-- Más contenido -->
             </div>
           </div>
-          <center><button id="createBtn" type="submit" class="w-1/3 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Crear Usuario</button></center>
+          <input id="id-user" type="hidden" name="id-user">
         </form>
       </div>
     </section>
@@ -137,24 +133,26 @@
 <script>
     $(document).ready(function(){
       let token = localStorage.getItem('authToken');
-      
+      const emailURL = new URLSearchParams(window.location.search).get('email');
+
+      if(!emailURL){
+        Swal.fire({
+          icon: 'warning',
+          title: 'Ocurrió un error inesperado',
+          text: 'Por favor, recargue la página.',
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+        });
+        return;
+      }
+
       $('.customFileButton').on('click', function() {
         $('#fileInput').click(); // Simula un clic en el input de archivo
       });
 
-      //Deshabilitar el incremento/decremento del campo documento
-      $('#documentNumber').on('wheel', function(e) {
-        e.preventDefault();
-      });
-
-      // Filtrar la entrada solo a números
-      $('.numeric-only').on('input', function() {
-        // Eliminar caracteres no numéricos
-        this.value = this.value.replace(/[^0-9]/g, '');
-      });
-      
       $.ajax({
-        url: `http://127.0.0.1:8000/api/roles`,
+        url:`http://127.0.0.1:8000/api/user/email/${emailURL}`,
         type: 'GET',
         dataType: 'json',
         headers: {
@@ -162,22 +160,30 @@
         },
         success: function(response){
           console.log(response);
-          $('#role').html('');
-          let rolesHTML = '';
-
-          response.forEach(rol => {
-            rolesHTML += `<option value="${rol.id}">${rol.name}</option>`;
-          });
-
-          $('#role').append(rolesHTML);
+          $('#id-user').val(response.id);
+          $('#name').val(response.name);
+          $('#email').val(response.email);
+          $('#documentType').val(response.document[0]);
+          $('#documentNumber').val(response.document.substr(1, response.document.length-1));
+          const cel = response.cellphone.split("-");
+          $('#cellphoneCode').val(cel[0]);
+          $('#cellphoneNumber').val(cel[1]);
+          $('#address').val(response.address);
+          $('#previewImage').attr('src', response.image);
+          $('#updateBtn').prop('disabled', false);
         }
       });
 
-      $('#formCreate').on('submit', function(e){
+      $('#formUpdate').on('submit', function(e){
         e.preventDefault();
-        $('#formCreate').prop('disabled', true);
+        $('#updateBtn').prop('disabled', true);
 
         let formData = new FormData(this);
+
+        if($('#password').val()==='' && $('#passwordConfirm').val()===''){
+          formData.delete('password');
+          formData.delete('password_confirmation');
+        }
 
         // Obtener los valores de document_type y document_number
         let documentType = $('#documentType').val();
@@ -195,17 +201,22 @@
         let cellphoneValue = cellphoneCode + '-' + cellphoneNumber;
         formData.append('cellphone', cellphoneValue);
 
+        const userID = $('#id-user').val();
+
         $.ajax({
-          url: `http://127.0.0.1:8000/api/user`,
+          url: `http://127.0.0.1:8000/api/user/${userID}`,
           type: 'POST',
           dataType: 'json',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
           contentType: false,
           processData: false,
           data: formData,
           success: function(response){
             console.log(response);
             Swal.fire({
-              title: 'Usuario creado exitósamente',
+              title: 'Usuario actualizado exitósamente',
               icon: 'success',
               timer: 3000,
               timerProgressBar: true,
@@ -213,7 +224,7 @@
               allowOutsideClick: false,
               allowEscapeKey: false
             }).finally(() => {
-              window.location.href = './crear-usuario.php';
+              window.location.href = './lista-usuarios.php';
             });
           },
           error: function(xhr){
@@ -243,7 +254,7 @@
           }
         });
       });
-      
+
       // Cambia la imagen cuando el usuario selecciona un archivo
       $('#fileInput').on('change', function(e) {
         let file = e.target.files[0]; // Obtiene el archivo seleccionado
@@ -257,7 +268,7 @@
         }
       });
     });
-      
+
     $(document).on("click", ".toggle-password", function () {
       const passwordInput = $(this).siblings(".password-input");
       const eyeClosed = $(this).find(".eye-closed");
@@ -273,5 +284,5 @@
         eyeOpen.addClass("hidden");
       }
     });
-  </script> 
+  </script>
 </html>

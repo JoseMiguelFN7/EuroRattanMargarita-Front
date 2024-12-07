@@ -145,7 +145,7 @@
     }
 
     $(document).ready(function(){
-        const token = localStorage.getItem('authToken');
+        let token = localStorage.getItem('authToken');
         if(!token){
             window.location.href = '../';
         } else{

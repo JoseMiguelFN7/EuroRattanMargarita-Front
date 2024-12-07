@@ -131,6 +131,8 @@
 
 <script>
     $(document).ready(function(){
+      let token = localStorage.getItem('authToken');
+
       $('.customFileButton').on('click', function() {
         $('#fileInput').click(); // Simula un clic en el input de archivo
       });

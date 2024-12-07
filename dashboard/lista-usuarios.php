@@ -55,7 +55,7 @@
             <tbody id="tableBody">
               <!-- Ejemplo de filas -->
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -67,13 +67,13 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <!-- Repite filas -->
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -85,12 +85,12 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -102,12 +102,12 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -119,12 +119,12 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -136,12 +136,12 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -153,12 +153,12 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
               <tr class="w-full odd:bg-white even:bg-gray-50">
-                <td class="product-img px-4 py-2 border-b border-gray-300">
+                <td class="user-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
                 <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">Nombre</td>
@@ -170,7 +170,7 @@
                 <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                   <div class="flex flex-wrap items-center justify-evenly">
                     <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                    <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                    <a href="javascript:;" class="delete-user"><img data-user-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
               </tr>
@@ -199,21 +199,21 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script>
-      /*
       $(document).ready(function(){
-        $('body').on('click', '.product-img', function(){
+        let token = localStorage.getItem('authToken');
+        $('body').on('click', '.user-img', function(){
           Swal.fire({
             imageUrl: $(this).find('img').attr('src'),
-            imageAlt: "product imgage",
+            imageAlt: "user image",
             padding: '2rem',
             showConfirmButton: false
           });
         });
 
-        $('body').on('click', '.delete-material', function(){
+        $('body').on('click', '.delete-user', function(){
           Swal.fire({
             icon: 'warning',
-            title: '¿Desea borrar este material?',
+            title: '¿Desea borrar este usuario?',
             text: 'Esta acción no se puede revertir',
             confirmButtonText: 'Eliminar',
             showCancelButton: true,
@@ -225,20 +225,24 @@
             reverseButtons: true
           }).then((result) => {
             if (result.isConfirmed) {
-              const id = $(this).find('img').data('material-id');
+              const id = $(this).find('img').data('user-id');
               $.ajax({
-                url: `http://127.0.0.1:8000/api/material/${id}`,
+                url: `http://127.0.0.1:8000/api/user/${id}`,
                 type: 'DELETE',
                 dataType: 'json',
+                headers: {
+                  'Authorization': 'Bearer ' + token
+                },
                 success: function(result, status, xhr){
-                  if(status==200){
+                  if(xhr.status==200){
                     Swal.fire({
                       icon: 'success',
                       title: result.message,
                       timer: 3000,
                       timerProgressBar: true,
+                      showConfirmButton: false
                     }).finally(() => {
-                      window.location.href = './lista-materiales.php';
+                      window.location.href = './lista-usuarios.php';
                     });
                   } else{
                     console.log(xhr);
@@ -248,6 +252,7 @@
                       text: xhr.responseJSON.title,
                       timer: 3000,
                       timerProgressBar: true,
+                      showConfirmButton: false
                     });
                   }
                 },
@@ -258,6 +263,7 @@
                     title: 'Ocurrió un error',
                     timer: 3000,
                     timerProgressBar: true,
+                    showConfirmButton: false
                   });
                 }
               });
@@ -266,57 +272,45 @@
         });
 
         $.ajax({
-          url: 'http://127.0.0.1:8000/api/materials',
+          url: 'http://127.0.0.1:8000/api/users',
           type: 'GET',
           dataType: 'json',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
           success: function(response){
             console.log(response);
-            let matTableBodyHTML = '';
+            let userTableBodyHTML = '';
 
-            response.forEach(material => {
-              let image = material.product.image;
+            response.forEach(user => {
+              let image = user.image;
               if(!image){
-                image = './assets/img/no-image.png';
+                image = '../assets/img/no-image.png';
               }
 
-              let colorsHTML = '';
-              if(material.product.colors.length === 0){
-                colorsHTML += 'N/A';
-              } else{
-                material.product.colors.forEach(color => {
-                  colorsHTML += `<div style='background-color: ${color.hex}' class='h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none'></div>`;
-                });
-              }
-
-              matTableBodyHTML += `
+              userTableBodyHTML += `
                 <tr class="w-full odd:bg-white even:bg-gray-50">
-                  <td class="product-img px-4 py-2 border-b border-gray-300">
-                    <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                  <td class="user-img px-4 py-2 border-b border-gray-300">
+                    <img src="${image}" class="w-9 h-9 object-cover rounded-full cursor-pointer" alt="img-producto">
                   </td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
-                    <div class="flex items-center justify-evenly">
-                      ${colorsHTML}
-                    </div>
-                  </td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${user.name}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${user.email}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${user.cellphone}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${user.document}</td>
+                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${user.role.name}</td>
                   <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                     <div class="flex flex-wrap items-center justify-evenly">
-                      <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                      <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                      <a href="./editar-perfil.php?email=${user.email}" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                      <a href="javascript:;" class="delete-user"><img data-user-id="${user.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                     </div>
                   </td>
                 </tr>
               `;
             });
 
-            $('#tableBody').html('').append(matTableBodyHTML)
+            $('#tableBody').html('').append(userTableBodyHTML);
           }
         });
       });
-      */
     </script>
 </html>
