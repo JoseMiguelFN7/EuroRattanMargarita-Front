@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Rattan Margarita</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/ERM logo.ico" />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Font Awesome Icons -->
@@ -45,7 +46,6 @@
                             <div class="w-full p-1 pt-4">
                                 <div class="mb-8 flex  md:flex-row mb-4">
                                     <label for="name" class="text-2xl font-semibold text-gray-700 text-lg ">Tipo:</label>
-                                   
                                     <div class="flex items-center gap-2 mb-4">
                                         <select id="" name="document_type" class="mb-2 md:mb-0 px-4 py-4 h-full border  rounded-lg" required>
                                         <option value="">Tapizado</option>
@@ -73,7 +73,7 @@
                             <div class="w-full p-1">
                                 <div class="mb-8 flex ">
                                     <label for="name" class="text-2xl font-semibold text-gray-700 text-lg p-2 ">Cod:</label>
-                                 </div>
+                                </div>
                                     <input id="name" type="text" name="name" placeholder="Ingresa tu nombre" class=" mb-2 mr-4 flex h-full w-2/3 items-center justify-center rounded-lg border border-zinc-200 bg-gray-200 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0">
                                 
                             </div>
