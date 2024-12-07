@@ -209,6 +209,7 @@
 <script src="../assets/js/sweetAlert2.js"></script>
 
 <script>
+    /*
     const token = localStorage.getItem('authToken');
     if(!token){
         window.location.href = '../';
@@ -227,4 +228,5 @@
             }
         });      
     }
+    */
 </script> 

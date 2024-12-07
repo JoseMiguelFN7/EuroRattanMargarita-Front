@@ -1029,7 +1029,7 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <script>
-
+    /*
     $(document).ready(function () {
       //Insertar 8 productos aleatorios
       $.ajax({
@@ -1143,5 +1143,6 @@
         }
       });
     });
+    */
   </script> 
 </html>
