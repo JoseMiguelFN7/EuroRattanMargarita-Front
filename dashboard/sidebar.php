@@ -13,9 +13,9 @@
         <nav class="mt-10 mt-0.5 w-full">
             <div x-data="{ open: false }">
                 <button class="text-black">
-                    <span class="flex items-center text-xl py-3 px-0">
+                    <a class="flex items-center text-xl py-3 px-0" href="./">
                         <span class="mx-4 font-medium hover:text-white ">Dashboard</span>
-                    </span>
+                    </a>
                 </button>
             </div>
 
@@ -35,13 +35,13 @@
                 </button>
 
                 <div x-show="activeMenu === 'usuario'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./perfil.php">Mi perfil</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-usuarios.php">Lista de usuarios</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-usuario.php">Crear Usuario</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./perfil.php">Mi perfil</a>
+                    <a id="listaUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-usuarios.php" hidden>Lista de usuarios</a>
+                    <a id="crearUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-usuario.php" hidden>Crear Usuario</a>
                 </div>
             </div>
 
-            <div>
+            <div id="seccionMats" hidden>
                 <button @click="activeMenu = activeMenu === 'materiales' ? null : 'materiales'" 
                         class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
                     <span class="flex items-center">
@@ -57,12 +57,12 @@
                 </button>
 
                 <div x-show="activeMenu === 'materiales'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-material.php">Crear Material</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
+                    <a id="crearMats" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-material.php">Crear Material</a>
                 </div>
             </div>
 
-            <div>
+            <!--<div>
                 <button @click="activeMenu = activeMenu === 'muebles' ? null : 'muebles'" 
                         class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
                     <span class="flex items-center">
@@ -78,8 +78,8 @@
                 </button>
 
                 <div x-show="activeMenu === 'muebles'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-muebles.php">Lista de Muebles</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Mueble</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-muebles.php">Lista de Muebles</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Mueble</a>
                 </div>
             </div>
 
@@ -99,10 +99,10 @@
                 </button>
 
                 <div x-show="activeMenu === 'juegos'" class="bg-gray-100">
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Lista de Juegos</a>
-                    <a class="py-2 px-16 block text-sm text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-juego.php">Crear Juego</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Lista de Juegos</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-juego.php">Crear Juego</a>
                 </div>
-            </div>
+            </div>-->
         </nav>
 
         <div class="absolute bottom-0 my-8">
@@ -157,8 +157,24 @@
                 },
                 success: function(response){
                     console.log(response);
+                    sessionStorage.setItem('rol_id', response.role_id);
                     $('#username').text(response.name);
-                    $('#userImage').attr('src', response.image);
+                    if(response.image){
+                        $('#userImage').attr('src', response.image);
+                    }
+
+                    if(response.role_id===2){
+                        console.log('soy un cliente lmao');
+                        $('#listaUsuarios, #crearUsuarios, #seccionMats').remove();
+                    }
+
+                    if(response.role_id===3){
+                        console.log('soy un asesor lol');
+                        $('#listaUsuarios, #crearUsuarios, #crearMats').remove();
+                    }
+
+                    $('#listaUsuarios, #crearUsuarios, #seccionMats').attr('hidden', false);
+
                 }
             });
         }

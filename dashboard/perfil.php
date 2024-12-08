@@ -154,7 +154,9 @@
           $('#cellphoneCode').val(cel[0]);
           $('#cellphoneNumber').val(cel[1]);
           $('#address').val(response.address);
-          $('#previewImage').attr('src', response.image);
+          if(response.image){
+            $('#previewImage').attr('src', response.image);
+          }
           $('#updateBtn').prop('disabled', false);
         }
       });

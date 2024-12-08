@@ -50,12 +50,12 @@
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Stock</th>
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Colores</th>
                 <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Descuento</th>
-                <th class="px-4 py-2 font-bold text-center text-sm text-gray-700 border-b border-gray-300">Acción</th>
+                <th id="actionCol" class="px-4 py-2 font-bold text-center text-sm text-gray-700 border-b border-gray-300" hidden>Acción</th>
               </tr>
             </thead>
             <tbody id="tableBody">
               <!-- Ejemplo de filas -->
-              <tr class="w-full odd:bg-white even:bg-gray-50">
+              <!--<tr class="w-full odd:bg-white even:bg-gray-50">
                 <td class="product-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
@@ -77,9 +77,9 @@
                     <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
-              </tr>
+              </tr>-->
               <!-- Repite filas -->
-              <tr class="w-full odd:bg-white even:bg-gray-50">
+              <!--<tr class="w-full odd:bg-white even:bg-gray-50">
                 <td class="product-img px-4 py-2 border-b border-gray-300">
                   <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
                 </td>
@@ -216,7 +216,7 @@
                     <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                   </div>
                 </td>
-              </tr>
+              </tr>-->
             </tbody>
           </table>
         </div>
@@ -244,6 +244,16 @@
     <script>
       $(document).ready(function(){
         let token = localStorage.getItem('authToken');
+
+        if(sessionStorage.getItem('rol_id')==2){
+          window.location.href = './';
+        }
+
+        if(sessionStorage.getItem('rol_id')==3){
+          $('#actionCol').remove();
+        } else{
+          $('#actionCol').attr('hidden', false);
+        }
 
         $('body').on('click', '.product-img', function(){
           Swal.fire({
@@ -344,29 +354,50 @@
                 });
               }
 
-              matTableBodyHTML += `
-                <tr class="w-full odd:bg-white even:bg-gray-50">
-                  <td class="product-img px-4 py-2 border-b border-gray-300">
-                    <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
-                  </td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
-                    <div class="flex items-center justify-evenly">
-                      ${colorsHTML}
-                    </div>
-                  </td>
-                  <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
-                  <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
-                    <div class="flex flex-wrap items-center justify-evenly">
-                      <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                      <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
-                    </div>
-                  </td>
-                </tr>
-              `;
+              if(sessionStorage.getItem('rol_id')==1){
+                console.log('a');
+                matTableBodyHTML += `
+                  <tr class="w-full odd:bg-white even:bg-gray-50">
+                    <td class="product-img px-4 py-2 border-b border-gray-300">
+                      <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                      <div class="flex items-center justify-evenly">
+                        ${colorsHTML}
+                      </div>
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
+                    <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
+                      <div class="flex flex-wrap items-center justify-evenly">
+                        <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                        <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                      </div>
+                    </td>
+                  </tr>
+                `;
+              } else{
+                matTableBodyHTML += `
+                  <tr class="w-full odd:bg-white even:bg-gray-50">
+                    <td class="product-img px-4 py-2 border-b border-gray-300">
+                      <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                      <div class="flex items-center justify-evenly">
+                        ${colorsHTML}
+                      </div>
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
+                  </tr>
+                `;
+              }
             });
 
             $('#tableBody').html('').append(matTableBodyHTML)

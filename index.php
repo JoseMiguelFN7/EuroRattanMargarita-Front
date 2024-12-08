@@ -530,7 +530,7 @@
       </div>
     </section>
 
-    <section>
+    <!--<section>
       <div class="flex-none w-full max-w-full px-3 mt-6 ">
         <div class="relative flex flex-col items-center min-w-0 mb-6 break-words border-0 shadow-soft-xl rounded-2xl bg-clip-border">
           <div class="mb-2 w-full py-4 px-8 pb-0 mb-0 flex items-center justify-end rounded-t-2xl relative">
@@ -1010,7 +1010,7 @@
           <button type="button" class="w-3/4 md:w-1/10 px-8 py-2 mb-6 font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href = './search.php?sets=true'">+ Ver Más...</button>
         </div>
       </div>
-    </section>
+    </section>-->
 
     <!-- Footer -->
     <?php include './footer.php' ?>
