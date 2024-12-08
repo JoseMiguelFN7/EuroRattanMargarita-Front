@@ -243,6 +243,8 @@
 
     <script>
       $(document).ready(function(){
+        let token = localStorage.getItem('authToken');
+
         $('body').on('click', '.product-img', function(){
           Swal.fire({
             imageUrl: $(this).find('img').attr('src'),
@@ -282,6 +284,9 @@
                       title: result.message,
                       timer: 3000,
                       timerProgressBar: true,
+                      customClass: {
+                        confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                      }
                     }).finally(() => {
                       window.location.href = './lista-materiales.php';
                     });
@@ -293,6 +298,9 @@
                       text: xhr.responseJSON.title,
                       timer: 3000,
                       timerProgressBar: true,
+                      customClass: {
+                        confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                      }
                     });
                   }
                 },
@@ -303,6 +311,9 @@
                     title: 'Ocurrió un error',
                     timer: 3000,
                     timerProgressBar: true,
+                    customClass: {
+                      confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                    }
                   });
                 }
               });
