@@ -28,7 +28,7 @@
 
           <section class="">
             <div class="md:mb-0 pt-6"> 
-              <h2 class=" text-xxl font-medium text-center text-gray-600 md:text-stroke-brown">Lista de Materiales</h2>
+              <h2 class=" text-xxl font-medium text-center text-gray-600 md:text-stroke-brown">Historial de Movimientos</h2>
             </div>
           </section>
 
@@ -46,11 +46,9 @@
                         <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Imagen</th>
                           <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Cod.</th>
                           <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Nombre</th>
-                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Precio</th>
-                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Stock</th>
-                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Colores</th>
-                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Descuento</th>
-                          <th id="actionCol" class="px-4 py-2 font-bold text-center text-sm text-gray-700 border-b border-gray-300" hidden>Acción</th>
+                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Cantidad</th>
+                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Color</th>
+                          <th class="px-4 py-2 font-bold text-left text-sm text-gray-700 border-b border-gray-300">Fecha</th>
                         </tr>
                       </thead>
                       <tbody id="tableBody"></tbody>
@@ -173,6 +171,63 @@
         });
 
         $.ajax({
+          url: 'http://127.0.0.1:8000/api/productMovements',
+          type: 'GET',
+          dataType: 'json',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
+          success: function(response){
+            console.log(response);
+
+            let movementsHTML = '';
+            response.forEach(movement => {
+              let image = movement.product.image;
+              if(!image){
+                image = '../assets/img/no-image.png';
+              }
+
+              if(movement.color){
+                movementsHTML += `
+                  <tr class="w-full odd:bg-white even:bg-gray-50">
+                    <td class="product-img px-4 py-2 border-b border-gray-300">
+                      <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.product.code}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.product.name}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.quantity}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                      <div style="background-color: ${movement.color.hex}" class="circle-color h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.movement_date}</td>
+                  </tr>
+                `;
+              }else{
+                movementsHTML += `
+                  <tr class="w-full odd:bg-white even:bg-gray-50">
+                    <td class="product-img px-4 py-2 border-b border-gray-300">
+                      <img src="${image}" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.product.code}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.product.name}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.quantity}</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
+                      N/A
+                    </td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${movement.movement_date}</td>
+                  </tr>
+                `;
+              }
+            });
+
+            $('#tableBody').html('').append(movementsHTML);
+          },
+          error: function(xhr){
+            console.log(xhr);
+          }
+        });
+
+        /*$.ajax({
           url: 'http://127.0.0.1:8000/api/materials',
           type: 'GET',
           dataType: 'json',
@@ -260,9 +315,9 @@
               }
             });
 
-            $('#tableBody').html('').append(matTableBodyHTML);
+            $('#tableBody').html('').append(matTableBodyHTML)
           }
-        });
+        });*/
       });
     </script>
 </html>
