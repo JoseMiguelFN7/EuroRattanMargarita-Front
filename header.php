@@ -11,9 +11,9 @@
         </nav>
 
         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md:flex-grow">
-        <li id="" class="flex items-center pl-4 ">
-                <a href="carrito.php" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
-                    <img src="./assets/img/carrito-de-compras.png" alt="" class="w-8 p-2">
+            <li id="carritoBtn" class="flex items-center pl-4 hidden">
+                <a href="./carrito.php" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+                    <img src="./assets/img/carrito-de-compras.png" alt="" class="w-12 h-auto p-2">
                 </a>
             </li>
             <li id="registerBtn" class="flex items-center pl-2 hidden">
@@ -34,7 +34,7 @@
             <li id="userBtn" class="relative flex items-center pl-4 hidden">
                 <a href="javascript:;" class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer" dropdown-trigger aria-expanded="false">
                     <img id="userImg" src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
-                    <span id="userName" class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear"></span>
+                    <span id="userName" class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear text-lg"></span>
                 </a>
 
                 <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block">
@@ -298,7 +298,7 @@
         if(!token){
             console.log('usuario no logeado');
             $('#loginBtn, #registerBtn').removeClass('hidden');
-            $('#userBtn').remove();
+            $('#userBtn, #carritoBtn').remove();
         } else{
             $.ajax({
                 url: 'http://127.0.0.1:8000/api/user/auth',
@@ -312,7 +312,7 @@
 
                     $('#loginBtn, #registerBtn').remove();
 
-                    $('#userBtn').removeClass('hidden');
+                    $('#userBtn, #carritoBtn').removeClass('hidden');
 
                     if(response.image){
                         $('#userImg').attr('src', response.image).addClass('rounded-full w-9 h-9 object-cover').removeClass('w-4 h-4');
@@ -324,7 +324,7 @@
                     if(xhr.status == 401){
                         console.log('usuario no logeado');
                         $('#loginBtn, #registerBtn').removeClass('hidden');
-                        $('#userBtn').remove();
+                        $('#userBtn, #carritoBtn').remove();
                     } else{
                         console.log('Ocurrió un error inesperado');
                     }

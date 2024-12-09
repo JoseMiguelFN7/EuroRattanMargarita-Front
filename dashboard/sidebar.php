@@ -59,6 +59,7 @@
                 <div x-show="activeMenu === 'materiales'" class="bg-gray-100">
                     <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
                     <a id="crearMats" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-material.php">Crear Material</a>
+                    <a id="crearParam" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-material.php">Crear Parámetros</a>
                 </div>
             </div>
 
@@ -171,7 +172,7 @@
 
                     if(response.role_id===3){
                         console.log('soy un asesor lol');
-                        $('#listaUsuarios, #crearUsuarios, #crearMats').remove();
+                        $('#listaUsuarios, #crearUsuarios, #crearMats, #crearParam').remove();
                     }
 
                     $('#listaUsuarios, #crearUsuarios, #seccionMats').attr('hidden', false);
