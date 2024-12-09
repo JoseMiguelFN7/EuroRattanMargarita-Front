@@ -106,6 +106,7 @@
                         </div>
                     </div>
                     <center><button id="btnSubmit" type="submit" class="w-1/4 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Confirmar</button></center>
+                    <input id="id-material" type="hidden" name="id-material">
                 </form>
             </section>
             <?php include './footer.php'; ?>
@@ -131,51 +132,12 @@
             return `#${rgbArray.map(x => x.toString(16).padStart(2, '0')).join('')}`;
         }
         $(document).ready(function(){
+            const codProduct = new URLSearchParams(window.location.search).get('cod');
             let token = localStorage.getItem('authToken');
             // Filtrar la entrada solo a números
             $('.numeric-only').on('input', function() {
                 // Eliminar caracteres no numéricos
                 this.value = this.value.replace(/[^0-9]/g, '');
-            });
-
-            // Cargar las opciones desde el servidor una vez y guardarlas en una variable
-            $.ajax({
-                url: 'http://127.0.0.1:8000/api/materialTypes',
-                type: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    optionsData = data.map(item => ({
-                        id: item.id,
-                        text: item.name
-                    }));
-
-                    // Inicializar select2 con los datos cargados
-                    $('#materialtypes').select2({
-                        placeholder: "Tipo de material",
-                        allowClear: true,
-                        tags: false,
-                        data: optionsData
-                    });
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Error al cargar los datos: ', textStatus, errorThrown);
-                }
-            });
-
-            $.ajax({
-                url: 'http://127.0.0.1:8000/api/units',
-                type: 'GET',
-                dataType: 'json',
-                success: function(response){
-                    let unitsHTML = '';
-                    response.forEach(unit => {
-                        unitsHTML += `<option value="${unit.id}">${unit.name}</option>`;
-                    });
-                    $('#unit_id').append(unitsHTML);
-                },
-                error: function(xhr){
-                    console.log(xhr);
-                }
             });
 
             let selectedColors = [];
@@ -245,7 +207,7 @@
                 if(selectedColors.length > 0){
                     selectedColors.forEach(color => {
                         formData.append('colors[]', color);
-                    })
+                    });
                 }
 
                 // Obtener valores seleccionados del select2
@@ -263,8 +225,10 @@
                     formData.append('sell', 0);
                 }
 
+                const matID = $('#id-material').val();
+
                 $.ajax({
-                    url: 'http://127.0.0.1:8000/api/material',
+                    url: `http://127.0.0.1:8000/api/material/${matID}`,
                     type: 'POST',
                     dataType: 'json',
                     data: formData,
@@ -275,13 +239,13 @@
                     contentType: false,
                     success: function(response){
                         Swal.fire({
-                            title: 'Material creado exitósamente',
+                            title: 'Material actualizado exitósamente',
                             icon: 'success',
                             timer: 3000,
                             timerProgressBar: true,
                             showConfirmButton: false
                         }).finally(() => {
-                            window.location.href = './crear-material.php';
+                            window.location.href = './lista-materiales.php';
                         });
                     },
                     error: function(xhr){
@@ -314,6 +278,88 @@
                 });
             });
 
+            let optionsData = [];
+
+            // Cargar las opciones desde el servidor una vez y guardarlas en una variable
+            $.ajax({
+                url: 'http://127.0.0.1:8000/api/materialTypes',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    optionsData = data.map(item => ({
+                        id: item.id,
+                        text: item.name
+                    }));
+
+                    // Inicializar select2 con los datos cargados
+                    $('#materialtypes').select2({
+                        placeholder: "Tipo de material",
+                        allowClear: true,
+                        tags: false,
+                        data: optionsData
+                    });
+
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/api/units',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(resp){
+                            let unitsHTML = '';
+                            resp.forEach(unit => {
+                                unitsHTML += `<option value="${unit.id}">${unit.name}</option>`;
+                            });
+                            $('#unit_id').append(unitsHTML);
+
+                            $.ajax({
+                                url: `http://127.0.0.1:8000/api/product/cod/${codProduct}`,
+                                type: 'GET',
+                                dataType: 'json',
+                                success: function(r){
+                                    console.log(r);
+
+                                    $('#id-material').val(r.material.id);
+                                    $('#name').val(r.name);
+                                    $('#price').val(r.material.price);
+                                    $('#description').val(r.description);
+                                    if(r.sell === 1){
+                                        $('#sell').prop('checked', true);
+                                    } else{
+                                        $('#sell').prop('checked', false);
+                                    }
+                                    $('#code').val(r.code);
+                                    $('#unit_id').val(r.material.unit_id);
+                                    $('#discount').val(r.discount);
+                                    r.images.forEach(image => {
+                                        const img = $('<img>')
+                                        .attr('src', image.url)
+                                        .css({ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px', marginRight: '0.5rem', marginBottom: '0.5rem'});
+                                        $('#images-container').append(img);
+                                    });
+                                    r.colors.forEach(color => {
+                                        const colorHTML = `<div style="background-color: ${color.hex};" class="color-selected cursor-pointer h-5 w-5 mr-2 rounded-full border-2 border-gray-300 focus:outline-none"></div>`;
+                                        $('#colors-container').append(colorHTML);
+                                        selectedColors.push(color.hex);
+                                    });
+
+                                    let selectedValues = [];
+
+                                    r.material.material_types.forEach(mt => {
+                                        selectedValues.push(mt.id);
+                                    });
+
+                                    $('#materialtypes').val(selectedValues).trigger('change');
+                                }
+                            });
+                        },
+                        error: function(xhr){
+                            console.log(xhr);
+                        }
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Error al cargar los datos: ', textStatus, errorThrown);
+                }
+            });
         });
     </script>
 </html>

@@ -42,7 +42,7 @@
         <tbody>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 1</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -55,14 +55,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 2</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -75,14 +75,14 @@
             <td class="py-2 px-4 text-sm border-b">$150.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 3</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -95,14 +95,14 @@
             <td class="py-2 px-4 text-sm border-b">$300.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 4</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -115,14 +115,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 5</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -135,14 +135,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 6</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -155,14 +155,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 7</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -175,14 +175,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 8</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -195,14 +195,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 9</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -215,14 +215,14 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
           <tr>
             <td class="product-img px-4 py-2 border-b border-gray-300">
-              <img src="../assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
+              <img src="./assets/img/no-image.png" class="w-9 h-9 object-contain cursor-pointer" alt="img-producto">
             </td>
             <td class="py-2 px-4 text-sm border-b">Producto 10</td>
             <td class="py-2 px-4 text-sm border-b">
@@ -235,8 +235,8 @@
             <td class="py-2 px-4 text-sm border-b">$200.00</td>
             <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
               <div class="flex flex-wrap items-center justify-evenly">
-                <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
-                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                <a href="javascript:;" class=""><img class="w-5" src="./assets/img/boton-editar.png" alt="edit-icon"></a>
+                <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="./assets/img/papelera.png" alt="delete-icon"></a>
               </div>
             </td>
           </tr>
