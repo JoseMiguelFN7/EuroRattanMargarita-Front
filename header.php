@@ -59,7 +59,7 @@
                         </a>
                     </li>
 
-                    <li class="relative mb-2">
+                    <!--<li class="relative mb-2">
                         <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
                             <div class="flex py-1">
                                 <div class="flex flex-col justify-center">
@@ -67,7 +67,7 @@
                                 </div>
                             </div>
                         </a>
-                    </li>
+                    </li>-->
 
                     <li class="relative mb-2">
                         <a id="logOutBtn" class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">

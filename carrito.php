@@ -50,6 +50,9 @@
     <!-- Footer -->
     <?php include './footer.php' ?>
 
+    <!-- main script file  -->
+    <script src="./assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5" async></script>
+
     <script src="./assets/js/JQuery.js"></script>
     <script src="./assets/js/sweetAlert2.js"></script>
 
@@ -197,6 +200,54 @@
             $('#totalAmount').text(`Total a Pagar: $${total}`);
 
             $('#pagarBtn').attr('disabled', false);
+
+            $('#pagarBtn').on('click', function(){
+              $('#pagarBtn').attr('disabled', true);
+              response.products.forEach(product => {
+                let indexProd = carrito.findIndex(prod => prod.cod === product.code);
+                let formData = new FormData();
+
+                formData.append('product_id', product.id);
+                formData.append('quantity', (carrito[indexProd].cantidad)*-1);
+                if(product.colors.length > 0){
+                  let colorID;
+                  product.colors.forEach(color => {
+                    if(carrito[indexProd].color.toUpperCase() === color.hex.toUpperCase()){
+                      colorID = color.id;
+                    }
+                  });
+                  formData.append('color_id', colorID);
+                }
+                $.ajax({
+                  url: 'http://127.0.0.1:8000/api/productMovement',
+                  type: 'POST',
+                  dataType: 'json',
+                  headers: {
+                    'Authorization': 'Bearer ' + token
+                  },
+                  data: formData,
+                  contentType: false,
+                  processData: false,
+                  success: function(response){
+                    console.log(response);
+                  },
+                  error: function(xhr){
+                    console.log(xhr);
+                  }
+                });
+              });
+
+              Swal.fire({
+                title: 'Compra procesada',
+                icon: 'success',
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false
+              }).finally(() => {
+                sessionStorage.removeItem('carrito');
+                window.location.href = './';
+              });
+            })
           },
           error: function(xhr){
             console.log(xhr);
