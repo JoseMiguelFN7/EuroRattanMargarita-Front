@@ -401,6 +401,7 @@
                       <div class="flex flex-wrap items-center justify-evenly">
                         <a href="./editar-material.php?cod=${material.product.code}" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
                         <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
+                        <a href="./crear-movimiento.php?cod=${material.product.code}"><img class="w-6" src="../assets/img/icons8-editar-producto-32.png" alt="movement-icon"></a>
                       </div>
                     </td>
                   </tr>
