@@ -264,6 +264,14 @@
           });
         });
 
+        $('body').on('mouseenter', '.circle-color', function(){
+          $(this).siblings('.color-tooltip').removeClass('hidden');
+        })
+
+        $('body').on('mouseleave', '.circle-color', function(){
+          $(this).siblings('.color-tooltip').addClass('hidden');
+        })
+
         $('body').on('click', '.delete-material', function(){
           Swal.fire({
             icon: 'warning',
@@ -349,13 +357,31 @@
               if(material.product.colors.length === 0){
                 colorsHTML += 'N/A';
               } else{
+                let colorStock;
                 material.product.colors.forEach(color => {
-                  colorsHTML += `<div style='background-color: ${color.hex}' class='h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none'></div>`;
+                  material.product.stock.forEach(element => {
+                    if(element.color.toUpperCase() === color.hex.toUpperCase()){
+                      colorStock = parseInt(element.stock);
+                    }
+                  });
+                  colorsHTML += `
+                    <div class="relative group">
+                      <div style="background-color: ${color.hex}" class="circle-color h-5 w-5 rounded-full border-2 border-gray-300 focus:outline-none"></div>
+                      <div class="color-tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden bg-gray-200 text-black text-xs px-2 py-1 rounded shadow">
+                        Color: ${color.hex.toUpperCase() || 'Desconocido'} <br> Stock: ${colorStock}
+                      </div>
+                    </div>
+                  `;
+                  colorStock = 0;
                 });
               }
 
+              let totalStock = 0;
+              material.product.stock.forEach(element => {
+                totalStock += parseInt(element.stock);
+              });
+
               if(sessionStorage.getItem('rol_id')==1){
-                console.log('a');
                 matTableBodyHTML += `
                   <tr class="w-full odd:bg-white even:bg-gray-50">
                     <td class="product-img px-4 py-2 border-b border-gray-300">
@@ -364,7 +390,7 @@
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.code}</td>
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.name}</td>
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">$${material.price}</td>
-                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">50</td>
+                    <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${totalStock}</td>
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">
                       <div class="flex items-center justify-evenly">
                         ${colorsHTML}
@@ -373,7 +399,7 @@
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${material.product.discount}%</td>
                     <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                       <div class="flex flex-wrap items-center justify-evenly">
-                        <a href="javascript:;" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                        <a href="./editar-material.php?cod=${material.product.code}" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
                         <a href="javascript:;" class="delete-material"><img data-material-id="${material.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                       </div>
                     </td>
