@@ -11,6 +11,11 @@
         </nav>
 
         <ul class="flex flex-row justify-end pl-0 mb-0 list-none md:flex-grow">
+        <li id="" class="flex items-center pl-4 ">
+                <a href="carrito.php" class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
+                    <img src="./assets/img/carrito-de-compras.png" alt="" class="w-8 p-2">
+                </a>
+            </li>
             <li id="registerBtn" class="flex items-center pl-2 hidden">
                 <a class="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer">
                     <!--<i class="fa fa-user sm:mr-1"></i>-->
@@ -23,6 +28,9 @@
                     <span class="sm:inline hover:text-brown hover:underline transition-all duration-200 ease-linear">Iniciar Sesión</span>
                 </a>
             </li>
+
+            
+
             <li id="userBtn" class="relative flex items-center pl-4 hidden">
                 <a href="javascript:;" class="flex flex-row items-center px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500 cursor-pointer" dropdown-trigger aria-expanded="false">
                     <img id="userImg" src="./assets/img/imagen-de-perfil.png" alt="Usuario" class="w-4 h-4 sm:mr-1">
