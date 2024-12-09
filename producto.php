@@ -55,20 +55,21 @@
           </div>
 
           <!-- Contenido lateral -->
-          <div class="w-full p-6 lg:w-1/2">
+          <form id="formCompra" class="w-full p-6 lg:w-1/2">
             <h1 id="nombreProd" class="text-2xl font-semibold text-gray-700 text-lg">Nombre</h1>
             <p id="descProd" class="text-xl text-gray-600 text-lg">Descripción</p>
             <span id="precioProd" class="text-gray-700 mt-3 font-semibold">REF. 000</span>
             <hr class="my-3">
             <!-- Cantidad -->
-            <div class="mt-2">
-              <label class="text-gray-700 text-sm" for="count">Cantidad:</label>
+            <div id="quantity-container" class="mt-2">
+              <label class="text-gray-700 text-sm">Cantidad:</label>
               <div class="flex items-center">
-                <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                <button id="minusBtn" class="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
-                <span class="text-gray-700 text-lg mx-2">0</span>
-                <button class="text-gray-500 focus:outline-none focus:text-gray-600">
+                <span id="quantity" class="text-gray-700 text-lg mx-2">1</span>
+                <input id="quantityInput" type="hidden" name="quantity" value="1">
+                <button id="plusBtn" class="text-gray-500 focus:outline-none focus:text-gray-600">
                   <svg class="h-5 w-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
               </div>
@@ -77,18 +78,19 @@
             <div id="colors-container" class="mt-3">
               <label class="text-gray-700 text-sm">Color:</label>
               <div id="available-colors" class="flex items-center mt-1">
-                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
-                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
-                <button class="h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                <button class="colorBtn h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                <button class="colorBtn h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
+                <button class="colorBtn h-5 w-5 rounded-full border-2 border-blue-200 mr-2 focus:outline-none"></button>
               </div>
+              <input id="inputColor" type="hidden" name="color">
             </div>
             <!-- Botón de añadir -->
             <div class="mt-8 pt-6 items-center">
-              <button type="button" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
+              <button id="submitBtn" type="submit" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
                 Añadir al carrito
               </button> 
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -354,21 +356,110 @@
   <script src="./assets/js/sweetAlert2.js"></script>
 
   <script>
+    function agregarAlCarrito(data) {
+      // Convertir FormData a un objeto
+      let articulo = {};
+      data.forEach((value, key) => {
+        articulo[key] = value;
+      });
+
+      // Recuperar el carrito existente o inicializarlo como vacío
+      let carrito = JSON.parse(sessionStorage.getItem('carrito')) || [];
+
+      // Agregar el nuevo producto al carrito
+      carrito.push(articulo);
+
+      // Guardar el carrito actualizado en sessionStorage
+      sessionStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+
+    function rgbToHex(rgb) {
+      const rgbArray = rgb.match(/\d+/g).map(Number);
+      return `#${rgbArray.map(x => x.toString(16).padStart(2, '0')).join('')}`;
+    }
+
     $(document).ready(function(){
       const codProduct = new URLSearchParams(window.location.search).get('cod');
+      currentStock = 0;
 
       $('body').on('click', '.img-preview', function(){
         $('#prodImgMain').attr('src', $(this).find('img').attr('src'));
       });
 
-      $('body').on('click', '#available-colors button', function(){
-        $('#available-colors button').removeClass('border-4 border-2 border-gray-300 border-green');
+      $('body').on('click', '.colorBtn', function(e){
+        e.preventDefault();
+        $('#submitBtn, #minusBtn, #plusBtn').attr('disabled', false);
+        $('.colorBtn').removeClass('border-4 border-2 border-gray-300 border-green');
 
         // Agregar la clase border-4 al botón clicado
         $(this).addClass('border-4 border-green');
 
         // Agregar la clase border-2 a los botones hermanos
         $(this).siblings().addClass('border-2 border-gray-300');
+
+        let selectedColor = rgbToHex($(this).css('background-color')).toUpperCase();
+
+        $('#inputColor').val(selectedColor);
+        
+        currentStock = $(this).data('color-stock');
+      });
+
+      $('#formCompra').on('submit', function(e){
+        e.preventDefault();
+
+        let quantity = parseInt($('#quantityInput').val());
+
+        if(quantity <= 0){
+          Swal.fire({
+            title: 'Por favor, indique una cantidad válida',
+            icon: 'warning',
+            customClass: {
+              confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+            }
+          });
+          return;
+        }
+
+        let formData = new FormData();
+
+        formData.append('cod', codProduct);
+        formData.append('cantidad', $('#quantityInput').val()); // Cantidad
+        formData.append('color', $('#inputColor').val()); // Color seleccionado
+
+        if (!sessionStorage.getItem('carrito')) {
+          // Inicializar un carrito vacío si no existe
+          sessionStorage.setItem('carrito', JSON.stringify([]));
+        }
+
+        agregarAlCarrito(formData);
+
+        console.log(sessionStorage.getItem('carrito'));
+
+        Swal.fire({
+          title: 'Artículo agregado al carrito',
+          icon: 'success',
+          timer: 3000,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
+      });
+
+      $('#minusBtn').on('click', function(e){
+        e.preventDefault();
+        let value = parseInt($('#quantityInput').val());
+        if(value>0){
+          $('#quantityInput').val(value-1);
+          $('#quantity').text(value-1);
+        }
+      });
+
+      $('#plusBtn').on('click', function(e){
+        e.preventDefault();
+        let value = parseInt($('#quantityInput').val());
+        if(value < currentStock){
+          $('#quantityInput').val(value+1);
+          $('#quantity').text(value+1);
+        }
       });
 
       if(codProduct){
@@ -386,15 +477,49 @@
             $('#descProd').text(response.description);
             $('#precioProd').text(`REF. ${price}`);
 
-            if(response.colors.length === 0){
-              $('#colors-container').remove();
-            } else{
-              let colorsHTML = '';
-              response.colors.forEach(color => {
-                colorsHTML += `<button style="background-color: ${color.hex}" class="h-5 w-5 rounded-full border-2 border-solid border-gray-300 mr-2"></button>`;
-              });
+            let agotado = true;
+            response.stock.forEach(element => {
+              element.stock = parseFloat(element.stock);
+              if(element.stock > 0){
+                agotado = false;
+              }
+            });
 
-              $('#available-colors').html('').append(colorsHTML);
+            if(agotado){
+              $('#quantity-container').html('').append('¡Agotado!');
+              $('#colors-container').remove();
+              $('#submitBtn').remove();
+            } else{
+              if(response.colors.length === 0){
+                $('#colors-container').remove();
+                currentStock = response.stock[0].stock;
+              } else{
+                let colorsHTML = '';
+                let colorStock;
+                response.colors.forEach(color => {
+                  response.stock.forEach(element => {
+                    if(element.color === color.hex){
+                      colorStock = parseInt(element.stock);
+                    }
+                  });
+                  if(colorStock > 0){
+                    colorsHTML += `<button data-color-stock="${colorStock}" style="background-color: ${color.hex}" class="colorBtn h-5 w-5 rounded-full border-2 border-solid border-gray-300 mr-2"></button>`;
+                  }
+                  colorStock = 0;
+                });
+
+                $('#available-colors').html('').append(colorsHTML);
+
+                Swal.fire({
+                  icon: "info",
+                  title: "Por favor, seleccione un color",
+                  customClass: {
+                    confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                  }
+                });
+
+                $('#submitBtn, #minusBtn, #plusBtn').attr('disabled', true);
+              }
             }
 
             let imagesHTML = '';

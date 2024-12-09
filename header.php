@@ -262,6 +262,7 @@
             },
             success: function(response, status, xhr){
                 localStorage.removeItem('authToken');
+                sessionStorage.clear();
                 window.location.href = './';
             },
             error: function(xhr, status, error){
