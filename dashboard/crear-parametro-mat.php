@@ -32,7 +32,7 @@
     <div class="w-1 justify-center flex-col p-2 pt-4 md:justify-center">
         <form id="formMT" enctype="multipart/form-data" class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm p-2">
             <h2 class="block p-4 text-center text-gray-600 pt-6">
-                Tipo de Material
+                Crear Parámetro de Material
             </h2>
             <div class="flex flex-col p-4">
                 <div class=" md:w-1 w-full text-gray-600">
@@ -116,7 +116,7 @@
                         timerProgressBar: true,
                         showConfirmButton: false
                     }).finally(() => {
-                        window.location.href = './crear-parametro.php';
+                        window.location.href = './crear-parametro-mat.php';
                     });
                 },
                 error: function(xhr){
@@ -173,7 +173,7 @@
                         timerProgressBar: true,
                         showConfirmButton: false
                     }).finally(() => {
-                        window.location.href = './crear-parametro.php';
+                        window.location.href = './crear-parametro-mat.php';
                     });
                 },
                 error: function(xhr){

@@ -35,9 +35,9 @@
                 </button>
 
                 <div x-show="activeMenu === 'usuario'" class="bg-gray-100">
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./perfil.php">Mi perfil</a>
-                    <a id="listaUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-usuarios.php" hidden>Lista de usuarios</a>
-                    <a id="crearUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-usuario.php" hidden>Crear Usuario</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./perfil.php">Mi perfil</a>
+                    <a id="listaUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-usuarios.php" hidden>Lista de usuarios</a>
+                    <a id="crearUsuarios" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./crear-usuario.php" hidden>Crear Usuario</a>
                 </div>
             </div>
 
@@ -57,14 +57,14 @@
                 </button>
 
                 <div x-show="activeMenu === 'materiales'" class="bg-gray-100">
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-materiales.php">Lista de materiales</a>
-                    <a id="crearMats" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-material.php">Crear Material</a>
-                    <a id="crearParam" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./crear-parametro.php">Crear Parámetros</a>
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-movimientos-materiales.php">Historial Movimientos</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-materiales.php">Lista de materiales</a>
+                    <a id="crearMats" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./crear-material.php">Crear Material</a>
+                    <a id="crearParam" class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./crear-parametro-mat.php">Crear Parámetros</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-movimientos-materiales.php">Historial Movimientos</a>
                 </div>
             </div>
 
-            <!--<div>
+            <div id="seccionMuebs" hidden>
                 <button @click="activeMenu = activeMenu === 'muebles' ? null : 'muebles'" 
                         class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
                     <span class="flex items-center">
@@ -80,12 +80,14 @@
                 </button>
 
                 <div x-show="activeMenu === 'muebles'" class="bg-gray-100">
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="./lista-muebles.php">Lista de Muebles</a>
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white" href="#">Crear Mueble</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-muebles.php">Lista de Muebles</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="#">Crear Mueble</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-parametro-mueble.php">Gestionar Parámetros</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-mo.php">Gestionar Mano de Obra</a>
                 </div>
             </div>
 
-            <div>
+            <!--<div>
                 <button @click="activeMenu = activeMenu === 'juegos' ? null : 'juegos'" 
                         class="w-full text-xl flex justify-between items-center py-3 px-4 text-black cursor-pointer hover:bg-gray-100 hover:text-gray-700 focus:outline-none">
                     <span class="flex items-center">
@@ -168,7 +170,7 @@
 
                     if(response.role_id===2){
                         console.log('soy un cliente lmao');
-                        $('#listaUsuarios, #crearUsuarios, #seccionMats').remove();
+                        $('#listaUsuarios, #crearUsuarios, #seccionMats, #seccionMuebs').remove();
                     }
 
                     if(response.role_id===3){
@@ -176,7 +178,7 @@
                         $('#listaUsuarios, #crearUsuarios, #crearMats, #crearParam').remove();
                     }
 
-                    $('#listaUsuarios, #crearUsuarios, #seccionMats').attr('hidden', false);
+                    $('#listaUsuarios, #crearUsuarios, #seccionMats, #seccionMuebs').attr('hidden', false);
 
                 }
             });
