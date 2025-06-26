@@ -201,7 +201,7 @@
           success: function(response){
             console.log(response);
             Swal.fire({
-              title: 'Usuario actualizado exitósamente',
+              title: 'Usuario actualizado exitosamente',
               icon: 'success',
               timer: 3000,
               timerProgressBar: true,

@@ -147,7 +147,7 @@
                 },
                 success: function(response){
                     Swal.fire({
-                        title: 'Movimiento creado exitósamente',
+                        title: 'Movimiento creado exitosamente',
                         icon: 'success',
                         timer: 3000,
                         timerProgressBar: true,

@@ -110,7 +110,7 @@
                 },
                 success: function(response){
                     Swal.fire({
-                        title: 'Tipo de material creado exitósamente',
+                        title: 'Tipo de material creado exitosamente',
                         icon: 'success',
                         timer: 3000,
                         timerProgressBar: true,
@@ -167,7 +167,7 @@
                 },
                 success: function(response){
                     Swal.fire({
-                        title: 'Tipo de unidad creada exitósamente',
+                        title: 'Tipo de unidad creada exitosamente',
                         icon: 'success',
                         timer: 3000,
                         timerProgressBar: true,

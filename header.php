@@ -498,7 +498,7 @@
                 success: function(response, status, xhr){
                     if(xhr.status == 201){
                         Swal.fire({
-                            title: 'Usuario creado exitósamente',
+                            title: 'Usuario creado exitosamente',
                             icon: 'success',
                             timer: 3000,
                             timerProgressBar: true,

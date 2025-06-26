@@ -125,7 +125,7 @@
                 },
                 success: function(response){
                     Swal.fire({
-                        title: 'Mano de obra editada exitósamente',
+                        title: 'Mano de obra editada exitosamente',
                         icon: 'success',
                         timer: 3000,
                         timerProgressBar: true,

@@ -205,7 +205,7 @@
           success: function(response){
             console.log(response);
             Swal.fire({
-              title: 'Usuario creado exitósamente',
+              title: 'Usuario creado exitosamente',
               icon: 'success',
               timer: 3000,
               timerProgressBar: true,

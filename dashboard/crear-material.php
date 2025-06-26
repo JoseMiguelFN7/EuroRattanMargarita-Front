@@ -275,7 +275,7 @@
                     contentType: false,
                     success: function(response){
                         Swal.fire({
-                            title: 'Material creado exitósamente',
+                            title: 'Material creado exitosamente',
                             icon: 'success',
                             timer: 3000,
                             timerProgressBar: true,

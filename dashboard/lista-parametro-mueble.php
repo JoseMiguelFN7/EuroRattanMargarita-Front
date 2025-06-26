@@ -33,7 +33,7 @@
           </section>
           <div class="flex flex-row">
             <?php include './searchBar.php' ?>
-            <button class="w-1/4 inline-block px-8 py-2 mb-0 mr-7 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href='./crear-mo.php'">+ Nueva</button>
+            <button class="w-1/4 inline-block px-8 py-2 mb-0 mr-7 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white" onclick="window.location.href='./crear-parametro-mueble.php'">+ Nueva</button>
           </div>
 
           <div class="flex flex-wrap mx-3 p-4">
@@ -166,7 +166,7 @@
                     <td class="px-4 py-2 text-sm text-gray-600 border-b border-gray-300">${furnitureType.name}</td>
                     <td class="p-2 align-middle bg-transparent border-b border-gray-300 whitespace-nowrap shadow-transparent">
                       <div class="flex flex-wrap items-center justify-evenly">
-                        <a href="./editar-ft.php?name=${furnitureType.name}" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
+                        <a href="./editar-parametro-mueble.php?name=${furnitureType.name}" class=""><img class="w-5" src="../assets/img/boton-editar.png" alt="edit-icon"></a>
                         <a href="javascript:;" class="delete-ft"><img data-mo-id="${furnitureType.id}" class="w-5" src="../assets/img/papelera.png" alt="delete-icon"></a>
                       </div>
                     </td>

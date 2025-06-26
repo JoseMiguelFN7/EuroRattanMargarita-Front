@@ -32,19 +32,15 @@
         <div class="w-1 justify-center flex-col p-2 pt-4 md:justify-center">
             <form id="form" enctype="multipart/form-data" class="flex flex-col bg-white rounded-lg shadow-lg max-w-sm p-2">
                 <h2 class="block p-4 text-center text-gray-600 pt-6">
-                    Crear Mano de Obra
+                    Crear Parametro de Mueble
                 </h2>
                 <div class="flex flex-col p-4">
                     <div class=" md:w-1 w-full text-gray-600">
                         <div class="w-full p-1 mb-4 justify-center flex-col">
                         <div class="justify-center items-center flex-col flex p-2">
                             <div class="justify-start flex flex-col p-2 w-1/2">
-                                <label for="name" class="text-left inline-block text-2xl font-semibold text-gray-700 text-lg mb-2">Nombre</label>
-                                <input id="name" type="text" name="name" placeholder="Nueva mano de obra" maxlength="255" class="mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
-                            </div>
-                            <div class="justify-start flex flex-col p-2 w-1/2">
-                                <label for="dailyPay" class="text-left inline-block text-2xl font-semibold text-gray-700 text-lg mb-2">Pago diario</label>
-                                <input id="dailyPay" type="number" onkeydown="return event.key !== 'e' && event.key !== 'E';" name="daily_pay" placeholder="0.00" min="0.01" step="0.01" class="mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                                <label for="name" class="text-left inline-block text-2xl font-semibold text-gray-700 text-lg mb-2">Categoría de mueble</label>
+                                <input id="name" type="text" name="name" placeholder="Nombre de la categoría" maxlength="255" class="mb-2 mr-4 flex h-full w-full items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
                             </div>
                             <div class="justify-center flex p-2">
                                 <button id="submitBtn" type="submit" class="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">
@@ -84,7 +80,7 @@
             let formData = new FormData(this);
 
             $.ajax({
-                url: 'http://127.0.0.1:8000/api/labor',
+                url: 'http://127.0.0.1:8000/api/furnitureType',
                 type: 'POST',
                 dataType: 'json',
                 data: formData,
@@ -95,13 +91,13 @@
                 },
                 success: function(response){
                     Swal.fire({
-                        title: 'Mano de obra creada exitosamente',
+                        title: 'Categoría de mueble creada exitosamente',
                         icon: 'success',
                         timer: 3000,
                         timerProgressBar: true,
                         showConfirmButton: false
                     }).finally(() => {
-                        window.location.href = './lista-mo.php';
+                        window.location.href = './lista-parametro-mueble.php';
                     });
                 },
                 error: function(xhr){
