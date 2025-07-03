@@ -81,7 +81,7 @@
 
                 <div x-show="activeMenu === 'muebles'" class="bg-gray-100">
                     <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-muebles.php">Lista de Muebles</a>
-                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="#">Crear Mueble</a>
+                    <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./crear-mueble.php">Crear Mueble</a>
                     <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-parametro-mueble.php">Gestionar Parámetros</a>
                     <a class="py-2 pl-8 block text-lg text-gray-600 hover:bg-blue-500 hover:text-white hover:bg-darker-green" href="./lista-mo.php">Gestionar Mano de Obra</a>
                 </div>
