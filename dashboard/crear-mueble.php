@@ -49,8 +49,8 @@
                             <select id="furnituretype" name="furnitureType_id" class="mb-2 md:mb-0 px-4 py-4 w-full border border-gray-300 rounded-lg" required><option>Seleccionar Categoría</option></select>
                         </div>
 
-                        <div class="flex flex-row items-center justify-start bg-white p-1 mb-4">
-                            <input class="h-4 w-4 mr-2" type="checkbox" id="sell" name="sell">
+                        <div class="flex flex-row items-center justify-start bg-white p-1 w-full">
+                            <input class="h-5 w-5 mr-2" type="checkbox" id="sell" name="sell">
                             <label class="text-lg" for="sell">Para la venta.</label>
                         </div>
 
@@ -114,9 +114,36 @@
                                     </div>
                                 </div>
                             </div>
-                            <p id="Subtotal-Insumos">Subtotal Insumos: 0.00$</p>
-                            <p id="Subtotal-MO">Subtotal MO: 0.00$</p>
-                            <p id="Subtotal-Tapizado">Subtotal Tapizado: 0.00$</p>
+                            <div class="flex flex-row justify-between">
+                                <div>
+                                    <p id="Subtotal-Insumos">Subtotal Insumos: <b>0.00$</b></p>
+                                    <p id="Subtotal-MO">Subtotal MO: <b>0.00$</b></p>
+                                    <p id="Subtotal-Tapizado">Subtotal Tapizado: <b>0.00$</b></p>
+                                    <p id="Total-costo">Costo Total: <b>0.00$</b></p>
+                                </div>
+                                <div class="flex flex-col">
+                                    <div class="w-100 flex flex-row justify-end bg-white rounded-lg shadow-lg max-w-sm  lg:flex-row">
+                                        <div class="w-full p-1 mb-4">
+                                            <label for="profit_per" class="font-semibold text-gray-700 text-lg mb-2">% Ganancia</label>
+                                            <input id="profit_per" type="numeric" min="0" name="profit_per" placeholder="% Ganancia" class="mb-2 flex w-20 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-2 py-1 text-sm text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                                        </div>
+
+                                        <div class="w-full p-1 mb-4">
+                                            <label for="paint_per" class="font-semibold text-gray-700 text-lg mb-2">% Pintura</label>
+                                            <input id="paint_per" type="numeric" min="0" name="paint_per" placeholder="% Pintura" class="mb-2 flex w-20 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-2 py-1 text-sm text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                                        </div>
+
+                                        <div class="w-full p-1 mb-4 flex flex-col">
+                                            <label for="labor_fab_per" class="font-semibold text-gray-700 text-lg mb-2">% MO Tap.</label>
+                                            <input id="labor_fab_per" type="numeric" min="0" name="labor_fab_per" placeholder="% MO Tap." class="mb-2 flex w-20 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-2 py-1 text-sm text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p id="PVP-Nat" class="text-right">PVP Natural: <b>0.00$</b></p>
+                                        <p id="PVP-Col" class="text-right">PVP Color: <b>0.00$</b></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <center><button id="btnSubmit" type="submit" class="w-1/4 inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Confirmar</button></center>
@@ -137,6 +164,12 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <script>
+        // Evitar que el usuario cierre la pestaña sin confirmar
+        $(window).on('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = ''; // Esto activa el mensaje de advertencia estándar del navegador
+        });
+
         $(document).ready(function(){
             let token = localStorage.getItem('authToken');
             // Filtrar la entrada solo a números
@@ -196,13 +229,18 @@
             });
 
             //Subtotales
-            let subtotalInsumos = 0;
-            let subtotalMO = 0;
-            let subtotalTapizado = 0;
+            let costosTotales = {
+                insumos: 0,
+                manoObra: 0,
+                tapiceria: 0
+            };
 
+            //htmls de filas para las tablas
             let insumosFilasHTML = '';
             let manoObraFilasHTML = '';
             let tapiceriaFilasHTML = '';
+
+            //arreglos de materiales
             let materialesArray = {
                 insumos: [],
                 manoObra: [],
@@ -214,9 +252,30 @@
                 tapiceria: []
             };
 
+            // Función para actualizar totales
+            function updateTotales() {
+                const totalCosto = costosTotales['insumos'] + costosTotales['manoObra'] + costosTotales['tapiceria'];
+                $('#Total-costo').html(`Costo Total: <b>${totalCosto.toFixed(2)}$</b>`);
+
+                const profitPer = parseFloat($('#profit_per').val()) || 0;
+                const paintPer = parseFloat($('#paint_per').val()) || 0;
+                const laborFabPer = parseFloat($('#labor_fab_per').val()) || 0;
+
+                const pvpNat = (costosTotales['insumos'] + costosTotales['manoObra'] + costosTotales['tapiceria'] * (1 + laborFabPer / 100)) * (1 + profitPer / 100);
+                const pvpCol = (((costosTotales['insumos'] + costosTotales['manoObra']) * (1 + paintPer / 100)) + (costosTotales['tapiceria'] * (1 + laborFabPer / 100))) * (1 + profitPer / 100);
+
+                $('#PVP-Nat').html(`PVP Natural: <b>${pvpNat.toFixed(2)}$</b>`);
+                $('#PVP-Col').html(`PVP Color: <b>${pvpCol.toFixed(2)}$</b>`);
+            }
+
+            // Evento para actualizar totales al cambiar los porcentajes
+            $('#profit_per, #paint_per, #labor_fab_per').on('input', function() {
+                updateTotales();
+            });
+
             // Función para actualizar el subtotal de insumos
             function updateSubtotalInsumos() {
-                subtotalInsumos = 0;
+                costosTotales['insumos'] = 0;
                 $('#tableBodyInsumos tr').each(function() {
                     const id = $(this).data('id');
                     const insumo = materialesArray['insumos'].find(item => item.id === id);
@@ -224,16 +283,16 @@
                     const total = cantidad * (insumo ? insumo.price : 0);
                     $(this).find('.total-cell').text(total.toFixed(2) + '$');
                     if (insumo) {
-                        subtotalInsumos += total;
-                        console.log(`Subtotal Insumos: ${subtotalInsumos}`);
+                        costosTotales['insumos'] += total;
                     }
                 });
-                $('#Subtotal-Insumos').text(`Subtotal Insumos: ${subtotalInsumos.toFixed(2)}$`);
+                $('#Subtotal-Insumos').html(`Subtotal Insumos: <b>${costosTotales['insumos'].toFixed(2)}$</b>`);
+                updateTotales();
             }
 
             // Función para actualizar el subtotal de mano de obra
             function updateSubtotalMO() {
-                subtotalMO = 0;
+                costosTotales['manoObra'] = 0;
                 $('#tableBodyMO tr').each(function() {
                     const id = $(this).data('id');
                     const mo = materialesArray['manoObra'].find(item => item.id === id);
@@ -241,15 +300,16 @@
                     const total = cantidad * (mo ? mo.daily_pay : 0);
                     $(this).find('.total-cell').text(total.toFixed(2) + '$');
                     if (mo) {
-                        subtotalMO += total;
+                        costosTotales['manoObra'] += total;
                     }
                 });
-                $('#Subtotal-MO').text(`Subtotal MO: ${subtotalMO.toFixed(2)}$`);
+                $('#Subtotal-MO').html(`Subtotal MO: <b>${costosTotales['manoObra'].toFixed(2)}$</b>`);
+                updateTotales();
             }
 
             // Función para actualizar el subtotal de tapicería
             function updateSubtotalTap() {
-                subtotalTapizado = 0;
+                costosTotales['tapiceria'] = 0;
                 $('#tableBodyTap tr').each(function() {
                     const id = $(this).data('id');
                     const tapizado = materialesArray['tapiceria'].find(item => item.id === id);
@@ -257,10 +317,11 @@
                     const total = cantidad * (tapizado ? tapizado.price : 0);
                     $(this).find('.total-cell').text(total.toFixed(2) + '$');
                     if (tapizado) {
-                        subtotalTapizado += total;
+                        costosTotales['tapiceria'] += total;
                     }
                 });
-                $('#Subtotal-Tapizado').text(`Subtotal Tapizado: ${subtotalTapizado.toFixed(2)}$`);
+                $('#Subtotal-Tapizado').html(`Subtotal Tapizado: <b>${costosTotales['tapiceria'].toFixed(2)}$<b>`);
+                updateTotales();
             }
 
             // Función para actualizar la tabla de insumos
