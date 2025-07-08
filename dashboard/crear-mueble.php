@@ -33,7 +33,7 @@
                 <form id="muebleForm" class="p-6 justify-center flex flex-col bg-white">
                     <h2>Informacion del mueble:</h2>
 
-                    <div class="flex flex flex-row bg-white rounded-lg shadow-lg max-w-sm  lg:flex-row">
+                    <div class="flex flex-row justify-evenly bg-white rounded-lg shadow-lg max-w-sm  lg:flex-row">
                         <div class="w-full p-1 mb-4">
                             <label for="name" class="text-2xl font-semibold text-gray-700 text-lg mb-2">Nombre</label>
                             <input id="name" type="text" name="name" placeholder="Nombre del producto" maxlength="255" class="mb-2 mr-4 flex w-full items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
@@ -46,17 +46,32 @@
 
                         <div class="w-full p-1 mb-4 flex flex-col">
                             <label for="furnituretype" class="text-2xl font-semibold text-gray-700 text-lg mb-2">Categoría:</label>
-                            <select id="furnituretype" name="furnitureType_id" class="mb-2 md:mb-0 px-4 py-4 w-full border border-gray-300 rounded-lg" required><option>Seleccionar Categoría</option></select>
+                            <select id="furnituretype" name="furnitureType_id" class="mb-2 md:mb-0 px-4 py-4 w-full border border-gray-300 rounded-lg" required><option value="" disabled selected>Seleccionar Categoría</option></select>
                         </div>
 
-                        <div class="flex flex-row items-center justify-start bg-white p-1 w-full">
+                        <div class="flex flex-row items-center justify-end bg-white p-1 w-full">
                             <input class="h-5 w-5 mr-2" type="checkbox" id="sell" name="sell">
                             <label class="text-lg" for="sell">Para la venta.</label>
                         </div>
-
                     </div>
 
-                    <div class="w-full flex flex flex-row bg-white rounded-lg shadow-lg max-w-sm  lg:flex-row">
+                    <div class="flex flex-row justify-start w-full bg-white rounded-lg shadow-lg max-w-sm  lg:flex-row">
+                        <div class="flex flex-col w-full bg-white rounded-lg shadow-lg max-w-sm lg:flex-col mb-4">
+                            <label class="text-2xl font-semibold text-gray-700 text-lg mb-2 mr-4" for="description">Descripción:</label>
+                            <textarea name="description" id="description" placeholder="Descripción del producto" class="flex w-full h-30 resize-none items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-4 py-4 text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0"></textarea>
+                        </div>
+
+                        <div class="flex flex-col w-full">
+                            <div class="flex flex-row items-center w-full p-1">
+                                <label for="images" class="text-2xl font-semibold text-gray-700 text-lg mr-2">Imágenes:</label>
+                                <input id="images" type="file" accept="image/*" multiple hidden>
+                                <button id="imgBtn" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 hover:shadow-soft-2xl active:shadow-soft-xs transition-all duration-300">Agregar</button>
+                            </div>
+                            <div id="images-container" class="flex flex-row flex-wrap justify-start items-center p-1"></div>
+                        </div>
+                    </div>
+
+                    <div class="w-full flex flex flex-row bg-white rounded-lg shadow-lg max-w-sm lg:flex-row">
                         <div class="w-3/4 flex flex-row items-center justify-start">
                             <button id="btnIns" type="button" class="w-1/4 inline-block px-8 py-2 mb-0 mr-2 font-bold text-center uppercase align-middle transition-all bg-brown text-white border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Insumos</button>
                             <button id="btnMO" type="button" class="w-1/4 inline-block px-8 py-2 mb-0 mr-2 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white">Mano de Obra</button>
@@ -136,6 +151,11 @@
                                         <div class="w-full p-1 mb-4 flex flex-col">
                                             <label for="labor_fab_per" class="font-semibold text-gray-700 text-lg mb-2">% MO Tap.</label>
                                             <input id="labor_fab_per" type="numeric" min="0" name="labor_fab_per" placeholder="% MO Tap." class="mb-2 flex w-20 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-2 py-1 text-sm text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
+                                        </div>
+
+                                        <div class="w-full p-1 mb-4 flex flex-col">
+                                            <label for="discount" class="font-semibold text-gray-700 text-lg mb-2">% Descuento</label>
+                                            <input id="discount" type="numeric" min="0" name="discount" placeholder="% Descuento" class="mb-2 flex w-20 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 px-2 py-1 text-sm text-zinc-950 outline-none dark:!border-white/10 dark:text-white md:mb-0" required>
                                         </div>
                                     </div>
                                     <div>
@@ -260,16 +280,17 @@
                 const profitPer = parseFloat($('#profit_per').val()) || 0;
                 const paintPer = parseFloat($('#paint_per').val()) || 0;
                 const laborFabPer = parseFloat($('#labor_fab_per').val()) || 0;
+                const discount = parseFloat($('#discount').val()) || 0;
 
-                const pvpNat = (costosTotales['insumos'] + costosTotales['manoObra'] + costosTotales['tapiceria'] * (1 + laborFabPer / 100)) * (1 + profitPer / 100);
-                const pvpCol = (((costosTotales['insumos'] + costosTotales['manoObra']) * (1 + paintPer / 100)) + (costosTotales['tapiceria'] * (1 + laborFabPer / 100))) * (1 + profitPer / 100);
+                const pvpNat = ((costosTotales['insumos'] + costosTotales['manoObra'] + costosTotales['tapiceria'] * (1 + laborFabPer / 100)) * (1 + profitPer / 100)) * (1 - discount / 100);
+                const pvpCol = ((((costosTotales['insumos'] + costosTotales['manoObra']) * (1 + paintPer / 100)) + (costosTotales['tapiceria'] * (1 + laborFabPer / 100))) * (1 + profitPer / 100)) * (1 - discount / 100);
 
                 $('#PVP-Nat').html(`PVP Natural: <b>${pvpNat.toFixed(2)}$</b>`);
                 $('#PVP-Col').html(`PVP Color: <b>${pvpCol.toFixed(2)}$</b>`);
             }
 
             // Evento para actualizar totales al cambiar los porcentajes
-            $('#profit_per, #paint_per, #labor_fab_per').on('input', function() {
+            $('#profit_per, #paint_per, #labor_fab_per, #discount').on('input', function() {
                 updateTotales();
             });
 
@@ -747,7 +768,36 @@
                 e.preventDefault();
                 $('#btnSubmit').prop('disabled', true);
 
-                let formData = new FormData(this);
+                // Validar que al menos uno de los arrays tenga elementos
+                if (
+                    materialesSeleccionados['insumos'].length === 0 &&
+                    materialesSeleccionados['manoObra'].length === 0 &&
+                    materialesSeleccionados['tapiceria'].length === 0
+                ) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Debe agregar al menos un insumo, mano de obra o tapicería',
+                        confirmButtonText: 'Aceptar',
+                        customClass: {
+                            confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                        }
+                    });
+                    $('#btnSubmit').prop('disabled', false);
+                    return;
+                }
+                
+                let formData = new FormData();
+
+                // Campos simples
+                formData.append('name', $('#name').val());
+                formData.append('code', $('#code').val());
+                formData.append('description', $('#description').val());
+                formData.append('furnitureType_id', $('#furnituretype').val());
+                formData.append('profit_per', parseFloat($('#profit_per').val()) || 0);
+                formData.append('paint_per', parseFloat($('#paint_per').val()) || 0);
+                formData.append('labor_fab_per', parseFloat($('#labor_fab_per').val()) || 0);
+                formData.append('sell', $('#sell').prop('checked') ? 1 : 0);
+                formData.append('discount', parseFloat($('#discount').val()) || 0);
 
                 let files = $('#images')[0].files;
 
@@ -757,14 +807,57 @@
                     });
                 }
 
-                if ($('#sell').prop('checked')) {
-                    formData.append('sell', 1);
-                } else{
-                    formData.append('sell', 0);
+                // Materials (insumos y tapicería)
+                let materials = [];
+                materialesSeleccionados['insumos'].forEach(id => {
+                    const insumo = materialesArray['insumos'].find(item => item.id === id);
+                    if (insumo) {
+                        const cantidad = parseFloat(
+                            $(`#tableBodyInsumos tr[data-id="${id}"] .quantity-input`).val()
+                        ) || 0;
+                        materials.push({ id: insumo.id, quantity: cantidad });
+                    }
+                });
+                materialesSeleccionados['tapiceria'].forEach(id => {
+                    const tap = materialesArray['tapiceria'].find(item => item.id === id);
+                    if (tap) {
+                        const cantidad = parseFloat(
+                            $(`#tableBodyTap tr[data-id="${id}"] .quantity-input`).val()
+                        ) || 0;
+                        materials.push({ id: tap.id, quantity: cantidad });
+                    }
+                });
+                // Agregar cada material como un objeto separado
+                if (materials.length === 0) {
+                    formData.append('materials[]', ''); // array vacío
+                } else {
+                    materials.forEach((mat, i) => {
+                        formData.append(`materials[${i}][id]`, mat.id);
+                        formData.append(`materials[${i}][quantity]`, mat.quantity);
+                    });
+                }
+                // Labors (mano de obra)
+                let labors = [];
+                materialesSeleccionados['manoObra'].forEach(id => {
+                    const mo = materialesArray['manoObra'].find(item => item.id === id);
+                    if (mo) {
+                        const days = parseFloat(
+                            $(`#tableBodyMO tr[data-id="${id}"] .quantity-input`).val()
+                        ) || 0;
+                        labors.push({ id: mo.id, days: days });
+                    }
+                });
+                if (labors.length === 0) {
+                    formData.append('labors[]', '');
+                } else {
+                    labors.forEach((labor, i) => {
+                        formData.append(`labors[${i}][id]`, labor.id);
+                        formData.append(`labors[${i}][days]`, labor.days);
+                    });
                 }
 
                 $.ajax({
-                    url: 'http://127.0.0.1:8000/api/material',
+                    url: 'http://127.0.0.1:8000/api/furniture',
                     type: 'POST',
                     dataType: 'json',
                     data: formData,
@@ -775,17 +868,21 @@
                     contentType: false,
                     success: function(response){
                         Swal.fire({
-                            title: 'Material creado exitosamente',
+                            title: 'Mueble creado exitosamente',
                             icon: 'success',
                             timer: 3000,
                             timerProgressBar: true,
                             showConfirmButton: false
                         }).finally(() => {
-                            window.location.href = './crear-material.php';
+                            $(window).off('beforeunload'); // Quita el aviso
+                            window.location.href = './crear-mueble.php';
                         });
                     },
-                    error: function(xhr){
-                        console.log(xhr);
+                    error: function(xhr, textStatus, errorThrown){
+                        console.error('XHR:', xhr);
+                        console.error('Status:', textStatus);
+                        console.error('Error thrown:', errorThrown);
+                        console.error('Response text:', xhr.responseText);
                         let titleSwal;
                         let textSwal = '';
 
