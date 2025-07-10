@@ -252,6 +252,73 @@
                     $('#tableBody').html('').append(furnitureTableBodyHTML);
                 }
             });
+
+            $('body').on('click', '.delete-mueble', function(){
+                Swal.fire({
+                    icon: 'warning',
+                    title: '¿Desea borrar este mueble?',
+                    text: 'Esta acción no se puede revertir',
+                    confirmButtonText: 'Eliminar',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    customClass: {
+                        confirmButton: 'button-danger',
+                        cancelButton: 'button-success'
+                    },
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const id = $(this).find('img').data('mueble-id');
+                        $.ajax({
+                            url: `http://127.0.0.1:8000/api/furniture/${id}`,
+                            type: 'DELETE',
+                            dataType: 'json',
+                            headers: {
+                                'Authorization': 'Bearer ' + token
+                            },
+                            success: function(result, status, xhr){
+                                if(xhr.status==200){
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: result.message,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        customClass: {
+                                            confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                                        }
+                                    }).finally(() => {
+                                        window.location.href = './lista-muebles.php';
+                                    });
+                                } else{
+                                    console.log(xhr);
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Ocurrió un error',
+                                        text: xhr.responseJSON.title,
+                                        timer: 3000,
+                                        timerProgressBar: true,
+                                        customClass: {
+                                            confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                                        }
+                                    });
+                                }
+                            },
+                            error: function(xhr){
+                                console.log(xhr);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Ocurrió un error',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    customClass: {
+                                        confirmButton: 'font-bold text-center uppercase transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs active:shadow-soft-xs tracking-tight-soft border-brown text-brown hover:border-brown hover:bg-brown hover:text-white hover:shadow-none active:text-white',
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            });
         });
     </script>
 
